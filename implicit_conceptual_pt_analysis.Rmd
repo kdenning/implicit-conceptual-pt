@@ -1,0 +1,63 @@
+---
+title: "Implicit Conceptual PT Data Analysis (for SAP requirement)"
+author: "Kathryn Denning"
+date: "2/14/2020"
+output: 
+  html_document:
+    code_folding: "hide"
+    toc: true
+    toc_float: true
+---
+
+```{r setup, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
+# Cleaning
+## import data
+
+#install.packages("rio")
+#install.packages("here")
+#install.packages("tidyverse")
+#install.packages("magrittr")
+#install.packages("janitor")
+#install.packages("lme4")
+#install.packages("psy")
+#install.packages("irr")
+#install.packages("emmeans")
+#install.packages("sjPlot")
+#install.packages("effects")
+library(rio)
+library(here)
+library(tidyverse)
+library(magrittr)
+library(janitor)
+library(lme4)
+library(psy)
+library(irr)
+library(psych)
+library(sjPlot)
+library(emmeans)
+library(effects)
+library(here)
+
+#Setting global chunk options
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+```{r combining datasets}
+# Getting file names for each individual participants datasets into one character vector
+( allfiles = list.files(path = '/Users/kdenning/Dropbox/Oregon/Research/SAP/implicit-conceptual-pt/Data',
+                        pattern = ".csv",
+                        full.names = TRUE,
+                        recursive = TRUE) )
+sap1 <- readr::read_csv(file = allfiles[1],
+                col_names = TRUE)
+
+sap1_sub <- sap1 %>% select(participant, expBlock.thisN, expTrials.thisN, 
+                            facing_exp, person_exp, food_exp, showL_R, 
+                            consistent, exp_resp.keys, exp_resp.rt) %>% 
+  na.omit() %>% 
+  mutate(trial_num = as.numeric(row_number()),
+         consistent = as.factor(consistent),
+         visibility = as.factor(ifelse(facing_exp == showL_R, "same", ifelse(facing_exp != showL_R, "diff", NA))))
+```

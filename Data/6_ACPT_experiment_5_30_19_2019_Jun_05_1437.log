@@ -1,0 +1,2582 @@
+4.2425 	WARNING 	Import Error: No module named 'psychtoolbox'. Using event module for keyboard component.
+11.7655 	WARNING 	User requested fullscreen with size [1440  900], but screen is actually [1920, 1200]. Using actual size
+12.7045 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([0., 0., 0.]), colorSpace='rgb', fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000000002A5280B8>, gamma=None, kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000000002A2F9DA0>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1200]), stereo=False, units='norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+12.7045 	EXP 	window1: recordFrameIntervals = False
+12.8708 	EXP 	window1: recordFrameIntervals = True
+13.0544 	EXP 	window1: recordFrameIntervals = False
+13.1997 	EXP 	Created instr1 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='instr1', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1.5)
+13.2026 	EXP 	Created vig_text_corr = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='vig_text_corr', opacity=1.0, ori=0, pos=array([-0.35,  0.  ]), rgb=array([255., 255., 255.]), text='default text', units='norm', win=Window(...), wrapWidth=1)
+13.3107 	EXP 	Created vig_back = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image='train_background.png', interpolate=True, mask=None, maskParams=None, name='vig_back', opacity=0.0, ori=0.0, pos=array([0., 0.]), size=array([2., 2.]), texRes=128, units='norm', win=Window(...))
+13.3121 	EXP 	Created train_targ = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='train_targ', opacity=1.0, ori=0.0, pos=array([0.55, 0.  ]), size=array([0.4, 1.7]), texRes=128, units='norm', win=Window(...))
+13.3392 	EXP 	Created text_7 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_7', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1.5)
+13.3602 	EXP 	Created dairy1_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='dairy1_t.png', interpolate=True, mask=None, maskParams=None, name='dairy1_ex', opacity=1.0, ori=0.0, pos=array([0. , 0.1]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.3634 	EXP 	Created dairy2_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='dairy2_t.png', interpolate=True, mask=None, maskParams=None, name='dairy2_ex', opacity=1.0, ori=0.0, pos=array([-0.45,  0.1 ]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.3662 	EXP 	Created dairy3_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='dairy3_t.png', interpolate=True, mask=None, maskParams=None, name='dairy3_ex', opacity=1.0, ori=0.0, pos=array([0.45, 0.1 ]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.3682 	EXP 	Created dairy4_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image='dairy4_t.png', interpolate=True, mask=None, maskParams=None, name='dairy4_ex', opacity=1.0, ori=0.0, pos=array([ 0.45, -0.65]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.3733 	EXP 	Created dairy5_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, image='dairy5_t.png', interpolate=True, mask=None, maskParams=None, name='dairy5_ex', opacity=1.0, ori=0.0, pos=array([-0.45, -0.65]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.3860 	EXP 	Created text_5 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-6.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_5', opacity=1.0, ori=0, pos=array([0.  , 0.75]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1.5)
+13.3904 	EXP 	Created wheat1_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='wheat1_t.png', interpolate=True, mask=None, maskParams=None, name='wheat1_ex', opacity=1.0, ori=0.0, pos=array([0. , 0.1]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.3965 	EXP 	Created wheat2_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='wheat2_t.png', interpolate=True, mask=None, maskParams=None, name='wheat2_ex', opacity=1.0, ori=0.0, pos=array([0.45, 0.1 ]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.4019 	EXP 	Created wheat3_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='wheat3_t.png', interpolate=True, mask=None, maskParams=None, name='wheat3_ex', opacity=1.0, ori=0.0, pos=array([-0.45,  0.1 ]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.4051 	EXP 	Created wheat4_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image='wheat4_t.png', interpolate=True, mask=None, maskParams=None, name='wheat4_ex', opacity=1.0, ori=0.0, pos=array([ 0.45, -0.65]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.4091 	EXP 	Created wheat5_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, image='wheat5_t.png', interpolate=True, mask=None, maskParams=None, name='wheat5_ex', opacity=1.0, ori=0.0, pos=array([-0.45, -0.65]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.4195 	EXP 	Created text_8 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-5.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_8', opacity=1.0, ori=0, pos=array([0.  , 0.75]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1.5)
+13.4230 	EXP 	Created insect1_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='insect1_t.png', interpolate=True, mask=None, maskParams=None, name='insect1_ex', opacity=1.0, ori=0.0, pos=array([0. , 0.1]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.4300 	EXP 	Created insect2_exp = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='insect2_t.png', interpolate=True, mask=None, maskParams=None, name='insect2_exp', opacity=1.0, ori=0.0, pos=array([-0.45,  0.1 ]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.4373 	EXP 	Created insect3_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='insect3_t.png', interpolate=True, mask=None, maskParams=None, name='insect3_ex', opacity=1.0, ori=0.0, pos=array([0.45, 0.1 ]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.4490 	EXP 	Created insect4_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image='insect4_t.png', interpolate=True, mask=None, maskParams=None, name='insect4_ex', opacity=1.0, ori=0.0, pos=array([ 0.45, -0.65]), size=array([0.3, 0.2]), texRes=128, units='norm', win=Window(...))
+13.5211 	EXP 	Created insect5_ex = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, image='insect5_t.png', interpolate=True, mask=None, maskParams=None, name='insect5_ex', opacity=1.0, ori=0.0, pos=array([-0.45, -0.65]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.5331 	EXP 	Created text_9 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-5.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='text_9', opacity=1.0, ori=0, pos=array([0.  , 0.75]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1.5)
+13.5509 	EXP 	Created train_instr1 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='train_instr1', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1.5)
+13.5898 	EXP 	Created train_instr2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='train_instr2', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1.5)
+13.6576 	EXP 	Created text_4 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.4, italic=False, languageStyle='LTR', name='text_4', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='+', units='norm', win=Window(...), wrapWidth=1)
+13.7653 	EXP 	Created background = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='train_background.png', interpolate=True, mask=None, maskParams=None, name='background', opacity=0.0, ori=0.0, pos=array([0., 0.]), size=array([2., 2.]), texRes=128, units='norm', win=Window(...))
+13.7666 	EXP 	Created person_img = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='person_img', opacity=1.0, ori=0.0, pos=array([ 0.45, -0.  ]), size=array([0.4, 1.7]), texRes=128, units='norm', win=Window(...))
+13.7677 	EXP 	Created food = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='food', opacity=1.0, ori=0.0, pos=array([-0.45, -0.  ]), size=array([0.3, 0.4]), texRes=128, units='norm', win=Window(...))
+13.7841 	EXP 	Created text_6 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.2, italic=False, languageStyle='LTR', name='text_6', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='default text', units='norm', win=Window(...), wrapWidth=1)
+13.8154 	EXP 	Created exp_instr1b = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='exp_instr1b', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1.5)
+13.8409 	EXP 	Created exp_instr2b = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='exp_instr2b', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1.5)
+13.8756 	EXP 	Created exp_instr3b = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='exp_instr3b', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1.5)
+13.9050 	EXP 	Created exp_middle = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='exp_middle', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1.5)
+13.9065 	EXP 	Created text_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.4, italic=False, languageStyle='LTR', name='text_3', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text='+', units='norm', win=Window(...), wrapWidth=1)
+13.9077 	EXP 	Created Background = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='Background', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([2., 2.]), texRes=128, units='norm', win=Window(...))
+13.9088 	EXP 	Created Person = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='Person', opacity=1.0, ori=0.0, pos=array([ 0. , -0.3]), size=array([0.2 , 1.05]), texRes=128, units='norm', win=Window(...))
+13.9099 	EXP 	Created TablelL = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='TablelL', opacity=1.0, ori=0.0, pos=array([-0.6 , -0.17]), size=array([0.2 , 0.25]), texRes=128, units='norm', win=Window(...))
+13.9110 	EXP 	Created TableR = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image='sin', interpolate=True, mask=None, maskParams=None, name='TableR', opacity=1.0, ori=0.0, pos=array([ 0.6 , -0.17]), size=array([0.2 , 0.25]), texRes=128, units='norm', win=Window(...))
+13.9267 	EXP 	Created end_instruct = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.1, italic=False, languageStyle='LTR', name='end_instruct', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='norm', win=Window(...), wrapWidth=1.5)
+13.9550 	EXP 	instr1: autoDraw = True
+22.0113 	DATA 	Keypress: space
+22.0336 	EXP 	Imported vig_targ_order.xlsx as conditions, 3 conditions, 3 params
+22.0339 	EXP 	Created sequence: random, trialTypes=3, nReps=1, seed=None
+22.0341 	EXP 	New trial (rep=0, index=0): OrderedDict([('facing_vig', 'C'), ('person_vig', 'D'), ('text_vig', 'is allergic to gluten, meaning she can’t eat wheat products. She enjoys eating dairy products. She thinks eating insects, like crickets, is disgusting.')])
+22.2415 	EXP 	instr1: autoDraw = False
+22.2415 	EXP 	vig_text_corr: text = 'Alex is allergic to gluten, meaning she can’t eat wheat products. She enjoys eating dairy products. She thinks eating insects, like crickets, is disgusting.'
+22.2415 	EXP 	train_targ: image = 'blue_center_nf.png'
+22.2415 	EXP 	vig_text_corr: autoDraw = True
+22.2415 	EXP 	vig_back: autoDraw = True
+22.2415 	EXP 	train_targ: autoDraw = True
+32.9163 	DATA 	Keypress: space
+32.9167 	EXP 	New trial (rep=0, index=1): OrderedDict([('facing_vig', 'C'), ('person_vig', 'U'), ('text_vig', 'did not report her food preferences, so her food preferences are unknown.')])
+32.9664 	EXP 	vig_text_corr: autoDraw = False
+32.9664 	EXP 	vig_back: autoDraw = False
+32.9664 	EXP 	train_targ: autoDraw = False
+32.9664 	EXP 	vig_text_corr: text = 'Jordan did not report her food preferences, so her food preferences are unknown.'
+32.9664 	EXP 	train_targ: image = 'red_center.png'
+32.9664 	EXP 	vig_text_corr: autoDraw = True
+32.9664 	EXP 	vig_back: autoDraw = True
+32.9664 	EXP 	train_targ: autoDraw = True
+38.4706 	DATA 	Keypress: space
+38.4709 	EXP 	New trial (rep=0, index=2): OrderedDict([('facing_vig', 'C'), ('person_vig', 'G'), ('text_vig', 'cannot eat dairy products because she is lactose intolerant. She enjoys eating wheat products. She thinks eating insects, like crickets, is disgusting.')])
+38.5206 	EXP 	vig_text_corr: autoDraw = False
+38.5206 	EXP 	vig_back: autoDraw = False
+38.5206 	EXP 	train_targ: autoDraw = False
+38.5206 	EXP 	vig_text_corr: text = 'Chris cannot eat dairy products because she is lactose intolerant. She enjoys eating wheat products. She thinks eating insects, like crickets, is disgusting.'
+38.5206 	EXP 	train_targ: image = 'green_center_nf.png'
+38.5206 	EXP 	vig_text_corr: autoDraw = True
+38.5206 	EXP 	vig_back: autoDraw = True
+38.5206 	EXP 	train_targ: autoDraw = True
+66.3586 	DATA 	Keypress: space
+66.3751 	EXP 	vig_text_corr: autoDraw = False
+66.3751 	EXP 	vig_back: autoDraw = False
+66.3751 	EXP 	train_targ: autoDraw = False
+66.3751 	EXP 	text_7: autoDraw = True
+71.0788 	DATA 	Keypress: space
+71.0956 	EXP 	text_7: autoDraw = False
+71.0956 	EXP 	dairy1_ex: autoDraw = True
+71.0956 	EXP 	dairy2_ex: autoDraw = True
+71.0956 	EXP 	dairy3_ex: autoDraw = True
+71.0956 	EXP 	dairy4_ex: autoDraw = True
+71.0956 	EXP 	dairy5_ex: autoDraw = True
+71.0956 	EXP 	text_5: autoDraw = True
+72.5133 	DATA 	Keypress: space
+72.5300 	EXP 	dairy1_ex: autoDraw = False
+72.5300 	EXP 	dairy2_ex: autoDraw = False
+72.5300 	EXP 	dairy3_ex: autoDraw = False
+72.5300 	EXP 	dairy4_ex: autoDraw = False
+72.5300 	EXP 	dairy5_ex: autoDraw = False
+72.5300 	EXP 	text_5: autoDraw = False
+72.5300 	EXP 	wheat1_ex: autoDraw = True
+72.5300 	EXP 	wheat2_ex: autoDraw = True
+72.5300 	EXP 	wheat3_ex: autoDraw = True
+72.5300 	EXP 	wheat4_ex: autoDraw = True
+72.5300 	EXP 	wheat5_ex: autoDraw = True
+72.5300 	EXP 	text_8: autoDraw = True
+73.2473 	DATA 	Keypress: space
+73.2804 	EXP 	wheat1_ex: autoDraw = False
+73.2804 	EXP 	wheat2_ex: autoDraw = False
+73.2804 	EXP 	wheat3_ex: autoDraw = False
+73.2804 	EXP 	wheat4_ex: autoDraw = False
+73.2804 	EXP 	wheat5_ex: autoDraw = False
+73.2804 	EXP 	text_8: autoDraw = False
+73.2804 	EXP 	insect1_ex: autoDraw = True
+73.2804 	EXP 	insect2_exp: autoDraw = True
+73.2804 	EXP 	insect3_ex: autoDraw = True
+73.2804 	EXP 	insect4_ex: autoDraw = True
+73.2804 	EXP 	insect5_ex: autoDraw = True
+73.2804 	EXP 	text_9: autoDraw = True
+73.8142 	DATA 	Keypress: space
+73.8475 	EXP 	insect1_ex: autoDraw = False
+73.8475 	EXP 	insect2_exp: autoDraw = False
+73.8475 	EXP 	insect3_ex: autoDraw = False
+73.8475 	EXP 	insect4_ex: autoDraw = False
+73.8475 	EXP 	insect5_ex: autoDraw = False
+73.8475 	EXP 	text_9: autoDraw = False
+73.8475 	EXP 	train_instr1: autoDraw = True
+84.0225 	DATA 	Keypress: space
+84.0554 	EXP 	train_instr1: autoDraw = False
+84.0554 	EXP 	train_instr2: autoDraw = True
+92.3953 	DATA 	Keypress: space
+92.4035 	EXP 	Imported training trials.xlsx as conditions, 20 conditions, 4 params
+92.4042 	EXP 	Created sequence: random, trialTypes=20, nReps=50, seed=None
+92.4047 	EXP 	New trial (rep=0, index=0): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+92.4118 	EXP 	train_instr2: autoDraw = False
+92.9288 	EXP 	text_4: autoDraw = True
+93.4323 	EXP 	text_4: autoDraw = False
+93.4323 	EXP 	person_img: image = 'red_center.png'
+93.4323 	EXP 	food: image = 'insect1_t.png'
+93.7963 	EXP 	background: autoDraw = True
+93.7963 	EXP 	person_img: autoDraw = True
+93.7963 	EXP 	food: autoDraw = True
+96.3818 	DATA 	Keypress: b
+96.4148 	EXP 	background: autoDraw = False
+96.4148 	EXP 	person_img: autoDraw = False
+96.4148 	EXP 	food: autoDraw = False
+96.4148 	EXP 	text_6: text = 'Incorrect'
+96.4148 	EXP 	text_6: autoDraw = True
+98.4001 	EXP 	New trial (rep=0, index=1): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+98.4163 	EXP 	text_6: autoDraw = False
+98.4163 	EXP 	text_6: autoDraw = False
+98.9334 	EXP 	text_4: autoDraw = True
+99.4338 	EXP 	text_4: autoDraw = False
+99.4338 	EXP 	text_4: autoDraw = False
+99.4338 	EXP 	person_img: image = 'green_center_nf.png'
+99.4338 	EXP 	food: image = 'wheat1_t.png'
+99.6841 	EXP 	background: autoDraw = True
+99.6841 	EXP 	person_img: autoDraw = True
+99.6841 	EXP 	food: autoDraw = True
+100.9350 	DATA 	Keypress: v
+100.9516 	EXP 	background: autoDraw = False
+100.9516 	EXP 	person_img: autoDraw = False
+100.9516 	EXP 	food: autoDraw = False
+100.9516 	EXP 	text_6: text = 'Correct'
+100.9516 	EXP 	text_6: autoDraw = True
+102.9369 	EXP 	New trial (rep=0, index=2): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+102.9531 	EXP 	text_6: autoDraw = False
+102.9531 	EXP 	text_6: autoDraw = False
+103.4703 	EXP 	text_4: autoDraw = True
+104.0405 	EXP 	text_4: autoDraw = False
+104.0405 	EXP 	text_4: autoDraw = False
+104.0405 	EXP 	person_img: image = 'red_center.png'
+104.0405 	EXP 	food: image = 'insect5_t.png'
+104.2376 	EXP 	background: autoDraw = True
+104.2376 	EXP 	person_img: autoDraw = True
+104.2376 	EXP 	food: autoDraw = True
+106.1893 	DATA 	Keypress: v
+106.2223 	EXP 	background: autoDraw = False
+106.2223 	EXP 	person_img: autoDraw = False
+106.2223 	EXP 	food: autoDraw = False
+106.2223 	EXP 	text_6: text = 'Incorrect'
+106.2223 	EXP 	text_6: autoDraw = True
+108.2076 	EXP 	New trial (rep=0, index=3): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+108.2238 	EXP 	text_6: autoDraw = False
+108.2238 	EXP 	text_6: autoDraw = False
+108.7409 	EXP 	text_4: autoDraw = True
+109.2412 	EXP 	text_4: autoDraw = False
+109.2412 	EXP 	text_4: autoDraw = False
+109.2412 	EXP 	person_img: image = 'green_center_nf.png'
+109.2412 	EXP 	food: image = 'dairy4_t.png'
+109.4916 	EXP 	background: autoDraw = True
+109.4916 	EXP 	person_img: autoDraw = True
+109.4916 	EXP 	food: autoDraw = True
+112.4605 	DATA 	Keypress: b
+112.4771 	EXP 	background: autoDraw = False
+112.4771 	EXP 	person_img: autoDraw = False
+112.4771 	EXP 	food: autoDraw = False
+112.4771 	EXP 	text_6: text = 'Correct'
+112.4771 	EXP 	text_6: autoDraw = True
+114.4624 	EXP 	New trial (rep=0, index=4): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+114.4786 	EXP 	text_6: autoDraw = False
+114.4786 	EXP 	text_6: autoDraw = False
+114.9956 	EXP 	text_4: autoDraw = True
+115.4960 	EXP 	text_4: autoDraw = False
+115.4960 	EXP 	text_4: autoDraw = False
+115.4960 	EXP 	person_img: image = 'blue_center_nf.png'
+115.4960 	EXP 	food: image = 'wheat5_t.png'
+115.7464 	EXP 	background: autoDraw = True
+115.7464 	EXP 	person_img: autoDraw = True
+115.7464 	EXP 	food: autoDraw = True
+118.6319 	DATA 	Keypress: b
+118.6484 	EXP 	background: autoDraw = False
+118.6484 	EXP 	person_img: autoDraw = False
+118.6484 	EXP 	food: autoDraw = False
+118.6484 	EXP 	text_6: text = 'Correct'
+118.6484 	EXP 	text_6: autoDraw = True
+120.6337 	EXP 	New trial (rep=0, index=5): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+120.6500 	EXP 	text_6: autoDraw = False
+120.6500 	EXP 	text_6: autoDraw = False
+121.1670 	EXP 	text_4: autoDraw = True
+121.6507 	EXP 	text_4: autoDraw = False
+121.6507 	EXP 	text_4: autoDraw = False
+121.6507 	EXP 	person_img: image = 'red_center.png'
+121.6507 	EXP 	food: image = 'dairy4_t.png'
+121.9178 	EXP 	background: autoDraw = True
+121.9178 	EXP 	person_img: autoDraw = True
+121.9178 	EXP 	food: autoDraw = True
+123.5356 	DATA 	Keypress: b
+123.5522 	EXP 	background: autoDraw = False
+123.5522 	EXP 	person_img: autoDraw = False
+123.5522 	EXP 	food: autoDraw = False
+123.5522 	EXP 	text_6: text = 'Incorrect'
+123.5522 	EXP 	text_6: autoDraw = True
+125.5375 	EXP 	New trial (rep=0, index=6): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+125.5537 	EXP 	text_6: autoDraw = False
+125.5537 	EXP 	text_6: autoDraw = False
+126.0708 	EXP 	text_4: autoDraw = True
+126.5545 	EXP 	text_4: autoDraw = False
+126.5545 	EXP 	text_4: autoDraw = False
+126.5545 	EXP 	person_img: image = 'red_center.png'
+126.5545 	EXP 	food: image = 'dairy3_t.png'
+126.8048 	EXP 	background: autoDraw = True
+126.8048 	EXP 	person_img: autoDraw = True
+126.8048 	EXP 	food: autoDraw = True
+128.1391 	DATA 	Keypress: b
+128.1557 	EXP 	background: autoDraw = False
+128.1557 	EXP 	person_img: autoDraw = False
+128.1557 	EXP 	food: autoDraw = False
+128.1557 	EXP 	text_6: text = 'Incorrect'
+128.1557 	EXP 	text_6: autoDraw = True
+130.1410 	EXP 	New trial (rep=0, index=7): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+130.1572 	EXP 	text_6: autoDraw = False
+130.1572 	EXP 	text_6: autoDraw = False
+130.6744 	EXP 	text_4: autoDraw = True
+131.1778 	EXP 	text_4: autoDraw = False
+131.1778 	EXP 	text_4: autoDraw = False
+131.1778 	EXP 	person_img: image = 'blue_center_nf.png'
+131.1778 	EXP 	food: image = 'dairy3_t.png'
+131.4450 	EXP 	background: autoDraw = True
+131.4450 	EXP 	person_img: autoDraw = True
+131.4450 	EXP 	food: autoDraw = True
+133.5266 	DATA 	Keypress: v
+133.5432 	EXP 	background: autoDraw = False
+133.5432 	EXP 	person_img: autoDraw = False
+133.5432 	EXP 	food: autoDraw = False
+133.5432 	EXP 	text_6: text = 'Correct'
+133.5432 	EXP 	text_6: autoDraw = True
+135.5285 	EXP 	New trial (rep=0, index=8): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+135.5447 	EXP 	text_6: autoDraw = False
+135.5447 	EXP 	text_6: autoDraw = False
+136.0618 	EXP 	text_4: autoDraw = True
+136.5621 	EXP 	text_4: autoDraw = False
+136.5621 	EXP 	text_4: autoDraw = False
+136.5621 	EXP 	person_img: image = 'green_center_nf.png'
+136.5621 	EXP 	food: image = 'insect1_t.png'
+136.8458 	EXP 	background: autoDraw = True
+136.8458 	EXP 	person_img: autoDraw = True
+136.8458 	EXP 	food: autoDraw = True
+138.3136 	DATA 	Keypress: b
+138.3302 	EXP 	background: autoDraw = False
+138.3302 	EXP 	person_img: autoDraw = False
+138.3302 	EXP 	food: autoDraw = False
+138.3302 	EXP 	text_6: text = 'Correct'
+138.3302 	EXP 	text_6: autoDraw = True
+140.3154 	EXP 	New trial (rep=0, index=9): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+140.3317 	EXP 	text_6: autoDraw = False
+140.3317 	EXP 	text_6: autoDraw = False
+140.8488 	EXP 	text_4: autoDraw = True
+141.3523 	EXP 	text_4: autoDraw = False
+141.3523 	EXP 	text_4: autoDraw = False
+141.3523 	EXP 	person_img: image = 'blue_center_nf.png'
+141.3523 	EXP 	food: image = 'dairy5_t.png'
+141.6164 	EXP 	background: autoDraw = True
+141.6164 	EXP 	person_img: autoDraw = True
+141.6164 	EXP 	food: autoDraw = True
+143.9846 	DATA 	Keypress: v
+144.0012 	EXP 	background: autoDraw = False
+144.0012 	EXP 	person_img: autoDraw = False
+144.0012 	EXP 	food: autoDraw = False
+144.0012 	EXP 	text_6: text = 'Correct'
+144.0012 	EXP 	text_6: autoDraw = True
+145.9865 	EXP 	New trial (rep=0, index=10): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+146.0027 	EXP 	text_6: autoDraw = False
+146.0027 	EXP 	text_6: autoDraw = False
+146.5198 	EXP 	text_4: autoDraw = True
+147.0201 	EXP 	text_4: autoDraw = False
+147.0201 	EXP 	text_4: autoDraw = False
+147.0201 	EXP 	person_img: image = 'green_center_nf.png'
+147.0201 	EXP 	food: image = 'insect3_t.png'
+147.2705 	EXP 	background: autoDraw = True
+147.2705 	EXP 	person_img: autoDraw = True
+147.2705 	EXP 	food: autoDraw = True
+150.1893 	DATA 	Keypress: b
+150.2059 	EXP 	background: autoDraw = False
+150.2059 	EXP 	person_img: autoDraw = False
+150.2059 	EXP 	food: autoDraw = False
+150.2059 	EXP 	text_6: text = 'Correct'
+150.2059 	EXP 	text_6: autoDraw = True
+152.1913 	EXP 	New trial (rep=0, index=11): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+152.2074 	EXP 	text_6: autoDraw = False
+152.2074 	EXP 	text_6: autoDraw = False
+152.7245 	EXP 	text_4: autoDraw = True
+153.2249 	EXP 	text_4: autoDraw = False
+153.2249 	EXP 	text_4: autoDraw = False
+153.2249 	EXP 	person_img: image = 'green_center_nf.png'
+153.2249 	EXP 	food: image = 'wheat5_t.png'
+153.4585 	EXP 	background: autoDraw = True
+153.4585 	EXP 	person_img: autoDraw = True
+153.4585 	EXP 	food: autoDraw = True
+155.4767 	DATA 	Keypress: v
+155.4933 	EXP 	background: autoDraw = False
+155.4933 	EXP 	person_img: autoDraw = False
+155.4933 	EXP 	food: autoDraw = False
+155.4933 	EXP 	text_6: text = 'Correct'
+155.4933 	EXP 	text_6: autoDraw = True
+157.4786 	EXP 	New trial (rep=0, index=12): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+157.4948 	EXP 	text_6: autoDraw = False
+157.4948 	EXP 	text_6: autoDraw = False
+158.0119 	EXP 	text_4: autoDraw = True
+158.5123 	EXP 	text_4: autoDraw = False
+158.5123 	EXP 	text_4: autoDraw = False
+158.5123 	EXP 	person_img: image = 'green_center_nf.png'
+158.5123 	EXP 	food: image = 'wheat2_t.png'
+158.7459 	EXP 	background: autoDraw = True
+158.7459 	EXP 	person_img: autoDraw = True
+158.7459 	EXP 	food: autoDraw = True
+159.9468 	DATA 	Keypress: v
+159.9634 	EXP 	background: autoDraw = False
+159.9634 	EXP 	person_img: autoDraw = False
+159.9634 	EXP 	food: autoDraw = False
+159.9634 	EXP 	text_6: text = 'Correct'
+159.9634 	EXP 	text_6: autoDraw = True
+161.9488 	EXP 	New trial (rep=0, index=13): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+161.9650 	EXP 	text_6: autoDraw = False
+161.9650 	EXP 	text_6: autoDraw = False
+162.4821 	EXP 	text_4: autoDraw = True
+163.0523 	EXP 	text_4: autoDraw = False
+163.0523 	EXP 	text_4: autoDraw = False
+163.0523 	EXP 	person_img: image = 'blue_center_nf.png'
+163.0523 	EXP 	food: image = 'insect5_t.png'
+163.2494 	EXP 	background: autoDraw = True
+163.2494 	EXP 	person_img: autoDraw = True
+163.2494 	EXP 	food: autoDraw = True
+164.5336 	DATA 	Keypress: b
+164.5502 	EXP 	background: autoDraw = False
+164.5502 	EXP 	person_img: autoDraw = False
+164.5502 	EXP 	food: autoDraw = False
+164.5502 	EXP 	text_6: text = 'Correct'
+164.5502 	EXP 	text_6: autoDraw = True
+166.5355 	EXP 	New trial (rep=0, index=14): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+166.5518 	EXP 	text_6: autoDraw = False
+166.5518 	EXP 	text_6: autoDraw = False
+167.0688 	EXP 	text_4: autoDraw = True
+167.5692 	EXP 	text_4: autoDraw = False
+167.5692 	EXP 	text_4: autoDraw = False
+167.5692 	EXP 	person_img: image = 'blue_center_nf.png'
+167.5692 	EXP 	food: image = 'wheat2_t.png'
+167.8195 	EXP 	background: autoDraw = True
+167.8195 	EXP 	person_img: autoDraw = True
+167.8195 	EXP 	food: autoDraw = True
+170.6550 	DATA 	Keypress: b
+170.6716 	EXP 	background: autoDraw = False
+170.6716 	EXP 	person_img: autoDraw = False
+170.6716 	EXP 	food: autoDraw = False
+170.6716 	EXP 	text_6: text = 'Correct'
+170.6716 	EXP 	text_6: autoDraw = True
+172.6568 	EXP 	New trial (rep=0, index=15): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+172.6731 	EXP 	text_6: autoDraw = False
+172.6731 	EXP 	text_6: autoDraw = False
+173.1901 	EXP 	text_4: autoDraw = True
+173.6905 	EXP 	text_4: autoDraw = False
+173.6905 	EXP 	text_4: autoDraw = False
+173.6905 	EXP 	person_img: image = 'blue_center_nf.png'
+173.6905 	EXP 	food: image = 'dairy3_t.png'
+173.9242 	EXP 	background: autoDraw = True
+173.9242 	EXP 	person_img: autoDraw = True
+173.9242 	EXP 	food: autoDraw = True
+175.6588 	DATA 	Keypress: v
+175.6754 	EXP 	background: autoDraw = False
+175.6754 	EXP 	person_img: autoDraw = False
+175.6754 	EXP 	food: autoDraw = False
+175.6754 	EXP 	text_6: text = 'Correct'
+175.6754 	EXP 	text_6: autoDraw = True
+177.6607 	EXP 	New trial (rep=0, index=16): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+177.6769 	EXP 	text_6: autoDraw = False
+177.6769 	EXP 	text_6: autoDraw = False
+178.1940 	EXP 	text_4: autoDraw = True
+178.6944 	EXP 	text_4: autoDraw = False
+178.6944 	EXP 	text_4: autoDraw = False
+178.6944 	EXP 	person_img: image = 'blue_center_nf.png'
+178.6944 	EXP 	food: image = 'insect1_t.png'
+178.9280 	EXP 	background: autoDraw = True
+178.9280 	EXP 	person_img: autoDraw = True
+178.9280 	EXP 	food: autoDraw = True
+180.1291 	DATA 	Keypress: b
+180.1621 	EXP 	background: autoDraw = False
+180.1621 	EXP 	person_img: autoDraw = False
+180.1621 	EXP 	food: autoDraw = False
+180.1621 	EXP 	text_6: text = 'Correct'
+180.1621 	EXP 	text_6: autoDraw = True
+182.1476 	EXP 	New trial (rep=0, index=17): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+182.1638 	EXP 	text_6: autoDraw = False
+182.1638 	EXP 	text_6: autoDraw = False
+182.6809 	EXP 	text_4: autoDraw = True
+183.1842 	EXP 	text_4: autoDraw = False
+183.1842 	EXP 	text_4: autoDraw = False
+183.1842 	EXP 	person_img: image = 'red_center.png'
+183.1842 	EXP 	food: image = 'wheat1_t.png'
+183.4484 	EXP 	background: autoDraw = True
+183.4484 	EXP 	person_img: autoDraw = True
+183.4484 	EXP 	food: autoDraw = True
+189.5694 	DATA 	Keypress: v
+189.5860 	EXP 	background: autoDraw = False
+189.5860 	EXP 	person_img: autoDraw = False
+189.5860 	EXP 	food: autoDraw = False
+189.5860 	EXP 	text_6: text = 'Incorrect'
+189.5860 	EXP 	text_6: autoDraw = True
+191.5713 	EXP 	New trial (rep=0, index=18): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+191.5875 	EXP 	text_6: autoDraw = False
+191.5875 	EXP 	text_6: autoDraw = False
+192.1046 	EXP 	text_4: autoDraw = True
+192.6050 	EXP 	text_4: autoDraw = False
+192.6050 	EXP 	text_4: autoDraw = False
+192.6050 	EXP 	person_img: image = 'red_center.png'
+192.6050 	EXP 	food: image = 'wheat1_t.png'
+192.8385 	EXP 	background: autoDraw = True
+192.8385 	EXP 	person_img: autoDraw = True
+192.8385 	EXP 	food: autoDraw = True
+194.7901 	DATA 	Keypress: b
+194.8067 	EXP 	background: autoDraw = False
+194.8067 	EXP 	person_img: autoDraw = False
+194.8067 	EXP 	food: autoDraw = False
+194.8067 	EXP 	text_6: text = 'Incorrect'
+194.8067 	EXP 	text_6: autoDraw = True
+196.7920 	EXP 	New trial (rep=0, index=19): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+196.8082 	EXP 	text_6: autoDraw = False
+196.8082 	EXP 	text_6: autoDraw = False
+197.3253 	EXP 	text_4: autoDraw = True
+197.8257 	EXP 	text_4: autoDraw = False
+197.8257 	EXP 	text_4: autoDraw = False
+197.8257 	EXP 	person_img: image = 'green_center_nf.png'
+197.8257 	EXP 	food: image = 'dairy4_t.png'
+198.0760 	EXP 	background: autoDraw = True
+198.0760 	EXP 	person_img: autoDraw = True
+198.0760 	EXP 	food: autoDraw = True
+200.7113 	DATA 	Keypress: b
+200.7279 	EXP 	background: autoDraw = False
+200.7279 	EXP 	person_img: autoDraw = False
+200.7279 	EXP 	food: autoDraw = False
+200.7279 	EXP 	text_6: text = 'Correct'
+200.7279 	EXP 	text_6: autoDraw = True
+202.7132 	EXP 	New trial (rep=1, index=0): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+202.7294 	EXP 	text_6: autoDraw = False
+202.7294 	EXP 	text_6: autoDraw = False
+203.2465 	EXP 	text_4: autoDraw = True
+203.8136 	EXP 	text_4: autoDraw = False
+203.8136 	EXP 	text_4: autoDraw = False
+203.8136 	EXP 	person_img: image = 'green_center_nf.png'
+203.8136 	EXP 	food: image = 'insect5_t.png'
+203.9972 	EXP 	background: autoDraw = True
+203.9972 	EXP 	person_img: autoDraw = True
+203.9972 	EXP 	food: autoDraw = True
+205.0146 	DATA 	Keypress: b
+205.0312 	EXP 	background: autoDraw = False
+205.0312 	EXP 	person_img: autoDraw = False
+205.0312 	EXP 	food: autoDraw = False
+205.0312 	EXP 	text_6: text = 'Correct'
+205.0312 	EXP 	text_6: autoDraw = True
+207.0166 	EXP 	New trial (rep=1, index=1): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+207.0328 	EXP 	text_6: autoDraw = False
+207.0328 	EXP 	text_6: autoDraw = False
+207.5499 	EXP 	text_4: autoDraw = True
+208.0533 	EXP 	text_4: autoDraw = False
+208.0533 	EXP 	text_4: autoDraw = False
+208.0533 	EXP 	person_img: image = 'green_center_nf.png'
+208.0533 	EXP 	food: image = 'wheat2_t.png'
+208.3175 	EXP 	background: autoDraw = True
+208.3175 	EXP 	person_img: autoDraw = True
+208.3175 	EXP 	food: autoDraw = True
+211.8532 	DATA 	Keypress: v
+211.8698 	EXP 	background: autoDraw = False
+211.8698 	EXP 	person_img: autoDraw = False
+211.8698 	EXP 	food: autoDraw = False
+211.8698 	EXP 	text_6: text = 'Correct'
+211.8698 	EXP 	text_6: autoDraw = True
+213.8550 	EXP 	New trial (rep=1, index=2): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+213.8713 	EXP 	text_6: autoDraw = False
+213.8713 	EXP 	text_6: autoDraw = False
+214.3883 	EXP 	text_4: autoDraw = True
+214.8887 	EXP 	text_4: autoDraw = False
+214.8887 	EXP 	text_4: autoDraw = False
+214.8887 	EXP 	person_img: image = 'green_center_nf.png'
+214.8887 	EXP 	food: image = 'insect2_t.png'
+215.1223 	EXP 	background: autoDraw = True
+215.1223 	EXP 	person_img: autoDraw = True
+215.1223 	EXP 	food: autoDraw = True
+218.3248 	DATA 	Keypress: b
+218.3413 	EXP 	background: autoDraw = False
+218.3413 	EXP 	person_img: autoDraw = False
+218.3413 	EXP 	food: autoDraw = False
+218.3413 	EXP 	text_6: text = 'Correct'
+218.3413 	EXP 	text_6: autoDraw = True
+220.3267 	EXP 	New trial (rep=1, index=3): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+220.3429 	EXP 	text_6: autoDraw = False
+220.3429 	EXP 	text_6: autoDraw = False
+220.8599 	EXP 	text_4: autoDraw = True
+221.3603 	EXP 	text_4: autoDraw = False
+221.3603 	EXP 	text_4: autoDraw = False
+221.3603 	EXP 	person_img: image = 'blue_center_nf.png'
+221.3603 	EXP 	food: image = 'insect4_t.png'
+221.6107 	EXP 	background: autoDraw = True
+221.6107 	EXP 	person_img: autoDraw = True
+221.6107 	EXP 	food: autoDraw = True
+225.0299 	DATA 	Keypress: b
+225.0465 	EXP 	background: autoDraw = False
+225.0465 	EXP 	person_img: autoDraw = False
+225.0465 	EXP 	food: autoDraw = False
+225.0465 	EXP 	text_6: text = 'Correct'
+225.0465 	EXP 	text_6: autoDraw = True
+227.0318 	EXP 	New trial (rep=1, index=4): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+227.0480 	EXP 	text_6: autoDraw = False
+227.0480 	EXP 	text_6: autoDraw = False
+227.5651 	EXP 	text_4: autoDraw = True
+228.0654 	EXP 	text_4: autoDraw = False
+228.0654 	EXP 	text_4: autoDraw = False
+228.0654 	EXP 	person_img: image = 'blue_center_nf.png'
+228.0654 	EXP 	food: image = 'dairy2_t.png'
+228.2991 	EXP 	background: autoDraw = True
+228.2991 	EXP 	person_img: autoDraw = True
+228.2991 	EXP 	food: autoDraw = True
+230.5341 	DATA 	Keypress: v
+230.5507 	EXP 	background: autoDraw = False
+230.5507 	EXP 	person_img: autoDraw = False
+230.5507 	EXP 	food: autoDraw = False
+230.5507 	EXP 	text_6: text = 'Correct'
+230.5507 	EXP 	text_6: autoDraw = True
+232.5361 	EXP 	New trial (rep=1, index=5): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+232.5522 	EXP 	text_6: autoDraw = False
+232.5522 	EXP 	text_6: autoDraw = False
+233.0693 	EXP 	text_4: autoDraw = True
+233.5696 	EXP 	text_4: autoDraw = False
+233.5696 	EXP 	text_4: autoDraw = False
+233.5696 	EXP 	person_img: image = 'red_center.png'
+233.5696 	EXP 	food: image = 'dairy1_t.png'
+233.8200 	EXP 	background: autoDraw = True
+233.8200 	EXP 	person_img: autoDraw = True
+233.8200 	EXP 	food: autoDraw = True
+238.5569 	DATA 	Keypress: b
+238.5735 	EXP 	background: autoDraw = False
+238.5735 	EXP 	person_img: autoDraw = False
+238.5735 	EXP 	food: autoDraw = False
+238.5735 	EXP 	text_6: text = 'Incorrect'
+238.5735 	EXP 	text_6: autoDraw = True
+240.5588 	EXP 	New trial (rep=1, index=6): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+240.5750 	EXP 	text_6: autoDraw = False
+240.5750 	EXP 	text_6: autoDraw = False
+241.0921 	EXP 	text_4: autoDraw = True
+241.5925 	EXP 	text_4: autoDraw = False
+241.5925 	EXP 	text_4: autoDraw = False
+241.5925 	EXP 	person_img: image = 'red_center.png'
+241.5925 	EXP 	food: image = 'insect2_t.png'
+241.8428 	EXP 	background: autoDraw = True
+241.8428 	EXP 	person_img: autoDraw = True
+241.8428 	EXP 	food: autoDraw = True
+243.5107 	DATA 	Keypress: b
+243.5273 	EXP 	background: autoDraw = False
+243.5273 	EXP 	person_img: autoDraw = False
+243.5273 	EXP 	food: autoDraw = False
+243.5273 	EXP 	text_6: text = 'Incorrect'
+243.5273 	EXP 	text_6: autoDraw = True
+245.5126 	EXP 	New trial (rep=1, index=7): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+245.5288 	EXP 	text_6: autoDraw = False
+245.5288 	EXP 	text_6: autoDraw = False
+246.0459 	EXP 	text_4: autoDraw = True
+246.5296 	EXP 	text_4: autoDraw = False
+246.5296 	EXP 	text_4: autoDraw = False
+246.5296 	EXP 	person_img: image = 'blue_center_nf.png'
+246.5296 	EXP 	food: image = 'dairy4_t.png'
+246.7966 	EXP 	background: autoDraw = True
+246.7966 	EXP 	person_img: autoDraw = True
+246.7966 	EXP 	food: autoDraw = True
+249.4319 	DATA 	Keypress: v
+249.4485 	EXP 	background: autoDraw = False
+249.4485 	EXP 	person_img: autoDraw = False
+249.4485 	EXP 	food: autoDraw = False
+249.4485 	EXP 	text_6: text = 'Correct'
+249.4485 	EXP 	text_6: autoDraw = True
+251.4338 	EXP 	New trial (rep=1, index=8): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+251.4500 	EXP 	text_6: autoDraw = False
+251.4500 	EXP 	text_6: autoDraw = False
+251.9671 	EXP 	text_4: autoDraw = True
+252.4674 	EXP 	text_4: autoDraw = False
+252.4674 	EXP 	text_4: autoDraw = False
+252.4674 	EXP 	person_img: image = 'blue_center_nf.png'
+252.4674 	EXP 	food: image = 'dairy5_t.png'
+252.7011 	EXP 	background: autoDraw = True
+252.7011 	EXP 	person_img: autoDraw = True
+252.7011 	EXP 	food: autoDraw = True
+253.6351 	DATA 	Keypress: v
+253.6517 	EXP 	background: autoDraw = False
+253.6517 	EXP 	person_img: autoDraw = False
+253.6517 	EXP 	food: autoDraw = False
+253.6517 	EXP 	text_6: text = 'Correct'
+253.6517 	EXP 	text_6: autoDraw = True
+255.6371 	EXP 	New trial (rep=1, index=9): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+255.6533 	EXP 	text_6: autoDraw = False
+255.6533 	EXP 	text_6: autoDraw = False
+256.1704 	EXP 	text_4: autoDraw = True
+256.6740 	EXP 	text_4: autoDraw = False
+256.6740 	EXP 	text_4: autoDraw = False
+256.6740 	EXP 	person_img: image = 'green_center_nf.png'
+256.6740 	EXP 	food: image = 'wheat2_t.png'
+256.9379 	EXP 	background: autoDraw = True
+256.9379 	EXP 	person_img: autoDraw = True
+256.9379 	EXP 	food: autoDraw = True
+259.9733 	DATA 	Keypress: v
+259.9899 	EXP 	background: autoDraw = False
+259.9899 	EXP 	person_img: autoDraw = False
+259.9899 	EXP 	food: autoDraw = False
+259.9899 	EXP 	text_6: text = 'Correct'
+259.9899 	EXP 	text_6: autoDraw = True
+261.9752 	EXP 	New trial (rep=1, index=10): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+261.9914 	EXP 	text_6: autoDraw = False
+261.9914 	EXP 	text_6: autoDraw = False
+262.5085 	EXP 	text_4: autoDraw = True
+263.0088 	EXP 	text_4: autoDraw = False
+263.0088 	EXP 	text_4: autoDraw = False
+263.0088 	EXP 	person_img: image = 'red_center.png'
+263.0088 	EXP 	food: image = 'wheat2_t.png'
+263.2592 	EXP 	background: autoDraw = True
+263.2592 	EXP 	person_img: autoDraw = True
+263.2592 	EXP 	food: autoDraw = True
+269.7808 	DATA 	Keypress: b
+269.7974 	EXP 	background: autoDraw = False
+269.7974 	EXP 	person_img: autoDraw = False
+269.7974 	EXP 	food: autoDraw = False
+269.7974 	EXP 	text_6: text = 'Incorrect'
+269.7974 	EXP 	text_6: autoDraw = True
+271.7827 	EXP 	New trial (rep=1, index=11): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+271.7989 	EXP 	text_6: autoDraw = False
+271.7989 	EXP 	text_6: autoDraw = False
+272.3159 	EXP 	text_4: autoDraw = True
+272.8163 	EXP 	text_4: autoDraw = False
+272.8163 	EXP 	text_4: autoDraw = False
+272.8163 	EXP 	person_img: image = 'green_center_nf.png'
+272.8163 	EXP 	food: image = 'dairy2_t.png'
+273.0667 	EXP 	background: autoDraw = True
+273.0667 	EXP 	person_img: autoDraw = True
+273.0667 	EXP 	food: autoDraw = True
+274.3509 	DATA 	Keypress: b
+274.3675 	EXP 	background: autoDraw = False
+274.3675 	EXP 	person_img: autoDraw = False
+274.3675 	EXP 	food: autoDraw = False
+274.3675 	EXP 	text_6: text = 'Correct'
+274.3675 	EXP 	text_6: autoDraw = True
+276.3529 	EXP 	New trial (rep=1, index=12): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+276.3692 	EXP 	text_6: autoDraw = False
+276.3692 	EXP 	text_6: autoDraw = False
+276.8862 	EXP 	text_4: autoDraw = True
+277.3897 	EXP 	text_4: autoDraw = False
+277.3897 	EXP 	text_4: autoDraw = False
+277.3897 	EXP 	person_img: image = 'green_center_nf.png'
+277.3897 	EXP 	food: image = 'wheat1_t.png'
+277.6371 	EXP 	background: autoDraw = True
+277.6371 	EXP 	person_img: autoDraw = True
+277.6371 	EXP 	food: autoDraw = True
+281.0227 	DATA 	Keypress: v
+281.0393 	EXP 	background: autoDraw = False
+281.0393 	EXP 	person_img: autoDraw = False
+281.0393 	EXP 	food: autoDraw = False
+281.0393 	EXP 	text_6: text = 'Correct'
+281.0393 	EXP 	text_6: autoDraw = True
+283.0246 	EXP 	New trial (rep=1, index=13): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+283.0408 	EXP 	text_6: autoDraw = False
+283.0408 	EXP 	text_6: autoDraw = False
+283.5579 	EXP 	text_4: autoDraw = True
+284.0416 	EXP 	text_4: autoDraw = False
+284.0416 	EXP 	text_4: autoDraw = False
+284.0416 	EXP 	person_img: image = 'red_center.png'
+284.0416 	EXP 	food: image = 'wheat5_t.png'
+284.3086 	EXP 	background: autoDraw = True
+284.3086 	EXP 	person_img: autoDraw = True
+284.3086 	EXP 	food: autoDraw = True
+287.1607 	DATA 	Keypress: b
+287.1773 	EXP 	background: autoDraw = False
+287.1773 	EXP 	person_img: autoDraw = False
+287.1773 	EXP 	food: autoDraw = False
+287.1773 	EXP 	text_6: text = 'Incorrect'
+287.1773 	EXP 	text_6: autoDraw = True
+289.1626 	EXP 	New trial (rep=1, index=14): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+289.1788 	EXP 	text_6: autoDraw = False
+289.1788 	EXP 	text_6: autoDraw = False
+289.6959 	EXP 	text_4: autoDraw = True
+290.1963 	EXP 	text_4: autoDraw = False
+290.1963 	EXP 	text_4: autoDraw = False
+290.1963 	EXP 	person_img: image = 'red_center.png'
+290.1963 	EXP 	food: image = 'dairy1_t.png'
+290.4466 	EXP 	background: autoDraw = True
+290.4466 	EXP 	person_img: autoDraw = True
+290.4466 	EXP 	food: autoDraw = True
+292.0645 	DATA 	Keypress: v
+292.0811 	EXP 	background: autoDraw = False
+292.0811 	EXP 	person_img: autoDraw = False
+292.0811 	EXP 	food: autoDraw = False
+292.0811 	EXP 	text_6: text = 'Incorrect'
+292.0811 	EXP 	text_6: autoDraw = True
+294.0664 	EXP 	New trial (rep=1, index=15): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+294.0826 	EXP 	text_6: autoDraw = False
+294.0826 	EXP 	text_6: autoDraw = False
+294.5997 	EXP 	text_4: autoDraw = True
+295.1000 	EXP 	text_4: autoDraw = False
+295.1000 	EXP 	text_4: autoDraw = False
+295.1000 	EXP 	person_img: image = 'red_center.png'
+295.1000 	EXP 	food: image = 'insect4_t.png'
+295.3504 	EXP 	background: autoDraw = True
+295.3504 	EXP 	person_img: autoDraw = True
+295.3504 	EXP 	food: autoDraw = True
+297.0683 	DATA 	Keypress: b
+297.0849 	EXP 	background: autoDraw = False
+297.0849 	EXP 	person_img: autoDraw = False
+297.0849 	EXP 	food: autoDraw = False
+297.0849 	EXP 	text_6: text = 'Incorrect'
+297.0849 	EXP 	text_6: autoDraw = True
+299.0702 	EXP 	New trial (rep=1, index=16): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+299.0864 	EXP 	text_6: autoDraw = False
+299.0864 	EXP 	text_6: autoDraw = False
+299.6035 	EXP 	text_4: autoDraw = True
+300.1039 	EXP 	text_4: autoDraw = False
+300.1039 	EXP 	text_4: autoDraw = False
+300.1039 	EXP 	person_img: image = 'blue_center_nf.png'
+300.1039 	EXP 	food: image = 'wheat1_t.png'
+300.3542 	EXP 	background: autoDraw = True
+300.3542 	EXP 	person_img: autoDraw = True
+300.3542 	EXP 	food: autoDraw = True
+302.9395 	DATA 	Keypress: b
+302.9560 	EXP 	background: autoDraw = False
+302.9560 	EXP 	person_img: autoDraw = False
+302.9560 	EXP 	food: autoDraw = False
+302.9560 	EXP 	text_6: text = 'Correct'
+302.9560 	EXP 	text_6: autoDraw = True
+304.9414 	EXP 	New trial (rep=1, index=17): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+304.9576 	EXP 	text_6: autoDraw = False
+304.9576 	EXP 	text_6: autoDraw = False
+305.4746 	EXP 	text_4: autoDraw = True
+306.0418 	EXP 	text_4: autoDraw = False
+306.0418 	EXP 	text_4: autoDraw = False
+306.0418 	EXP 	person_img: image = 'blue_center_nf.png'
+306.0418 	EXP 	food: image = 'insect5_t.png'
+306.2254 	EXP 	background: autoDraw = True
+306.2254 	EXP 	person_img: autoDraw = True
+306.2254 	EXP 	food: autoDraw = True
+307.2094 	DATA 	Keypress: b
+307.2260 	EXP 	background: autoDraw = False
+307.2260 	EXP 	person_img: autoDraw = False
+307.2260 	EXP 	food: autoDraw = False
+307.2260 	EXP 	text_6: text = 'Correct'
+307.2260 	EXP 	text_6: autoDraw = True
+309.2113 	EXP 	New trial (rep=1, index=18): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+309.2275 	EXP 	text_6: autoDraw = False
+309.2275 	EXP 	text_6: autoDraw = False
+309.7447 	EXP 	text_4: autoDraw = True
+310.2481 	EXP 	text_4: autoDraw = False
+310.2481 	EXP 	text_4: autoDraw = False
+310.2481 	EXP 	person_img: image = 'blue_center_nf.png'
+310.2481 	EXP 	food: image = 'wheat3_t.png'
+310.5122 	EXP 	background: autoDraw = True
+310.5122 	EXP 	person_img: autoDraw = True
+310.5122 	EXP 	food: autoDraw = True
+313.0472 	DATA 	Keypress: b
+313.0638 	EXP 	background: autoDraw = False
+313.0638 	EXP 	person_img: autoDraw = False
+313.0638 	EXP 	food: autoDraw = False
+313.0638 	EXP 	text_6: text = 'Correct'
+313.0638 	EXP 	text_6: autoDraw = True
+315.0491 	EXP 	New trial (rep=1, index=19): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+315.0653 	EXP 	text_6: autoDraw = False
+315.0653 	EXP 	text_6: autoDraw = False
+315.5824 	EXP 	text_4: autoDraw = True
+316.0828 	EXP 	text_4: autoDraw = False
+316.0828 	EXP 	text_4: autoDraw = False
+316.0828 	EXP 	person_img: image = 'green_center_nf.png'
+316.0828 	EXP 	food: image = 'dairy5_t.png'
+316.3331 	EXP 	background: autoDraw = True
+316.3331 	EXP 	person_img: autoDraw = True
+316.3331 	EXP 	food: autoDraw = True
+322.0374 	DATA 	Keypress: b
+322.0540 	EXP 	background: autoDraw = False
+322.0540 	EXP 	person_img: autoDraw = False
+322.0540 	EXP 	food: autoDraw = False
+322.0540 	EXP 	text_6: text = 'Correct'
+322.0540 	EXP 	text_6: autoDraw = True
+324.0393 	EXP 	New trial (rep=2, index=0): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+324.0555 	EXP 	text_6: autoDraw = False
+324.0555 	EXP 	text_6: autoDraw = False
+324.5726 	EXP 	text_4: autoDraw = True
+325.0730 	EXP 	text_4: autoDraw = False
+325.0730 	EXP 	text_4: autoDraw = False
+325.0730 	EXP 	person_img: image = 'red_center.png'
+325.0730 	EXP 	food: image = 'wheat5_t.png'
+325.3233 	EXP 	background: autoDraw = True
+325.3233 	EXP 	person_img: autoDraw = True
+325.3233 	EXP 	food: autoDraw = True
+329.6266 	DATA 	Keypress: v
+329.6431 	EXP 	background: autoDraw = False
+329.6431 	EXP 	person_img: autoDraw = False
+329.6431 	EXP 	food: autoDraw = False
+329.6431 	EXP 	text_6: text = 'Incorrect'
+329.6431 	EXP 	text_6: autoDraw = True
+331.6284 	EXP 	New trial (rep=2, index=1): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+331.6446 	EXP 	text_6: autoDraw = False
+331.6446 	EXP 	text_6: autoDraw = False
+332.1618 	EXP 	text_4: autoDraw = True
+332.7288 	EXP 	text_4: autoDraw = False
+332.7288 	EXP 	text_4: autoDraw = False
+332.7288 	EXP 	person_img: image = 'green_center_nf.png'
+332.7288 	EXP 	food: image = 'insect5_t.png'
+332.9124 	EXP 	background: autoDraw = True
+332.9124 	EXP 	person_img: autoDraw = True
+332.9124 	EXP 	food: autoDraw = True
+335.4644 	DATA 	Keypress: b
+335.4809 	EXP 	background: autoDraw = False
+335.4809 	EXP 	person_img: autoDraw = False
+335.4809 	EXP 	food: autoDraw = False
+335.4809 	EXP 	text_6: text = 'Correct'
+335.4809 	EXP 	text_6: autoDraw = True
+337.4662 	EXP 	New trial (rep=2, index=2): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+337.4824 	EXP 	text_6: autoDraw = False
+337.4824 	EXP 	text_6: autoDraw = False
+337.9995 	EXP 	text_4: autoDraw = True
+338.4999 	EXP 	text_4: autoDraw = False
+338.4999 	EXP 	text_4: autoDraw = False
+338.4999 	EXP 	person_img: image = 'green_center_nf.png'
+338.4999 	EXP 	food: image = 'insect1_t.png'
+338.7502 	EXP 	background: autoDraw = True
+338.7502 	EXP 	person_img: autoDraw = True
+338.7502 	EXP 	food: autoDraw = True
+339.5508 	DATA 	Keypress: b
+339.5674 	EXP 	background: autoDraw = False
+339.5674 	EXP 	person_img: autoDraw = False
+339.5674 	EXP 	food: autoDraw = False
+339.5674 	EXP 	text_6: text = 'Correct'
+339.5674 	EXP 	text_6: autoDraw = True
+341.5528 	EXP 	New trial (rep=2, index=3): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+341.5690 	EXP 	text_6: autoDraw = False
+341.5690 	EXP 	text_6: autoDraw = False
+342.0861 	EXP 	text_4: autoDraw = True
+342.5895 	EXP 	text_4: autoDraw = False
+342.5895 	EXP 	text_4: autoDraw = False
+342.5895 	EXP 	person_img: image = 'green_center_nf.png'
+342.5895 	EXP 	food: image = 'dairy4_t.png'
+342.8370 	EXP 	background: autoDraw = True
+342.8370 	EXP 	person_img: autoDraw = True
+342.8370 	EXP 	food: autoDraw = True
+347.1233 	DATA 	Keypress: b
+347.1398 	EXP 	background: autoDraw = False
+347.1398 	EXP 	person_img: autoDraw = False
+347.1398 	EXP 	food: autoDraw = False
+347.1398 	EXP 	text_6: text = 'Correct'
+347.1398 	EXP 	text_6: autoDraw = True
+349.1251 	EXP 	New trial (rep=2, index=4): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+349.1414 	EXP 	text_6: autoDraw = False
+349.1414 	EXP 	text_6: autoDraw = False
+349.6584 	EXP 	text_4: autoDraw = True
+350.1588 	EXP 	text_4: autoDraw = False
+350.1588 	EXP 	text_4: autoDraw = False
+350.1588 	EXP 	person_img: image = 'red_center.png'
+350.1588 	EXP 	food: image = 'insect4_t.png'
+350.4091 	EXP 	background: autoDraw = True
+350.4091 	EXP 	person_img: autoDraw = True
+350.4091 	EXP 	food: autoDraw = True
+352.3940 	DATA 	Keypress: b
+352.4105 	EXP 	background: autoDraw = False
+352.4105 	EXP 	person_img: autoDraw = False
+352.4105 	EXP 	food: autoDraw = False
+352.4105 	EXP 	text_6: text = 'Incorrect'
+352.4105 	EXP 	text_6: autoDraw = True
+354.3958 	EXP 	New trial (rep=2, index=5): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+354.4121 	EXP 	text_6: autoDraw = False
+354.4121 	EXP 	text_6: autoDraw = False
+354.9291 	EXP 	text_4: autoDraw = True
+355.4295 	EXP 	text_4: autoDraw = False
+355.4295 	EXP 	text_4: autoDraw = False
+355.4295 	EXP 	person_img: image = 'red_center.png'
+355.4295 	EXP 	food: image = 'wheat5_t.png'
+355.6631 	EXP 	background: autoDraw = True
+355.6631 	EXP 	person_img: autoDraw = True
+355.6631 	EXP 	food: autoDraw = True
+357.2143 	DATA 	Keypress: b
+357.2309 	EXP 	background: autoDraw = False
+357.2309 	EXP 	person_img: autoDraw = False
+357.2309 	EXP 	food: autoDraw = False
+357.2309 	EXP 	text_6: text = 'Incorrect'
+357.2309 	EXP 	text_6: autoDraw = True
+359.2162 	EXP 	New trial (rep=2, index=6): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+359.2324 	EXP 	text_6: autoDraw = False
+359.2324 	EXP 	text_6: autoDraw = False
+359.7495 	EXP 	text_4: autoDraw = True
+360.2499 	EXP 	text_4: autoDraw = False
+360.2499 	EXP 	text_4: autoDraw = False
+360.2499 	EXP 	person_img: image = 'blue_center_nf.png'
+360.2499 	EXP 	food: image = 'dairy3_t.png'
+360.5002 	EXP 	background: autoDraw = True
+360.5002 	EXP 	person_img: autoDraw = True
+360.5002 	EXP 	food: autoDraw = True
+364.7201 	DATA 	Keypress: v
+364.7366 	EXP 	background: autoDraw = False
+364.7366 	EXP 	person_img: autoDraw = False
+364.7366 	EXP 	food: autoDraw = False
+364.7366 	EXP 	text_6: text = 'Correct'
+364.7366 	EXP 	text_6: autoDraw = True
+366.7219 	EXP 	New trial (rep=2, index=7): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+366.7381 	EXP 	text_6: autoDraw = False
+366.7381 	EXP 	text_6: autoDraw = False
+367.2552 	EXP 	text_4: autoDraw = True
+367.7556 	EXP 	text_4: autoDraw = False
+367.7556 	EXP 	text_4: autoDraw = False
+367.7556 	EXP 	person_img: image = 'blue_center_nf.png'
+367.7556 	EXP 	food: image = 'wheat3_t.png'
+367.9893 	EXP 	background: autoDraw = True
+367.9893 	EXP 	person_img: autoDraw = True
+367.9893 	EXP 	food: autoDraw = True
+392.3578 	DATA 	Keypress: b
+392.3744 	EXP 	background: autoDraw = False
+392.3744 	EXP 	person_img: autoDraw = False
+392.3744 	EXP 	food: autoDraw = False
+392.3744 	EXP 	text_6: text = 'Correct'
+392.3744 	EXP 	text_6: autoDraw = True
+394.3597 	EXP 	New trial (rep=2, index=8): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+394.3759 	EXP 	text_6: autoDraw = False
+394.3759 	EXP 	text_6: autoDraw = False
+394.8930 	EXP 	text_4: autoDraw = True
+395.3767 	EXP 	text_4: autoDraw = False
+395.3767 	EXP 	text_4: autoDraw = False
+395.3767 	EXP 	person_img: image = 'blue_center_nf.png'
+395.3767 	EXP 	food: image = 'dairy4_t.png'
+395.6271 	EXP 	background: autoDraw = True
+395.6271 	EXP 	person_img: autoDraw = True
+395.6271 	EXP 	food: autoDraw = True
+397.1949 	DATA 	Keypress: v
+397.2115 	EXP 	background: autoDraw = False
+397.2115 	EXP 	person_img: autoDraw = False
+397.2115 	EXP 	food: autoDraw = False
+397.2115 	EXP 	text_6: text = 'Correct'
+397.2115 	EXP 	text_6: autoDraw = True
+399.1967 	EXP 	New trial (rep=2, index=9): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+399.2130 	EXP 	text_6: autoDraw = False
+399.2130 	EXP 	text_6: autoDraw = False
+399.7300 	EXP 	text_4: autoDraw = True
+400.2137 	EXP 	text_4: autoDraw = False
+400.2137 	EXP 	text_4: autoDraw = False
+400.2137 	EXP 	person_img: image = 'red_center.png'
+400.2137 	EXP 	food: image = 'dairy3_t.png'
+400.4808 	EXP 	background: autoDraw = True
+400.4808 	EXP 	person_img: autoDraw = True
+400.4808 	EXP 	food: autoDraw = True
+403.6832 	DATA 	Keypress: b
+403.6997 	EXP 	background: autoDraw = False
+403.6997 	EXP 	person_img: autoDraw = False
+403.6997 	EXP 	food: autoDraw = False
+403.6997 	EXP 	text_6: text = 'Incorrect'
+403.6997 	EXP 	text_6: autoDraw = True
+405.6850 	EXP 	New trial (rep=2, index=10): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+405.7013 	EXP 	text_6: autoDraw = False
+405.7013 	EXP 	text_6: autoDraw = False
+406.2183 	EXP 	text_4: autoDraw = True
+406.7020 	EXP 	text_4: autoDraw = False
+406.7020 	EXP 	text_4: autoDraw = False
+406.7020 	EXP 	person_img: image = 'red_center.png'
+406.7020 	EXP 	food: image = 'dairy3_t.png'
+406.9522 	EXP 	background: autoDraw = True
+406.9522 	EXP 	person_img: autoDraw = True
+406.9522 	EXP 	food: autoDraw = True
+409.8379 	DATA 	Keypress: v
+409.8545 	EXP 	background: autoDraw = False
+409.8545 	EXP 	person_img: autoDraw = False
+409.8545 	EXP 	food: autoDraw = False
+409.8545 	EXP 	text_6: text = 'Incorrect'
+409.8545 	EXP 	text_6: autoDraw = True
+411.8397 	EXP 	New trial (rep=2, index=11): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+411.8560 	EXP 	text_6: autoDraw = False
+411.8560 	EXP 	text_6: autoDraw = False
+412.3730 	EXP 	text_4: autoDraw = True
+412.9402 	EXP 	text_4: autoDraw = False
+412.9402 	EXP 	text_4: autoDraw = False
+412.9402 	EXP 	person_img: image = 'blue_center_nf.png'
+412.9402 	EXP 	food: image = 'insect5_t.png'
+413.1238 	EXP 	background: autoDraw = True
+413.1238 	EXP 	person_img: autoDraw = True
+413.1238 	EXP 	food: autoDraw = True
+414.6082 	DATA 	Keypress: b
+414.6248 	EXP 	background: autoDraw = False
+414.6248 	EXP 	person_img: autoDraw = False
+414.6248 	EXP 	food: autoDraw = False
+414.6248 	EXP 	text_6: text = 'Correct'
+414.6248 	EXP 	text_6: autoDraw = True
+416.6101 	EXP 	New trial (rep=2, index=12): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+416.6263 	EXP 	text_6: autoDraw = False
+416.6263 	EXP 	text_6: autoDraw = False
+417.1434 	EXP 	text_4: autoDraw = True
+417.6437 	EXP 	text_4: autoDraw = False
+417.6437 	EXP 	text_4: autoDraw = False
+417.6437 	EXP 	person_img: image = 'green_center_nf.png'
+417.6437 	EXP 	food: image = 'wheat1_t.png'
+417.8941 	EXP 	background: autoDraw = True
+417.8941 	EXP 	person_img: autoDraw = True
+417.8941 	EXP 	food: autoDraw = True
+419.4119 	DATA 	Keypress: v
+419.4284 	EXP 	background: autoDraw = False
+419.4284 	EXP 	person_img: autoDraw = False
+419.4284 	EXP 	food: autoDraw = False
+419.4284 	EXP 	text_6: text = 'Correct'
+419.4284 	EXP 	text_6: autoDraw = True
+421.4137 	EXP 	New trial (rep=2, index=13): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+421.4300 	EXP 	text_6: autoDraw = False
+421.4300 	EXP 	text_6: autoDraw = False
+421.9470 	EXP 	text_4: autoDraw = True
+422.5141 	EXP 	text_4: autoDraw = False
+422.5141 	EXP 	text_4: autoDraw = False
+422.5141 	EXP 	person_img: image = 'blue_center_nf.png'
+422.5141 	EXP 	food: image = 'insect5_t.png'
+422.6978 	EXP 	background: autoDraw = True
+422.6978 	EXP 	person_img: autoDraw = True
+422.6978 	EXP 	food: autoDraw = True
+425.0495 	DATA 	Keypress: b
+425.0661 	EXP 	background: autoDraw = False
+425.0661 	EXP 	person_img: autoDraw = False
+425.0661 	EXP 	food: autoDraw = False
+425.0661 	EXP 	text_6: text = 'Correct'
+425.0661 	EXP 	text_6: autoDraw = True
+427.0514 	EXP 	New trial (rep=2, index=14): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+427.0676 	EXP 	text_6: autoDraw = False
+427.0676 	EXP 	text_6: autoDraw = False
+427.5847 	EXP 	text_4: autoDraw = True
+428.0851 	EXP 	text_4: autoDraw = False
+428.0851 	EXP 	text_4: autoDraw = False
+428.0851 	EXP 	person_img: image = 'blue_center_nf.png'
+428.0851 	EXP 	food: image = 'wheat2_t.png'
+428.3354 	EXP 	background: autoDraw = True
+428.3354 	EXP 	person_img: autoDraw = True
+428.3354 	EXP 	food: autoDraw = True
+437.7092 	DATA 	Keypress: b
+437.7258 	EXP 	background: autoDraw = False
+437.7258 	EXP 	person_img: autoDraw = False
+437.7258 	EXP 	food: autoDraw = False
+437.7258 	EXP 	text_6: text = 'Correct'
+437.7258 	EXP 	text_6: autoDraw = True
+439.7110 	EXP 	New trial (rep=2, index=15): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+439.7273 	EXP 	text_6: autoDraw = False
+439.7273 	EXP 	text_6: autoDraw = False
+440.2444 	EXP 	text_4: autoDraw = True
+440.7447 	EXP 	text_4: autoDraw = False
+440.7447 	EXP 	text_4: autoDraw = False
+440.7447 	EXP 	person_img: image = 'red_center.png'
+440.7447 	EXP 	food: image = 'insect4_t.png'
+440.9951 	EXP 	background: autoDraw = True
+440.9951 	EXP 	person_img: autoDraw = True
+440.9951 	EXP 	food: autoDraw = True
+443.5803 	DATA 	Keypress: b
+443.5969 	EXP 	background: autoDraw = False
+443.5969 	EXP 	person_img: autoDraw = False
+443.5969 	EXP 	food: autoDraw = False
+443.5969 	EXP 	text_6: text = 'Incorrect'
+443.5969 	EXP 	text_6: autoDraw = True
+445.5822 	EXP 	New trial (rep=2, index=16): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+445.5985 	EXP 	text_6: autoDraw = False
+445.5985 	EXP 	text_6: autoDraw = False
+446.1155 	EXP 	text_4: autoDraw = True
+446.6159 	EXP 	text_4: autoDraw = False
+446.6159 	EXP 	text_4: autoDraw = False
+446.6159 	EXP 	person_img: image = 'blue_center_nf.png'
+446.6159 	EXP 	food: image = 'dairy5_t.png'
+446.8662 	EXP 	background: autoDraw = True
+446.8662 	EXP 	person_img: autoDraw = True
+446.8662 	EXP 	food: autoDraw = True
+447.0497 	DATA 	Keypress: b
+447.0662 	EXP 	background: autoDraw = False
+447.0662 	EXP 	person_img: autoDraw = False
+447.0662 	EXP 	food: autoDraw = False
+447.0662 	EXP 	text_6: text = 'Incorrect'
+447.0662 	EXP 	text_6: autoDraw = True
+449.0516 	EXP 	New trial (rep=2, index=17): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+449.0679 	EXP 	text_6: autoDraw = False
+449.0679 	EXP 	text_6: autoDraw = False
+449.2515 	DATA 	Keypress: b
+449.5850 	EXP 	text_4: autoDraw = True
+450.0883 	EXP 	text_4: autoDraw = False
+450.0883 	EXP 	text_4: autoDraw = False
+450.0883 	EXP 	person_img: image = 'green_center_nf.png'
+450.0883 	EXP 	food: image = 'wheat3_t.png'
+450.1219 	DATA 	Keypress: b
+450.3220 	EXP 	background: autoDraw = True
+450.3220 	EXP 	person_img: autoDraw = True
+450.3220 	EXP 	food: autoDraw = True
+450.3220 	EXP 	background: autoDraw = False
+450.3220 	EXP 	person_img: autoDraw = False
+450.3220 	EXP 	food: autoDraw = False
+450.3220 	EXP 	text_6: text = 'Incorrect'
+450.3220 	EXP 	text_6: autoDraw = True
+452.3073 	EXP 	New trial (rep=2, index=18): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+452.3235 	EXP 	text_6: autoDraw = False
+452.3235 	EXP 	text_6: autoDraw = False
+452.8406 	EXP 	text_4: autoDraw = True
+453.3410 	EXP 	text_4: autoDraw = False
+453.3410 	EXP 	text_4: autoDraw = False
+453.3410 	EXP 	person_img: image = 'green_center_nf.png'
+453.3410 	EXP 	food: image = 'dairy3_t.png'
+453.6050 	EXP 	background: autoDraw = True
+453.6050 	EXP 	person_img: autoDraw = True
+453.6050 	EXP 	food: autoDraw = True
+453.8883 	DATA 	Keypress: b
+453.9048 	EXP 	background: autoDraw = False
+453.9048 	EXP 	person_img: autoDraw = False
+453.9048 	EXP 	food: autoDraw = False
+453.9048 	EXP 	text_6: text = 'Correct'
+453.9048 	EXP 	text_6: autoDraw = True
+455.8901 	EXP 	New trial (rep=2, index=19): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+455.9063 	EXP 	text_6: autoDraw = False
+455.9063 	EXP 	text_6: autoDraw = False
+456.4234 	EXP 	text_4: autoDraw = True
+456.9238 	EXP 	text_4: autoDraw = False
+456.9238 	EXP 	text_4: autoDraw = False
+456.9238 	EXP 	person_img: image = 'green_center_nf.png'
+456.9238 	EXP 	food: image = 'wheat2_t.png'
+457.1574 	EXP 	background: autoDraw = True
+457.1574 	EXP 	person_img: autoDraw = True
+457.1574 	EXP 	food: autoDraw = True
+457.4076 	DATA 	Keypress: b
+457.4242 	EXP 	background: autoDraw = False
+457.4242 	EXP 	person_img: autoDraw = False
+457.4242 	EXP 	food: autoDraw = False
+457.4242 	EXP 	text_6: text = 'Incorrect'
+457.4242 	EXP 	text_6: autoDraw = True
+459.4095 	EXP 	New trial (rep=3, index=0): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+459.4257 	EXP 	text_6: autoDraw = False
+459.4257 	EXP 	text_6: autoDraw = False
+459.9429 	EXP 	text_4: autoDraw = True
+460.4464 	EXP 	text_4: autoDraw = False
+460.4464 	EXP 	text_4: autoDraw = False
+460.4464 	EXP 	person_img: image = 'green_center_nf.png'
+460.4464 	EXP 	food: image = 'insect2_t.png'
+460.7135 	EXP 	background: autoDraw = True
+460.7135 	EXP 	person_img: autoDraw = True
+460.7135 	EXP 	food: autoDraw = True
+460.9103 	DATA 	Keypress: b
+460.9268 	EXP 	background: autoDraw = False
+460.9268 	EXP 	person_img: autoDraw = False
+460.9268 	EXP 	food: autoDraw = False
+460.9268 	EXP 	text_6: text = 'Correct'
+460.9268 	EXP 	text_6: autoDraw = True
+462.9122 	EXP 	New trial (rep=3, index=1): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+462.9284 	EXP 	text_6: autoDraw = False
+462.9284 	EXP 	text_6: autoDraw = False
+463.4454 	EXP 	text_4: autoDraw = True
+463.9458 	EXP 	text_4: autoDraw = False
+463.9458 	EXP 	text_4: autoDraw = False
+463.9458 	EXP 	person_img: image = 'blue_center_nf.png'
+463.9458 	EXP 	food: image = 'insect4_t.png'
+464.1962 	EXP 	background: autoDraw = True
+464.1962 	EXP 	person_img: autoDraw = True
+464.1962 	EXP 	food: autoDraw = True
+464.4129 	DATA 	Keypress: b
+464.4295 	EXP 	background: autoDraw = False
+464.4295 	EXP 	person_img: autoDraw = False
+464.4295 	EXP 	food: autoDraw = False
+464.4295 	EXP 	text_6: text = 'Correct'
+464.4295 	EXP 	text_6: autoDraw = True
+466.4148 	EXP 	New trial (rep=3, index=2): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+466.4310 	EXP 	text_6: autoDraw = False
+466.4310 	EXP 	text_6: autoDraw = False
+466.9482 	EXP 	text_4: autoDraw = True
+467.4516 	EXP 	text_4: autoDraw = False
+467.4516 	EXP 	text_4: autoDraw = False
+467.4516 	EXP 	person_img: image = 'red_center.png'
+467.4516 	EXP 	food: image = 'insect2_t.png'
+467.7159 	EXP 	background: autoDraw = True
+467.7159 	EXP 	person_img: autoDraw = True
+467.7159 	EXP 	food: autoDraw = True
+468.0491 	DATA 	Keypress: b
+468.0656 	EXP 	background: autoDraw = False
+468.0656 	EXP 	person_img: autoDraw = False
+468.0656 	EXP 	food: autoDraw = False
+468.0656 	EXP 	text_6: text = 'Incorrect'
+468.0656 	EXP 	text_6: autoDraw = True
+470.0509 	EXP 	New trial (rep=3, index=3): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+470.0672 	EXP 	text_6: autoDraw = False
+470.0672 	EXP 	text_6: autoDraw = False
+470.5842 	EXP 	text_4: autoDraw = True
+471.1013 	EXP 	text_4: autoDraw = False
+471.1013 	EXP 	text_4: autoDraw = False
+471.1013 	EXP 	person_img: image = 'blue_center_nf.png'
+471.1013 	EXP 	food: image = 'dairy1_t.png'
+471.3350 	EXP 	background: autoDraw = True
+471.3350 	EXP 	person_img: autoDraw = True
+471.3350 	EXP 	food: autoDraw = True
+471.7185 	DATA 	Keypress: b
+471.7351 	EXP 	background: autoDraw = False
+471.7351 	EXP 	person_img: autoDraw = False
+471.7351 	EXP 	food: autoDraw = False
+471.7351 	EXP 	text_6: text = 'Incorrect'
+471.7351 	EXP 	text_6: autoDraw = True
+473.7204 	EXP 	New trial (rep=3, index=4): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+473.7366 	EXP 	text_6: autoDraw = False
+473.7366 	EXP 	text_6: autoDraw = False
+474.2538 	EXP 	text_4: autoDraw = True
+474.7572 	EXP 	text_4: autoDraw = False
+474.7572 	EXP 	text_4: autoDraw = False
+474.7572 	EXP 	person_img: image = 'blue_center_nf.png'
+474.7572 	EXP 	food: image = 'dairy2_t.png'
+475.0044 	EXP 	background: autoDraw = True
+475.0044 	EXP 	person_img: autoDraw = True
+475.0044 	EXP 	food: autoDraw = True
+475.2045 	DATA 	Keypress: b
+475.2211 	EXP 	background: autoDraw = False
+475.2211 	EXP 	person_img: autoDraw = False
+475.2211 	EXP 	food: autoDraw = False
+475.2211 	EXP 	text_6: text = 'Incorrect'
+475.2211 	EXP 	text_6: autoDraw = True
+477.2064 	EXP 	New trial (rep=3, index=5): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+477.2227 	EXP 	text_6: autoDraw = False
+477.2227 	EXP 	text_6: autoDraw = False
+477.7397 	EXP 	text_4: autoDraw = True
+478.2234 	EXP 	text_4: autoDraw = False
+478.2234 	EXP 	text_4: autoDraw = False
+478.2234 	EXP 	person_img: image = 'red_center.png'
+478.2234 	EXP 	food: image = 'dairy4_t.png'
+478.4904 	EXP 	background: autoDraw = True
+478.4904 	EXP 	person_img: autoDraw = True
+478.4904 	EXP 	food: autoDraw = True
+478.6738 	DATA 	Keypress: b
+478.6904 	EXP 	background: autoDraw = False
+478.6904 	EXP 	person_img: autoDraw = False
+478.6904 	EXP 	food: autoDraw = False
+478.6904 	EXP 	text_6: text = 'Incorrect'
+478.6904 	EXP 	text_6: autoDraw = True
+480.6757 	EXP 	New trial (rep=3, index=6): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+480.6920 	EXP 	text_6: autoDraw = False
+480.6920 	EXP 	text_6: autoDraw = False
+481.2092 	EXP 	text_4: autoDraw = True
+481.7127 	EXP 	text_4: autoDraw = False
+481.7127 	EXP 	text_4: autoDraw = False
+481.7127 	EXP 	person_img: image = 'blue_center_nf.png'
+481.7127 	EXP 	food: image = 'wheat4_t.png'
+481.9767 	EXP 	background: autoDraw = True
+481.9767 	EXP 	person_img: autoDraw = True
+481.9767 	EXP 	food: autoDraw = True
+482.0266 	DATA 	Keypress: b
+482.0431 	EXP 	background: autoDraw = False
+482.0431 	EXP 	person_img: autoDraw = False
+482.0431 	EXP 	food: autoDraw = False
+482.0431 	EXP 	text_6: text = 'Correct'
+482.0431 	EXP 	text_6: autoDraw = True
+484.0284 	EXP 	New trial (rep=3, index=7): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+484.0446 	EXP 	text_6: autoDraw = False
+484.0446 	EXP 	text_6: autoDraw = False
+484.5617 	EXP 	text_4: autoDraw = True
+485.0651 	EXP 	text_4: autoDraw = False
+485.0651 	EXP 	text_4: autoDraw = False
+485.0651 	EXP 	person_img: image = 'green_center_nf.png'
+485.0651 	EXP 	food: image = 'wheat5_t.png'
+485.3293 	EXP 	background: autoDraw = True
+485.3293 	EXP 	person_img: autoDraw = True
+485.3293 	EXP 	food: autoDraw = True
+486.0795 	DATA 	Keypress: b
+486.0961 	EXP 	background: autoDraw = False
+486.0961 	EXP 	person_img: autoDraw = False
+486.0961 	EXP 	food: autoDraw = False
+486.0961 	EXP 	text_6: text = 'Incorrect'
+486.0961 	EXP 	text_6: autoDraw = True
+488.0814 	EXP 	New trial (rep=3, index=8): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+488.0976 	EXP 	text_6: autoDraw = False
+488.0976 	EXP 	text_6: autoDraw = False
+488.6147 	EXP 	text_4: autoDraw = True
+489.1151 	EXP 	text_4: autoDraw = False
+489.1151 	EXP 	text_4: autoDraw = False
+489.1151 	EXP 	person_img: image = 'blue_center_nf.png'
+489.1151 	EXP 	food: image = 'dairy5_t.png'
+489.3654 	EXP 	background: autoDraw = True
+489.3654 	EXP 	person_img: autoDraw = True
+489.3654 	EXP 	food: autoDraw = True
+495.8036 	DATA 	Keypress: v
+495.8202 	EXP 	background: autoDraw = False
+495.8202 	EXP 	person_img: autoDraw = False
+495.8202 	EXP 	food: autoDraw = False
+495.8202 	EXP 	text_6: text = 'Correct'
+495.8202 	EXP 	text_6: autoDraw = True
+497.8055 	EXP 	New trial (rep=3, index=9): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+497.8217 	EXP 	text_6: autoDraw = False
+497.8217 	EXP 	text_6: autoDraw = False
+498.3388 	EXP 	text_4: autoDraw = True
+498.8225 	EXP 	text_4: autoDraw = False
+498.8225 	EXP 	text_4: autoDraw = False
+498.8225 	EXP 	person_img: image = 'red_center.png'
+498.8225 	EXP 	food: image = 'dairy2_t.png'
+499.0895 	EXP 	background: autoDraw = True
+499.0895 	EXP 	person_img: autoDraw = True
+499.0895 	EXP 	food: autoDraw = True
+502.1752 	DATA 	Keypress: b
+502.1917 	EXP 	background: autoDraw = False
+502.1917 	EXP 	person_img: autoDraw = False
+502.1917 	EXP 	food: autoDraw = False
+502.1917 	EXP 	text_6: text = 'Incorrect'
+502.1917 	EXP 	text_6: autoDraw = True
+504.1770 	EXP 	New trial (rep=3, index=10): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+504.1933 	EXP 	text_6: autoDraw = False
+504.1933 	EXP 	text_6: autoDraw = False
+504.7103 	EXP 	text_4: autoDraw = True
+505.2107 	EXP 	text_4: autoDraw = False
+505.2107 	EXP 	text_4: autoDraw = False
+505.2107 	EXP 	person_img: image = 'green_center_nf.png'
+505.2107 	EXP 	food: image = 'dairy4_t.png'
+505.4611 	EXP 	background: autoDraw = True
+505.4611 	EXP 	person_img: autoDraw = True
+505.4611 	EXP 	food: autoDraw = True
+506.7120 	DATA 	Keypress: b
+506.7285 	EXP 	background: autoDraw = False
+506.7285 	EXP 	person_img: autoDraw = False
+506.7285 	EXP 	food: autoDraw = False
+506.7285 	EXP 	text_6: text = 'Correct'
+506.7285 	EXP 	text_6: autoDraw = True
+508.7139 	EXP 	New trial (rep=3, index=11): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+508.7302 	EXP 	text_6: autoDraw = False
+508.7302 	EXP 	text_6: autoDraw = False
+509.2473 	EXP 	text_4: autoDraw = True
+509.7506 	EXP 	text_4: autoDraw = False
+509.7506 	EXP 	text_4: autoDraw = False
+509.7506 	EXP 	person_img: image = 'blue_center_nf.png'
+509.7506 	EXP 	food: image = 'insect2_t.png'
+510.0149 	EXP 	background: autoDraw = True
+510.0149 	EXP 	person_img: autoDraw = True
+510.0149 	EXP 	food: autoDraw = True
+511.4323 	DATA 	Keypress: b
+511.4488 	EXP 	background: autoDraw = False
+511.4488 	EXP 	person_img: autoDraw = False
+511.4488 	EXP 	food: autoDraw = False
+511.4488 	EXP 	text_6: text = 'Correct'
+511.4488 	EXP 	text_6: autoDraw = True
+513.4341 	EXP 	New trial (rep=3, index=12): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+513.4503 	EXP 	text_6: autoDraw = False
+513.4503 	EXP 	text_6: autoDraw = False
+513.9674 	EXP 	text_4: autoDraw = True
+514.4678 	EXP 	text_4: autoDraw = False
+514.4678 	EXP 	text_4: autoDraw = False
+514.4678 	EXP 	person_img: image = 'red_center.png'
+514.4678 	EXP 	food: image = 'wheat1_t.png'
+514.7181 	EXP 	background: autoDraw = True
+514.7181 	EXP 	person_img: autoDraw = True
+514.7181 	EXP 	food: autoDraw = True
+517.3201 	DATA 	Keypress: v
+517.3367 	EXP 	background: autoDraw = False
+517.3367 	EXP 	person_img: autoDraw = False
+517.3367 	EXP 	food: autoDraw = False
+517.3367 	EXP 	text_6: text = 'Incorrect'
+517.3367 	EXP 	text_6: autoDraw = True
+519.3219 	EXP 	New trial (rep=3, index=13): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+519.3382 	EXP 	text_6: autoDraw = False
+519.3382 	EXP 	text_6: autoDraw = False
+519.8552 	EXP 	text_4: autoDraw = True
+520.3556 	EXP 	text_4: autoDraw = False
+520.3556 	EXP 	text_4: autoDraw = False
+520.3556 	EXP 	person_img: image = 'green_center_nf.png'
+520.3556 	EXP 	food: image = 'insect1_t.png'
+520.6060 	EXP 	background: autoDraw = True
+520.6060 	EXP 	person_img: autoDraw = True
+520.6060 	EXP 	food: autoDraw = True
+521.6400 	DATA 	Keypress: b
+521.6566 	EXP 	background: autoDraw = False
+521.6566 	EXP 	person_img: autoDraw = False
+521.6566 	EXP 	food: autoDraw = False
+521.6566 	EXP 	text_6: text = 'Correct'
+521.6566 	EXP 	text_6: autoDraw = True
+523.6419 	EXP 	New trial (rep=3, index=14): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+523.6582 	EXP 	text_6: autoDraw = False
+523.6582 	EXP 	text_6: autoDraw = False
+524.1753 	EXP 	text_4: autoDraw = True
+524.6787 	EXP 	text_4: autoDraw = False
+524.6787 	EXP 	text_4: autoDraw = False
+524.6787 	EXP 	person_img: image = 'green_center_nf.png'
+524.6787 	EXP 	food: image = 'dairy2_t.png'
+524.9262 	EXP 	background: autoDraw = True
+524.9262 	EXP 	person_img: autoDraw = True
+524.9262 	EXP 	food: autoDraw = True
+526.3603 	DATA 	Keypress: b
+526.3769 	EXP 	background: autoDraw = False
+526.3769 	EXP 	person_img: autoDraw = False
+526.3769 	EXP 	food: autoDraw = False
+526.3769 	EXP 	text_6: text = 'Correct'
+526.3769 	EXP 	text_6: autoDraw = True
+528.3622 	EXP 	New trial (rep=3, index=15): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+528.3784 	EXP 	text_6: autoDraw = False
+528.3784 	EXP 	text_6: autoDraw = False
+528.8955 	EXP 	text_4: autoDraw = True
+529.3959 	EXP 	text_4: autoDraw = False
+529.3959 	EXP 	text_4: autoDraw = False
+529.3959 	EXP 	person_img: image = 'green_center_nf.png'
+529.3959 	EXP 	food: image = 'wheat5_t.png'
+529.6295 	EXP 	background: autoDraw = True
+529.6295 	EXP 	person_img: autoDraw = True
+529.6295 	EXP 	food: autoDraw = True
+532.1314 	DATA 	Keypress: v
+532.1480 	EXP 	background: autoDraw = False
+532.1480 	EXP 	person_img: autoDraw = False
+532.1480 	EXP 	food: autoDraw = False
+532.1480 	EXP 	text_6: text = 'Correct'
+532.1480 	EXP 	text_6: autoDraw = True
+534.1333 	EXP 	New trial (rep=3, index=16): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+534.1495 	EXP 	text_6: autoDraw = False
+534.1495 	EXP 	text_6: autoDraw = False
+534.6666 	EXP 	text_4: autoDraw = True
+535.1669 	EXP 	text_4: autoDraw = False
+535.1669 	EXP 	text_4: autoDraw = False
+535.1669 	EXP 	person_img: image = 'red_center.png'
+535.1669 	EXP 	food: image = 'insect2_t.png'
+535.4173 	EXP 	background: autoDraw = True
+535.4173 	EXP 	person_img: autoDraw = True
+535.4173 	EXP 	food: autoDraw = True
+536.6349 	DATA 	Keypress: b
+536.6514 	EXP 	background: autoDraw = False
+536.6514 	EXP 	person_img: autoDraw = False
+536.6514 	EXP 	food: autoDraw = False
+536.6514 	EXP 	text_6: text = 'Incorrect'
+536.6514 	EXP 	text_6: autoDraw = True
+538.6368 	EXP 	New trial (rep=3, index=17): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+538.6531 	EXP 	text_6: autoDraw = False
+538.6531 	EXP 	text_6: autoDraw = False
+539.1702 	EXP 	text_4: autoDraw = True
+539.6735 	EXP 	text_4: autoDraw = False
+539.6735 	EXP 	text_4: autoDraw = False
+539.6735 	EXP 	person_img: image = 'blue_center_nf.png'
+539.6735 	EXP 	food: image = 'wheat2_t.png'
+539.9376 	EXP 	background: autoDraw = True
+539.9376 	EXP 	person_img: autoDraw = True
+539.9376 	EXP 	food: autoDraw = True
+542.8062 	DATA 	Keypress: b
+542.8228 	EXP 	background: autoDraw = False
+542.8228 	EXP 	person_img: autoDraw = False
+542.8228 	EXP 	food: autoDraw = False
+542.8228 	EXP 	text_6: text = 'Correct'
+542.8228 	EXP 	text_6: autoDraw = True
+544.8082 	EXP 	New trial (rep=3, index=18): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+544.8243 	EXP 	text_6: autoDraw = False
+544.8243 	EXP 	text_6: autoDraw = False
+545.3414 	EXP 	text_4: autoDraw = True
+545.8418 	EXP 	text_4: autoDraw = False
+545.8418 	EXP 	text_4: autoDraw = False
+545.8418 	EXP 	person_img: image = 'green_center_nf.png'
+545.8418 	EXP 	food: image = 'wheat3_t.png'
+546.0921 	EXP 	background: autoDraw = True
+546.0921 	EXP 	person_img: autoDraw = True
+546.0921 	EXP 	food: autoDraw = True
+547.1262 	DATA 	Keypress: v
+547.1428 	EXP 	background: autoDraw = False
+547.1428 	EXP 	person_img: autoDraw = False
+547.1428 	EXP 	food: autoDraw = False
+547.1428 	EXP 	text_6: text = 'Correct'
+547.1428 	EXP 	text_6: autoDraw = True
+549.1282 	EXP 	New trial (rep=3, index=19): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+549.1444 	EXP 	text_6: autoDraw = False
+549.1444 	EXP 	text_6: autoDraw = False
+549.6615 	EXP 	text_4: autoDraw = True
+550.1452 	EXP 	text_4: autoDraw = False
+550.1452 	EXP 	text_4: autoDraw = False
+550.1452 	EXP 	person_img: image = 'red_center.png'
+550.1452 	EXP 	food: image = 'wheat4_t.png'
+550.4121 	EXP 	background: autoDraw = True
+550.4121 	EXP 	person_img: autoDraw = True
+550.4121 	EXP 	food: autoDraw = True
+551.8298 	DATA 	Keypress: b
+551.8464 	EXP 	background: autoDraw = False
+551.8464 	EXP 	person_img: autoDraw = False
+551.8464 	EXP 	food: autoDraw = False
+551.8464 	EXP 	text_6: text = 'Incorrect'
+551.8464 	EXP 	text_6: autoDraw = True
+553.8317 	EXP 	New trial (rep=4, index=0): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+553.8479 	EXP 	text_6: autoDraw = False
+553.8479 	EXP 	text_6: autoDraw = False
+554.3650 	EXP 	text_4: autoDraw = True
+554.8653 	EXP 	text_4: autoDraw = False
+554.8653 	EXP 	text_4: autoDraw = False
+554.8653 	EXP 	person_img: image = 'red_center.png'
+554.8653 	EXP 	food: image = 'insect4_t.png'
+555.0990 	EXP 	background: autoDraw = True
+555.0990 	EXP 	person_img: autoDraw = True
+555.0990 	EXP 	food: autoDraw = True
+555.8495 	DATA 	Keypress: b
+555.8661 	EXP 	background: autoDraw = False
+555.8661 	EXP 	person_img: autoDraw = False
+555.8661 	EXP 	food: autoDraw = False
+555.8661 	EXP 	text_6: text = 'Incorrect'
+555.8661 	EXP 	text_6: autoDraw = True
+557.8516 	EXP 	New trial (rep=4, index=1): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+557.8678 	EXP 	text_6: autoDraw = False
+557.8678 	EXP 	text_6: autoDraw = False
+558.3848 	EXP 	text_4: autoDraw = True
+558.8882 	EXP 	text_4: autoDraw = False
+558.8882 	EXP 	text_4: autoDraw = False
+558.8882 	EXP 	person_img: image = 'blue_center_nf.png'
+558.8882 	EXP 	food: image = 'wheat3_t.png'
+559.1525 	EXP 	background: autoDraw = True
+559.1525 	EXP 	person_img: autoDraw = True
+559.1525 	EXP 	food: autoDraw = True
+619.1312 	EXP 	background: autoDraw = False
+619.1312 	EXP 	person_img: autoDraw = False
+619.1312 	EXP 	food: autoDraw = False
+619.1312 	EXP 	background: autoDraw = False
+619.1312 	EXP 	person_img: autoDraw = False
+619.1312 	EXP 	food: autoDraw = False
+619.1312 	EXP 	text_6: text = 'Failed to respond'
+619.1312 	EXP 	text_6: autoDraw = True
+621.0998 	EXP 	New trial (rep=4, index=2): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+621.1160 	EXP 	text_6: autoDraw = False
+621.1160 	EXP 	text_6: autoDraw = False
+621.6331 	EXP 	text_4: autoDraw = True
+622.1335 	EXP 	text_4: autoDraw = False
+622.1335 	EXP 	text_4: autoDraw = False
+622.1335 	EXP 	person_img: image = 'blue_center_nf.png'
+622.1335 	EXP 	food: image = 'dairy5_t.png'
+622.3671 	EXP 	background: autoDraw = True
+622.3671 	EXP 	person_img: autoDraw = True
+622.3671 	EXP 	food: autoDraw = True
+667.8185 	DATA 	Keypress: v
+667.8351 	EXP 	background: autoDraw = False
+667.8351 	EXP 	person_img: autoDraw = False
+667.8351 	EXP 	food: autoDraw = False
+667.8351 	EXP 	text_6: text = 'Correct'
+667.8351 	EXP 	text_6: autoDraw = True
+669.8204 	EXP 	New trial (rep=4, index=3): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+669.8366 	EXP 	text_6: autoDraw = False
+669.8366 	EXP 	text_6: autoDraw = False
+670.3537 	EXP 	text_4: autoDraw = True
+670.8540 	EXP 	text_4: autoDraw = False
+670.8540 	EXP 	text_4: autoDraw = False
+670.8540 	EXP 	person_img: image = 'green_center_nf.png'
+670.8540 	EXP 	food: image = 'wheat3_t.png'
+671.1044 	EXP 	background: autoDraw = True
+671.1044 	EXP 	person_img: autoDraw = True
+671.1044 	EXP 	food: autoDraw = True
+673.5562 	DATA 	Keypress: v
+673.5728 	EXP 	background: autoDraw = False
+673.5728 	EXP 	person_img: autoDraw = False
+673.5728 	EXP 	food: autoDraw = False
+673.5728 	EXP 	text_6: text = 'Correct'
+673.5728 	EXP 	text_6: autoDraw = True
+675.5581 	EXP 	New trial (rep=4, index=4): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+675.5743 	EXP 	text_6: autoDraw = False
+675.5743 	EXP 	text_6: autoDraw = False
+676.0914 	EXP 	text_4: autoDraw = True
+676.5918 	EXP 	text_4: autoDraw = False
+676.5918 	EXP 	text_4: autoDraw = False
+676.5918 	EXP 	person_img: image = 'blue_center_nf.png'
+676.5918 	EXP 	food: image = 'wheat3_t.png'
+676.8421 	EXP 	background: autoDraw = True
+676.8421 	EXP 	person_img: autoDraw = True
+676.8421 	EXP 	food: autoDraw = True
+678.4266 	DATA 	Keypress: b
+678.4432 	EXP 	background: autoDraw = False
+678.4432 	EXP 	person_img: autoDraw = False
+678.4432 	EXP 	food: autoDraw = False
+678.4432 	EXP 	text_6: text = 'Correct'
+678.4432 	EXP 	text_6: autoDraw = True
+680.4285 	EXP 	New trial (rep=4, index=5): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+680.4447 	EXP 	text_6: autoDraw = False
+680.4447 	EXP 	text_6: autoDraw = False
+680.9618 	EXP 	text_4: autoDraw = True
+681.4622 	EXP 	text_4: autoDraw = False
+681.4622 	EXP 	text_4: autoDraw = False
+681.4622 	EXP 	person_img: image = 'blue_center_nf.png'
+681.4622 	EXP 	food: image = 'insect3_t.png'
+681.6958 	EXP 	background: autoDraw = True
+681.6958 	EXP 	person_img: autoDraw = True
+681.6958 	EXP 	food: autoDraw = True
+682.8133 	DATA 	Keypress: b
+682.8299 	EXP 	background: autoDraw = False
+682.8299 	EXP 	person_img: autoDraw = False
+682.8299 	EXP 	food: autoDraw = False
+682.8299 	EXP 	text_6: text = 'Correct'
+682.8299 	EXP 	text_6: autoDraw = True
+682.8467 	DATA 	Keypress: b
+684.8153 	EXP 	New trial (rep=4, index=6): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+684.8315 	EXP 	text_6: autoDraw = False
+684.8315 	EXP 	text_6: autoDraw = False
+685.3486 	EXP 	text_4: autoDraw = True
+685.8520 	EXP 	text_4: autoDraw = False
+685.8520 	EXP 	text_4: autoDraw = False
+685.8520 	EXP 	person_img: image = 'red_center.png'
+685.8520 	EXP 	food: image = 'insect2_t.png'
+686.1161 	EXP 	background: autoDraw = True
+686.1161 	EXP 	person_img: autoDraw = True
+686.1161 	EXP 	food: autoDraw = True
+686.7997 	DATA 	Keypress: b
+686.8162 	EXP 	background: autoDraw = False
+686.8162 	EXP 	person_img: autoDraw = False
+686.8162 	EXP 	food: autoDraw = False
+686.8162 	EXP 	text_6: text = 'Incorrect'
+686.8162 	EXP 	text_6: autoDraw = True
+688.8015 	EXP 	New trial (rep=4, index=7): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+688.8178 	EXP 	text_6: autoDraw = False
+688.8178 	EXP 	text_6: autoDraw = False
+689.3348 	EXP 	text_4: autoDraw = True
+689.9019 	EXP 	text_4: autoDraw = False
+689.9019 	EXP 	text_4: autoDraw = False
+689.9019 	EXP 	person_img: image = 'green_center_nf.png'
+689.9019 	EXP 	food: image = 'insect5_t.png'
+690.0856 	EXP 	background: autoDraw = True
+690.0856 	EXP 	person_img: autoDraw = True
+690.0856 	EXP 	food: autoDraw = True
+691.5199 	DATA 	Keypress: b
+691.5365 	EXP 	background: autoDraw = False
+691.5365 	EXP 	person_img: autoDraw = False
+691.5365 	EXP 	food: autoDraw = False
+691.5365 	EXP 	text_6: text = 'Correct'
+691.5365 	EXP 	text_6: autoDraw = True
+693.5218 	EXP 	New trial (rep=4, index=8): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+693.5380 	EXP 	text_6: autoDraw = False
+693.5380 	EXP 	text_6: autoDraw = False
+694.0551 	EXP 	text_4: autoDraw = True
+694.5388 	EXP 	text_4: autoDraw = False
+694.5388 	EXP 	text_4: autoDraw = False
+694.5388 	EXP 	person_img: image = 'red_center.png'
+694.5388 	EXP 	food: image = 'wheat4_t.png'
+694.8058 	EXP 	background: autoDraw = True
+694.8058 	EXP 	person_img: autoDraw = True
+694.8058 	EXP 	food: autoDraw = True
+696.0234 	DATA 	Keypress: b
+696.0400 	EXP 	background: autoDraw = False
+696.0400 	EXP 	person_img: autoDraw = False
+696.0400 	EXP 	food: autoDraw = False
+696.0400 	EXP 	text_6: text = 'Incorrect'
+696.0400 	EXP 	text_6: autoDraw = True
+698.0254 	EXP 	New trial (rep=4, index=9): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+698.0416 	EXP 	text_6: autoDraw = False
+698.0416 	EXP 	text_6: autoDraw = False
+698.5587 	EXP 	text_4: autoDraw = True
+699.0789 	EXP 	text_4: autoDraw = False
+699.0789 	EXP 	text_4: autoDraw = False
+699.0789 	EXP 	person_img: image = 'red_center.png'
+699.0789 	EXP 	food: image = 'dairy1_t.png'
+699.3293 	EXP 	background: autoDraw = True
+699.3293 	EXP 	person_img: autoDraw = True
+699.3293 	EXP 	food: autoDraw = True
+700.2433 	DATA 	Keypress: b
+700.2599 	EXP 	background: autoDraw = False
+700.2599 	EXP 	person_img: autoDraw = False
+700.2599 	EXP 	food: autoDraw = False
+700.2599 	EXP 	text_6: text = 'Incorrect'
+700.2599 	EXP 	text_6: autoDraw = True
+702.2452 	EXP 	New trial (rep=4, index=10): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+702.2614 	EXP 	text_6: autoDraw = False
+702.2614 	EXP 	text_6: autoDraw = False
+702.7784 	EXP 	text_4: autoDraw = True
+703.2788 	EXP 	text_4: autoDraw = False
+703.2788 	EXP 	text_4: autoDraw = False
+703.2788 	EXP 	person_img: image = 'green_center_nf.png'
+703.2788 	EXP 	food: image = 'insect2_t.png'
+703.5292 	EXP 	background: autoDraw = True
+703.5292 	EXP 	person_img: autoDraw = True
+703.5292 	EXP 	food: autoDraw = True
+704.4632 	DATA 	Keypress: b
+704.4797 	EXP 	background: autoDraw = False
+704.4797 	EXP 	person_img: autoDraw = False
+704.4797 	EXP 	food: autoDraw = False
+704.4797 	EXP 	text_6: text = 'Correct'
+704.4797 	EXP 	text_6: autoDraw = True
+706.4652 	EXP 	New trial (rep=4, index=11): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+706.4814 	EXP 	text_6: autoDraw = False
+706.4814 	EXP 	text_6: autoDraw = False
+706.9985 	EXP 	text_4: autoDraw = True
+707.5020 	EXP 	text_4: autoDraw = False
+707.5020 	EXP 	text_4: autoDraw = False
+707.5020 	EXP 	person_img: image = 'blue_center_nf.png'
+707.5020 	EXP 	food: image = 'dairy5_t.png'
+707.7660 	EXP 	background: autoDraw = True
+707.7660 	EXP 	person_img: autoDraw = True
+707.7660 	EXP 	food: autoDraw = True
+712.9363 	DATA 	Keypress: v
+712.9529 	EXP 	background: autoDraw = False
+712.9529 	EXP 	person_img: autoDraw = False
+712.9529 	EXP 	food: autoDraw = False
+712.9529 	EXP 	text_6: text = 'Correct'
+712.9529 	EXP 	text_6: autoDraw = True
+714.9382 	EXP 	New trial (rep=4, index=12): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+714.9544 	EXP 	text_6: autoDraw = False
+714.9544 	EXP 	text_6: autoDraw = False
+715.4715 	EXP 	text_4: autoDraw = True
+715.9719 	EXP 	text_4: autoDraw = False
+715.9719 	EXP 	text_4: autoDraw = False
+715.9719 	EXP 	person_img: image = 'red_center.png'
+715.9719 	EXP 	food: image = 'dairy1_t.png'
+716.2222 	EXP 	background: autoDraw = True
+716.2222 	EXP 	person_img: autoDraw = True
+716.2222 	EXP 	food: autoDraw = True
+719.6748 	DATA 	Keypress: b
+719.6914 	EXP 	background: autoDraw = False
+719.6914 	EXP 	person_img: autoDraw = False
+719.6914 	EXP 	food: autoDraw = False
+719.6914 	EXP 	text_6: text = 'Incorrect'
+719.6914 	EXP 	text_6: autoDraw = True
+721.6767 	EXP 	New trial (rep=4, index=13): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+721.6929 	EXP 	text_6: autoDraw = False
+721.6929 	EXP 	text_6: autoDraw = False
+722.2100 	EXP 	text_4: autoDraw = True
+722.7104 	EXP 	text_4: autoDraw = False
+722.7104 	EXP 	text_4: autoDraw = False
+722.7104 	EXP 	person_img: image = 'green_center_nf.png'
+722.7104 	EXP 	food: image = 'dairy3_t.png'
+722.9607 	EXP 	background: autoDraw = True
+722.9607 	EXP 	person_img: autoDraw = True
+722.9607 	EXP 	food: autoDraw = True
+726.7302 	DATA 	Keypress: b
+726.7468 	EXP 	background: autoDraw = False
+726.7468 	EXP 	person_img: autoDraw = False
+726.7468 	EXP 	food: autoDraw = False
+726.7468 	EXP 	text_6: text = 'Correct'
+726.7468 	EXP 	text_6: autoDraw = True
+728.7321 	EXP 	New trial (rep=4, index=14): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+728.7483 	EXP 	text_6: autoDraw = False
+728.7483 	EXP 	text_6: autoDraw = False
+729.2654 	EXP 	text_4: autoDraw = True
+729.7491 	EXP 	text_4: autoDraw = False
+729.7491 	EXP 	text_4: autoDraw = False
+729.7491 	EXP 	person_img: image = 'red_center.png'
+729.7491 	EXP 	food: image = 'wheat5_t.png'
+730.0161 	EXP 	background: autoDraw = True
+730.0161 	EXP 	person_img: autoDraw = True
+730.0161 	EXP 	food: autoDraw = True
+730.9168 	DATA 	Keypress: b
+730.9333 	EXP 	background: autoDraw = False
+730.9333 	EXP 	person_img: autoDraw = False
+730.9333 	EXP 	food: autoDraw = False
+730.9333 	EXP 	text_6: text = 'Incorrect'
+730.9333 	EXP 	text_6: autoDraw = True
+732.9186 	EXP 	New trial (rep=4, index=15): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+732.9348 	EXP 	text_6: autoDraw = False
+732.9348 	EXP 	text_6: autoDraw = False
+733.4520 	EXP 	text_4: autoDraw = True
+733.9554 	EXP 	text_4: autoDraw = False
+733.9554 	EXP 	text_4: autoDraw = False
+733.9554 	EXP 	person_img: image = 'green_center_nf.png'
+733.9554 	EXP 	food: image = 'wheat3_t.png'
+734.2197 	EXP 	background: autoDraw = True
+734.2197 	EXP 	person_img: autoDraw = True
+734.2197 	EXP 	food: autoDraw = True
+735.0866 	DATA 	Keypress: v
+735.1032 	EXP 	background: autoDraw = False
+735.1032 	EXP 	person_img: autoDraw = False
+735.1032 	EXP 	food: autoDraw = False
+735.1032 	EXP 	text_6: text = 'Correct'
+735.1032 	EXP 	text_6: autoDraw = True
+737.0885 	EXP 	New trial (rep=4, index=16): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+737.1047 	EXP 	text_6: autoDraw = False
+737.1047 	EXP 	text_6: autoDraw = False
+737.6218 	EXP 	text_4: autoDraw = True
+738.1221 	EXP 	text_4: autoDraw = False
+738.1221 	EXP 	text_4: autoDraw = False
+738.1221 	EXP 	person_img: image = 'green_center_nf.png'
+738.1221 	EXP 	food: image = 'wheat1_t.png'
+738.3558 	EXP 	background: autoDraw = True
+738.3558 	EXP 	person_img: autoDraw = True
+738.3558 	EXP 	food: autoDraw = True
+740.1572 	DATA 	Keypress: v
+740.1737 	EXP 	background: autoDraw = False
+740.1737 	EXP 	person_img: autoDraw = False
+740.1737 	EXP 	food: autoDraw = False
+740.1737 	EXP 	text_6: text = 'Correct'
+740.1737 	EXP 	text_6: autoDraw = True
+742.1590 	EXP 	New trial (rep=4, index=17): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+742.1752 	EXP 	text_6: autoDraw = False
+742.1752 	EXP 	text_6: autoDraw = False
+742.6923 	EXP 	text_4: autoDraw = True
+743.1927 	EXP 	text_4: autoDraw = False
+743.1927 	EXP 	text_4: autoDraw = False
+743.1927 	EXP 	person_img: image = 'green_center_nf.png'
+743.1927 	EXP 	food: image = 'dairy2_t.png'
+743.4263 	EXP 	background: autoDraw = True
+743.4263 	EXP 	person_img: autoDraw = True
+743.4263 	EXP 	food: autoDraw = True
+748.2967 	DATA 	Keypress: b
+748.3133 	EXP 	background: autoDraw = False
+748.3133 	EXP 	person_img: autoDraw = False
+748.3133 	EXP 	food: autoDraw = False
+748.3133 	EXP 	text_6: text = 'Correct'
+748.3133 	EXP 	text_6: autoDraw = True
+750.2986 	EXP 	New trial (rep=4, index=18): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+750.3148 	EXP 	text_6: autoDraw = False
+750.3148 	EXP 	text_6: autoDraw = False
+750.8319 	EXP 	text_4: autoDraw = True
+751.3990 	EXP 	text_4: autoDraw = False
+751.3990 	EXP 	text_4: autoDraw = False
+751.3990 	EXP 	person_img: image = 'blue_center_nf.png'
+751.3990 	EXP 	food: image = 'insect5_t.png'
+751.5826 	EXP 	background: autoDraw = True
+751.5826 	EXP 	person_img: autoDraw = True
+751.5826 	EXP 	food: autoDraw = True
+754.9351 	DATA 	Keypress: b
+754.9517 	EXP 	background: autoDraw = False
+754.9517 	EXP 	person_img: autoDraw = False
+754.9517 	EXP 	food: autoDraw = False
+754.9517 	EXP 	text_6: text = 'Correct'
+754.9517 	EXP 	text_6: autoDraw = True
+756.9370 	EXP 	New trial (rep=4, index=19): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+756.9532 	EXP 	text_6: autoDraw = False
+756.9532 	EXP 	text_6: autoDraw = False
+757.4703 	EXP 	text_4: autoDraw = True
+757.9707 	EXP 	text_4: autoDraw = False
+757.9707 	EXP 	text_4: autoDraw = False
+757.9707 	EXP 	person_img: image = 'blue_center_nf.png'
+757.9707 	EXP 	food: image = 'dairy3_t.png'
+758.2210 	EXP 	background: autoDraw = True
+758.2210 	EXP 	person_img: autoDraw = True
+758.2210 	EXP 	food: autoDraw = True
+760.3893 	DATA 	Keypress: v
+760.4058 	EXP 	background: autoDraw = False
+760.4058 	EXP 	person_img: autoDraw = False
+760.4058 	EXP 	food: autoDraw = False
+760.4058 	EXP 	text_6: text = 'Correct'
+760.4058 	EXP 	text_6: autoDraw = True
+762.3912 	EXP 	New trial (rep=5, index=0): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+762.4074 	EXP 	text_6: autoDraw = False
+762.4074 	EXP 	text_6: autoDraw = False
+762.9244 	EXP 	text_4: autoDraw = True
+763.4248 	EXP 	text_4: autoDraw = False
+763.4248 	EXP 	text_4: autoDraw = False
+763.4248 	EXP 	person_img: image = 'green_center_nf.png'
+763.4248 	EXP 	food: image = 'insect3_t.png'
+763.6752 	EXP 	background: autoDraw = True
+763.6752 	EXP 	person_img: autoDraw = True
+763.6752 	EXP 	food: autoDraw = True
+765.5099 	DATA 	Keypress: b
+765.5264 	EXP 	background: autoDraw = False
+765.5264 	EXP 	person_img: autoDraw = False
+765.5264 	EXP 	food: autoDraw = False
+765.5264 	EXP 	text_6: text = 'Correct'
+765.5264 	EXP 	text_6: autoDraw = True
+767.5117 	EXP 	New trial (rep=5, index=1): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+767.5280 	EXP 	text_6: autoDraw = False
+767.5280 	EXP 	text_6: autoDraw = False
+768.0450 	EXP 	text_4: autoDraw = True
+768.5454 	EXP 	text_4: autoDraw = False
+768.5454 	EXP 	text_4: autoDraw = False
+768.5454 	EXP 	person_img: image = 'blue_center_nf.png'
+768.5454 	EXP 	food: image = 'insect2_t.png'
+768.7958 	EXP 	background: autoDraw = True
+768.7958 	EXP 	person_img: autoDraw = True
+768.7958 	EXP 	food: autoDraw = True
+770.2802 	DATA 	Keypress: b
+770.2967 	EXP 	background: autoDraw = False
+770.2967 	EXP 	person_img: autoDraw = False
+770.2967 	EXP 	food: autoDraw = False
+770.2967 	EXP 	text_6: text = 'Correct'
+770.2967 	EXP 	text_6: autoDraw = True
+772.2820 	EXP 	New trial (rep=5, index=2): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+772.2983 	EXP 	text_6: autoDraw = False
+772.2983 	EXP 	text_6: autoDraw = False
+772.8153 	EXP 	text_4: autoDraw = True
+773.3157 	EXP 	text_4: autoDraw = False
+773.3157 	EXP 	text_4: autoDraw = False
+773.3157 	EXP 	person_img: image = 'green_center_nf.png'
+773.3157 	EXP 	food: image = 'wheat2_t.png'
+773.5661 	EXP 	background: autoDraw = True
+773.5661 	EXP 	person_img: autoDraw = True
+773.5661 	EXP 	food: autoDraw = True
+776.6684 	DATA 	Keypress: v
+776.6850 	EXP 	background: autoDraw = False
+776.6850 	EXP 	person_img: autoDraw = False
+776.6850 	EXP 	food: autoDraw = False
+776.6850 	EXP 	text_6: text = 'Correct'
+776.6850 	EXP 	text_6: autoDraw = True
+778.6703 	EXP 	New trial (rep=5, index=3): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+778.6865 	EXP 	text_6: autoDraw = False
+778.6865 	EXP 	text_6: autoDraw = False
+779.2036 	EXP 	text_4: autoDraw = True
+779.6873 	EXP 	text_4: autoDraw = False
+779.6873 	EXP 	text_4: autoDraw = False
+779.6873 	EXP 	person_img: image = 'blue_center_nf.png'
+779.6873 	EXP 	food: image = 'dairy4_t.png'
+779.9543 	EXP 	background: autoDraw = True
+779.9543 	EXP 	person_img: autoDraw = True
+779.9543 	EXP 	food: autoDraw = True
+784.2575 	DATA 	Keypress: v
+784.2741 	EXP 	background: autoDraw = False
+784.2741 	EXP 	person_img: autoDraw = False
+784.2741 	EXP 	food: autoDraw = False
+784.2741 	EXP 	text_6: text = 'Correct'
+784.2741 	EXP 	text_6: autoDraw = True
+786.2594 	EXP 	New trial (rep=5, index=4): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+786.2756 	EXP 	text_6: autoDraw = False
+786.2756 	EXP 	text_6: autoDraw = False
+786.7927 	EXP 	text_4: autoDraw = True
+787.2764 	EXP 	text_4: autoDraw = False
+787.2764 	EXP 	text_4: autoDraw = False
+787.2764 	EXP 	person_img: image = 'red_center.png'
+787.2764 	EXP 	food: image = 'wheat4_t.png'
+787.5434 	EXP 	background: autoDraw = True
+787.5434 	EXP 	person_img: autoDraw = True
+787.5434 	EXP 	food: autoDraw = True
+788.9945 	DATA 	Keypress: b
+789.0111 	EXP 	background: autoDraw = False
+789.0111 	EXP 	person_img: autoDraw = False
+789.0111 	EXP 	food: autoDraw = False
+789.0111 	EXP 	text_6: text = 'Incorrect'
+789.0111 	EXP 	text_6: autoDraw = True
+790.9964 	EXP 	New trial (rep=5, index=5): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+791.0126 	EXP 	text_6: autoDraw = False
+791.0126 	EXP 	text_6: autoDraw = False
+791.5296 	EXP 	text_4: autoDraw = True
+792.0300 	EXP 	text_4: autoDraw = False
+792.0300 	EXP 	text_4: autoDraw = False
+792.0300 	EXP 	person_img: image = 'blue_center_nf.png'
+792.0300 	EXP 	food: image = 'dairy2_t.png'
+792.2804 	EXP 	background: autoDraw = True
+792.2804 	EXP 	person_img: autoDraw = True
+792.2804 	EXP 	food: autoDraw = True
+793.6647 	DATA 	Keypress: v
+793.6813 	EXP 	background: autoDraw = False
+793.6813 	EXP 	person_img: autoDraw = False
+793.6813 	EXP 	food: autoDraw = False
+793.6813 	EXP 	text_6: text = 'Correct'
+793.6813 	EXP 	text_6: autoDraw = True
+795.6667 	EXP 	New trial (rep=5, index=6): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+795.6829 	EXP 	text_6: autoDraw = False
+795.6829 	EXP 	text_6: autoDraw = False
+796.2000 	EXP 	text_4: autoDraw = True
+796.7034 	EXP 	text_4: autoDraw = False
+796.7034 	EXP 	text_4: autoDraw = False
+796.7034 	EXP 	person_img: image = 'blue_center_nf.png'
+796.7034 	EXP 	food: image = 'wheat1_t.png'
+796.9509 	EXP 	background: autoDraw = True
+796.9509 	EXP 	person_img: autoDraw = True
+796.9509 	EXP 	food: autoDraw = True
+798.2349 	DATA 	Keypress: v
+798.2515 	EXP 	background: autoDraw = False
+798.2515 	EXP 	person_img: autoDraw = False
+798.2515 	EXP 	food: autoDraw = False
+798.2515 	EXP 	text_6: text = 'Incorrect'
+798.2515 	EXP 	text_6: autoDraw = True
+800.2367 	EXP 	New trial (rep=5, index=7): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+800.2530 	EXP 	text_6: autoDraw = False
+800.2530 	EXP 	text_6: autoDraw = False
+800.7701 	EXP 	text_4: autoDraw = True
+801.2704 	EXP 	text_4: autoDraw = False
+801.2704 	EXP 	text_4: autoDraw = False
+801.2704 	EXP 	person_img: image = 'red_center.png'
+801.2704 	EXP 	food: image = 'dairy5_t.png'
+801.5208 	EXP 	background: autoDraw = True
+801.5208 	EXP 	person_img: autoDraw = True
+801.5208 	EXP 	food: autoDraw = True
+802.2213 	DATA 	Keypress: b
+802.2378 	EXP 	background: autoDraw = False
+802.2378 	EXP 	person_img: autoDraw = False
+802.2378 	EXP 	food: autoDraw = False
+802.2378 	EXP 	text_6: text = 'Incorrect'
+802.2378 	EXP 	text_6: autoDraw = True
+804.2233 	EXP 	New trial (rep=5, index=8): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+804.2395 	EXP 	text_6: autoDraw = False
+804.2395 	EXP 	text_6: autoDraw = False
+804.7566 	EXP 	text_4: autoDraw = True
+805.2599 	EXP 	text_4: autoDraw = False
+805.2599 	EXP 	text_4: autoDraw = False
+805.2599 	EXP 	person_img: image = 'green_center_nf.png'
+805.2599 	EXP 	food: image = 'wheat1_t.png'
+805.5241 	EXP 	background: autoDraw = True
+805.5241 	EXP 	person_img: autoDraw = True
+805.5241 	EXP 	food: autoDraw = True
+806.4745 	DATA 	Keypress: v
+806.4911 	EXP 	background: autoDraw = False
+806.4911 	EXP 	person_img: autoDraw = False
+806.4911 	EXP 	food: autoDraw = False
+806.4911 	EXP 	text_6: text = 'Correct'
+806.4911 	EXP 	text_6: autoDraw = True
+808.4764 	EXP 	New trial (rep=5, index=9): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+808.4926 	EXP 	text_6: autoDraw = False
+808.4926 	EXP 	text_6: autoDraw = False
+809.0097 	EXP 	text_4: autoDraw = True
+809.5101 	EXP 	text_4: autoDraw = False
+809.5101 	EXP 	text_4: autoDraw = False
+809.5101 	EXP 	person_img: image = 'green_center_nf.png'
+809.5101 	EXP 	food: image = 'insect3_t.png'
+809.7438 	EXP 	background: autoDraw = True
+809.7438 	EXP 	person_img: autoDraw = True
+809.7438 	EXP 	food: autoDraw = True
+810.4776 	DATA 	Keypress: b
+810.4942 	EXP 	background: autoDraw = False
+810.4942 	EXP 	person_img: autoDraw = False
+810.4942 	EXP 	food: autoDraw = False
+810.4942 	EXP 	text_6: text = 'Correct'
+810.4942 	EXP 	text_6: autoDraw = True
+812.4796 	EXP 	New trial (rep=5, index=10): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+812.4958 	EXP 	text_6: autoDraw = False
+812.4958 	EXP 	text_6: autoDraw = False
+813.0129 	EXP 	text_4: autoDraw = True
+813.4966 	EXP 	text_4: autoDraw = False
+813.4966 	EXP 	text_4: autoDraw = False
+813.4966 	EXP 	person_img: image = 'red_center.png'
+813.4966 	EXP 	food: image = 'dairy2_t.png'
+813.7634 	EXP 	background: autoDraw = True
+813.7634 	EXP 	person_img: autoDraw = True
+813.7634 	EXP 	food: autoDraw = True
+816.4322 	DATA 	Keypress: b
+816.4487 	EXP 	background: autoDraw = False
+816.4487 	EXP 	person_img: autoDraw = False
+816.4487 	EXP 	food: autoDraw = False
+816.4487 	EXP 	text_6: text = 'Incorrect'
+816.4487 	EXP 	text_6: autoDraw = True
+818.4340 	EXP 	New trial (rep=5, index=11): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+818.4502 	EXP 	text_6: autoDraw = False
+818.4502 	EXP 	text_6: autoDraw = False
+818.9673 	EXP 	text_4: autoDraw = True
+819.4677 	EXP 	text_4: autoDraw = False
+819.4677 	EXP 	text_4: autoDraw = False
+819.4677 	EXP 	person_img: image = 'green_center_nf.png'
+819.4677 	EXP 	food: image = 'dairy5_t.png'
+819.7181 	EXP 	background: autoDraw = True
+819.7181 	EXP 	person_img: autoDraw = True
+819.7181 	EXP 	food: autoDraw = True
+821.8696 	DATA 	Keypress: b
+821.8862 	EXP 	background: autoDraw = False
+821.8862 	EXP 	person_img: autoDraw = False
+821.8862 	EXP 	food: autoDraw = False
+821.8862 	EXP 	text_6: text = 'Correct'
+821.8862 	EXP 	text_6: autoDraw = True
+823.8716 	EXP 	New trial (rep=5, index=12): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+823.8877 	EXP 	text_6: autoDraw = False
+823.8877 	EXP 	text_6: autoDraw = False
+824.4048 	EXP 	text_4: autoDraw = True
+824.9552 	EXP 	text_4: autoDraw = False
+824.9552 	EXP 	text_4: autoDraw = False
+824.9552 	EXP 	person_img: image = 'red_center.png'
+824.9552 	EXP 	food: image = 'insect5_t.png'
+825.1555 	EXP 	background: autoDraw = True
+825.1555 	EXP 	person_img: autoDraw = True
+825.1555 	EXP 	food: autoDraw = True
+826.1396 	DATA 	Keypress: b
+826.1561 	EXP 	background: autoDraw = False
+826.1561 	EXP 	person_img: autoDraw = False
+826.1561 	EXP 	food: autoDraw = False
+826.1561 	EXP 	text_6: text = 'Incorrect'
+826.1561 	EXP 	text_6: autoDraw = True
+828.1414 	EXP 	New trial (rep=5, index=13): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+828.1577 	EXP 	text_6: autoDraw = False
+828.1577 	EXP 	text_6: autoDraw = False
+828.6748 	EXP 	text_4: autoDraw = True
+829.1950 	EXP 	text_4: autoDraw = False
+829.1950 	EXP 	text_4: autoDraw = False
+829.1950 	EXP 	person_img: image = 'green_center_nf.png'
+829.1950 	EXP 	food: image = 'dairy1_t.png'
+829.4421 	EXP 	background: autoDraw = True
+829.4421 	EXP 	person_img: autoDraw = True
+829.4421 	EXP 	food: autoDraw = True
+830.8765 	DATA 	Keypress: b
+830.8931 	EXP 	background: autoDraw = False
+830.8931 	EXP 	person_img: autoDraw = False
+830.8931 	EXP 	food: autoDraw = False
+830.8931 	EXP 	text_6: text = 'Correct'
+830.8931 	EXP 	text_6: autoDraw = True
+832.8784 	EXP 	New trial (rep=5, index=14): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+832.8946 	EXP 	text_6: autoDraw = False
+832.8946 	EXP 	text_6: autoDraw = False
+833.4117 	EXP 	text_4: autoDraw = True
+833.8954 	EXP 	text_4: autoDraw = False
+833.8954 	EXP 	text_4: autoDraw = False
+833.8954 	EXP 	person_img: image = 'red_center.png'
+833.8954 	EXP 	food: image = 'insect1_t.png'
+834.1624 	EXP 	background: autoDraw = True
+834.1624 	EXP 	person_img: autoDraw = True
+834.1624 	EXP 	food: autoDraw = True
+835.3800 	DATA 	Keypress: b
+835.3965 	EXP 	background: autoDraw = False
+835.3965 	EXP 	person_img: autoDraw = False
+835.3965 	EXP 	food: autoDraw = False
+835.3965 	EXP 	text_6: text = 'Incorrect'
+835.3965 	EXP 	text_6: autoDraw = True
+837.3818 	EXP 	New trial (rep=5, index=15): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+837.3981 	EXP 	text_6: autoDraw = False
+837.3981 	EXP 	text_6: autoDraw = False
+837.9152 	EXP 	text_4: autoDraw = True
+838.4186 	EXP 	text_4: autoDraw = False
+838.4186 	EXP 	text_4: autoDraw = False
+838.4186 	EXP 	person_img: image = 'red_center.png'
+838.4186 	EXP 	food: image = 'wheat2_t.png'
+838.6661 	EXP 	background: autoDraw = True
+838.6661 	EXP 	person_img: autoDraw = True
+838.6661 	EXP 	food: autoDraw = True
+839.6165 	DATA 	Keypress: b
+839.6331 	EXP 	background: autoDraw = False
+839.6331 	EXP 	person_img: autoDraw = False
+839.6331 	EXP 	food: autoDraw = False
+839.6331 	EXP 	text_6: text = 'Incorrect'
+839.6331 	EXP 	text_6: autoDraw = True
+841.6184 	EXP 	New trial (rep=5, index=16): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+841.6346 	EXP 	text_6: autoDraw = False
+841.6346 	EXP 	text_6: autoDraw = False
+842.1517 	EXP 	text_4: autoDraw = True
+842.6521 	EXP 	text_4: autoDraw = False
+842.6521 	EXP 	text_4: autoDraw = False
+842.6521 	EXP 	person_img: image = 'green_center_nf.png'
+842.6521 	EXP 	food: image = 'wheat5_t.png'
+842.9024 	EXP 	background: autoDraw = True
+842.9024 	EXP 	person_img: autoDraw = True
+842.9024 	EXP 	food: autoDraw = True
+844.8038 	DATA 	Keypress: v
+844.8204 	EXP 	background: autoDraw = False
+844.8204 	EXP 	person_img: autoDraw = False
+844.8204 	EXP 	food: autoDraw = False
+844.8204 	EXP 	text_6: text = 'Correct'
+844.8204 	EXP 	text_6: autoDraw = True
+846.8057 	EXP 	New trial (rep=5, index=17): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+846.8219 	EXP 	text_6: autoDraw = False
+846.8219 	EXP 	text_6: autoDraw = False
+847.3390 	EXP 	text_4: autoDraw = True
+847.8394 	EXP 	text_4: autoDraw = False
+847.8394 	EXP 	text_4: autoDraw = False
+847.8394 	EXP 	person_img: image = 'blue_center_nf.png'
+847.8394 	EXP 	food: image = 'wheat4_t.png'
+848.0897 	EXP 	background: autoDraw = True
+848.0897 	EXP 	person_img: autoDraw = True
+848.0897 	EXP 	food: autoDraw = True
+857.2300 	DATA 	Keypress: b
+857.2466 	EXP 	background: autoDraw = False
+857.2466 	EXP 	person_img: autoDraw = False
+857.2466 	EXP 	food: autoDraw = False
+857.2466 	EXP 	text_6: text = 'Correct'
+857.2466 	EXP 	text_6: autoDraw = True
+859.2319 	EXP 	New trial (rep=5, index=18): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+859.2481 	EXP 	text_6: autoDraw = False
+859.2481 	EXP 	text_6: autoDraw = False
+859.7652 	EXP 	text_4: autoDraw = True
+860.2656 	EXP 	text_4: autoDraw = False
+860.2656 	EXP 	text_4: autoDraw = False
+860.2656 	EXP 	person_img: image = 'blue_center_nf.png'
+860.2656 	EXP 	food: image = 'insect4_t.png'
+860.4992 	EXP 	background: autoDraw = True
+860.4992 	EXP 	person_img: autoDraw = True
+860.4992 	EXP 	food: autoDraw = True
+861.4999 	DATA 	Keypress: b
+861.5165 	EXP 	background: autoDraw = False
+861.5165 	EXP 	person_img: autoDraw = False
+861.5165 	EXP 	food: autoDraw = False
+861.5165 	EXP 	text_6: text = 'Correct'
+861.5165 	EXP 	text_6: autoDraw = True
+863.5018 	EXP 	New trial (rep=5, index=19): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+863.5181 	EXP 	text_6: autoDraw = False
+863.5181 	EXP 	text_6: autoDraw = False
+864.0352 	EXP 	text_4: autoDraw = True
+864.5386 	EXP 	text_4: autoDraw = False
+864.5386 	EXP 	text_4: autoDraw = False
+864.5386 	EXP 	person_img: image = 'blue_center_nf.png'
+864.5386 	EXP 	food: image = 'dairy5_t.png'
+864.7858 	EXP 	background: autoDraw = True
+864.7858 	EXP 	person_img: autoDraw = True
+864.7858 	EXP 	food: autoDraw = True
+866.2369 	DATA 	Keypress: v
+866.2535 	EXP 	background: autoDraw = False
+866.2535 	EXP 	person_img: autoDraw = False
+866.2535 	EXP 	food: autoDraw = False
+866.2535 	EXP 	text_6: text = 'Correct'
+866.2535 	EXP 	text_6: autoDraw = True
+868.2388 	EXP 	New trial (rep=6, index=0): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+868.2550 	EXP 	text_6: autoDraw = False
+868.2550 	EXP 	text_6: autoDraw = False
+868.7721 	EXP 	text_4: autoDraw = True
+869.2724 	EXP 	text_4: autoDraw = False
+869.2724 	EXP 	text_4: autoDraw = False
+869.2724 	EXP 	person_img: image = 'blue_center_nf.png'
+869.2724 	EXP 	food: image = 'wheat2_t.png'
+869.5061 	EXP 	background: autoDraw = True
+869.5061 	EXP 	person_img: autoDraw = True
+869.5061 	EXP 	food: autoDraw = True
+872.0246 	DATA 	Keypress: b
+872.0412 	EXP 	background: autoDraw = False
+872.0412 	EXP 	person_img: autoDraw = False
+872.0412 	EXP 	food: autoDraw = False
+872.0412 	EXP 	text_6: text = 'Correct'
+872.0412 	EXP 	text_6: autoDraw = True
+874.0265 	EXP 	New trial (rep=6, index=1): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+874.0428 	EXP 	text_6: autoDraw = False
+874.0428 	EXP 	text_6: autoDraw = False
+874.5598 	EXP 	text_4: autoDraw = True
+875.0602 	EXP 	text_4: autoDraw = False
+875.0602 	EXP 	text_4: autoDraw = False
+875.0602 	EXP 	person_img: image = 'red_center.png'
+875.0602 	EXP 	food: image = 'insect2_t.png'
+875.3105 	EXP 	background: autoDraw = True
+875.3105 	EXP 	person_img: autoDraw = True
+875.3105 	EXP 	food: autoDraw = True
+876.5948 	DATA 	Keypress: b
+876.6114 	EXP 	background: autoDraw = False
+876.6114 	EXP 	person_img: autoDraw = False
+876.6114 	EXP 	food: autoDraw = False
+876.6114 	EXP 	text_6: text = 'Incorrect'
+876.6114 	EXP 	text_6: autoDraw = True
+878.5968 	EXP 	New trial (rep=6, index=2): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+878.6131 	EXP 	text_6: autoDraw = False
+878.6131 	EXP 	text_6: autoDraw = False
+879.1301 	EXP 	text_4: autoDraw = True
+879.6335 	EXP 	text_4: autoDraw = False
+879.6335 	EXP 	text_4: autoDraw = False
+879.6335 	EXP 	person_img: image = 'red_center.png'
+879.6335 	EXP 	food: image = 'dairy5_t.png'
+879.9007 	EXP 	background: autoDraw = True
+879.9007 	EXP 	person_img: autoDraw = True
+879.9007 	EXP 	food: autoDraw = True
+881.8322 	DATA 	Keypress: b
+881.8487 	EXP 	background: autoDraw = False
+881.8487 	EXP 	person_img: autoDraw = False
+881.8487 	EXP 	food: autoDraw = False
+881.8487 	EXP 	text_6: text = 'Incorrect'
+881.8487 	EXP 	text_6: autoDraw = True
+883.8341 	EXP 	New trial (rep=6, index=3): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+883.8502 	EXP 	text_6: autoDraw = False
+883.8502 	EXP 	text_6: autoDraw = False
+884.3673 	EXP 	text_4: autoDraw = True
+884.8677 	EXP 	text_4: autoDraw = False
+884.8677 	EXP 	text_4: autoDraw = False
+884.8677 	EXP 	person_img: image = 'green_center_nf.png'
+884.8677 	EXP 	food: image = 'wheat2_t.png'
+885.1181 	EXP 	background: autoDraw = True
+885.1181 	EXP 	person_img: autoDraw = True
+885.1181 	EXP 	food: autoDraw = True
+887.3364 	DATA 	Keypress: v
+887.3529 	EXP 	background: autoDraw = False
+887.3529 	EXP 	person_img: autoDraw = False
+887.3529 	EXP 	food: autoDraw = False
+887.3529 	EXP 	text_6: text = 'Correct'
+887.3529 	EXP 	text_6: autoDraw = True
+889.3382 	EXP 	New trial (rep=6, index=4): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+889.3545 	EXP 	text_6: autoDraw = False
+889.3545 	EXP 	text_6: autoDraw = False
+889.8715 	EXP 	text_4: autoDraw = True
+890.4386 	EXP 	text_4: autoDraw = False
+890.4386 	EXP 	text_4: autoDraw = False
+890.4386 	EXP 	person_img: image = 'blue_center_nf.png'
+890.4386 	EXP 	food: image = 'insect5_t.png'
+890.6222 	EXP 	background: autoDraw = True
+890.6222 	EXP 	person_img: autoDraw = True
+890.6222 	EXP 	food: autoDraw = True
+892.5904 	DATA 	Keypress: b
+892.6070 	EXP 	background: autoDraw = False
+892.6070 	EXP 	person_img: autoDraw = False
+892.6070 	EXP 	food: autoDraw = False
+892.6070 	EXP 	text_6: text = 'Correct'
+892.6070 	EXP 	text_6: autoDraw = True
+894.5923 	EXP 	New trial (rep=6, index=5): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+894.6085 	EXP 	text_6: autoDraw = False
+894.6085 	EXP 	text_6: autoDraw = False
+895.1256 	EXP 	text_4: autoDraw = True
+895.6426 	EXP 	text_4: autoDraw = False
+895.6426 	EXP 	text_4: autoDraw = False
+895.6426 	EXP 	person_img: image = 'blue_center_nf.png'
+895.6426 	EXP 	food: image = 'dairy1_t.png'
+895.8763 	EXP 	background: autoDraw = True
+895.8763 	EXP 	person_img: autoDraw = True
+895.8763 	EXP 	food: autoDraw = True
+897.4608 	DATA 	Keypress: v
+897.4773 	EXP 	background: autoDraw = False
+897.4773 	EXP 	person_img: autoDraw = False
+897.4773 	EXP 	food: autoDraw = False
+897.4773 	EXP 	text_6: text = 'Correct'
+897.4773 	EXP 	text_6: autoDraw = True
+899.4626 	EXP 	New trial (rep=6, index=6): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+899.4789 	EXP 	text_6: autoDraw = False
+899.4789 	EXP 	text_6: autoDraw = False
+899.9959 	EXP 	text_4: autoDraw = True
+900.4796 	EXP 	text_4: autoDraw = False
+900.4796 	EXP 	text_4: autoDraw = False
+900.4796 	EXP 	person_img: image = 'red_center.png'
+900.4796 	EXP 	food: image = 'wheat4_t.png'
+900.7467 	EXP 	background: autoDraw = True
+900.7467 	EXP 	person_img: autoDraw = True
+900.7467 	EXP 	food: autoDraw = True
+901.6473 	DATA 	Keypress: b
+901.6639 	EXP 	background: autoDraw = False
+901.6639 	EXP 	person_img: autoDraw = False
+901.6639 	EXP 	food: autoDraw = False
+901.6639 	EXP 	text_6: text = 'Incorrect'
+901.6639 	EXP 	text_6: autoDraw = True
+903.6493 	EXP 	New trial (rep=6, index=7): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+903.6655 	EXP 	text_6: autoDraw = False
+903.6655 	EXP 	text_6: autoDraw = False
+904.1826 	EXP 	text_4: autoDraw = True
+904.6861 	EXP 	text_4: autoDraw = False
+904.6861 	EXP 	text_4: autoDraw = False
+904.6861 	EXP 	person_img: image = 'green_center_nf.png'
+904.6861 	EXP 	food: image = 'insect1_t.png'
+904.9501 	EXP 	background: autoDraw = True
+904.9501 	EXP 	person_img: autoDraw = True
+904.9501 	EXP 	food: autoDraw = True
+906.1842 	DATA 	Keypress: b
+906.2007 	EXP 	background: autoDraw = False
+906.2007 	EXP 	person_img: autoDraw = False
+906.2007 	EXP 	food: autoDraw = False
+906.2007 	EXP 	text_6: text = 'Correct'
+906.2007 	EXP 	text_6: autoDraw = True
+908.1860 	EXP 	New trial (rep=6, index=8): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+908.2022 	EXP 	text_6: autoDraw = False
+908.2022 	EXP 	text_6: autoDraw = False
+908.7193 	EXP 	text_4: autoDraw = True
+909.2030 	EXP 	text_4: autoDraw = False
+909.2030 	EXP 	text_4: autoDraw = False
+909.2030 	EXP 	person_img: image = 'blue_center_nf.png'
+909.2030 	EXP 	food: image = 'dairy3_t.png'
+909.4700 	EXP 	background: autoDraw = True
+909.4700 	EXP 	person_img: autoDraw = True
+909.4700 	EXP 	food: autoDraw = True
+910.7876 	DATA 	Keypress: v
+910.8042 	EXP 	background: autoDraw = False
+910.8042 	EXP 	person_img: autoDraw = False
+910.8042 	EXP 	food: autoDraw = False
+910.8042 	EXP 	text_6: text = 'Correct'
+910.8042 	EXP 	text_6: autoDraw = True
+912.7896 	EXP 	New trial (rep=6, index=9): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'y'), ('correct_key_train', 'n')])
+912.8058 	EXP 	text_6: autoDraw = False
+912.8058 	EXP 	text_6: autoDraw = False
+913.3229 	EXP 	text_4: autoDraw = True
+913.8264 	EXP 	text_4: autoDraw = False
+913.8264 	EXP 	text_4: autoDraw = False
+913.8264 	EXP 	person_img: image = 'red_center.png'
+913.8264 	EXP 	food: image = 'insect4_t.png'
+914.0906 	EXP 	background: autoDraw = True
+914.0906 	EXP 	person_img: autoDraw = True
+914.0906 	EXP 	food: autoDraw = True
+914.9575 	DATA 	Keypress: b
+914.9741 	EXP 	background: autoDraw = False
+914.9741 	EXP 	person_img: autoDraw = False
+914.9741 	EXP 	food: autoDraw = False
+914.9741 	EXP 	text_6: text = 'Incorrect'
+914.9741 	EXP 	text_6: autoDraw = True
+916.9594 	EXP 	New trial (rep=6, index=10): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+916.9756 	EXP 	text_6: autoDraw = False
+916.9756 	EXP 	text_6: autoDraw = False
+917.4926 	EXP 	text_4: autoDraw = True
+917.9930 	EXP 	text_4: autoDraw = False
+917.9930 	EXP 	text_4: autoDraw = False
+917.9930 	EXP 	person_img: image = 'green_center_nf.png'
+917.9930 	EXP 	food: image = 'wheat3_t.png'
+918.2434 	EXP 	background: autoDraw = True
+918.2434 	EXP 	person_img: autoDraw = True
+918.2434 	EXP 	food: autoDraw = True
+919.7778 	DATA 	Keypress: v
+919.7944 	EXP 	background: autoDraw = False
+919.7944 	EXP 	person_img: autoDraw = False
+919.7944 	EXP 	food: autoDraw = False
+919.7944 	EXP 	text_6: text = 'Correct'
+919.7944 	EXP 	text_6: autoDraw = True
+921.7797 	EXP 	New trial (rep=6, index=11): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+921.7959 	EXP 	text_6: autoDraw = False
+921.7959 	EXP 	text_6: autoDraw = False
+922.3130 	EXP 	text_4: autoDraw = True
+922.8134 	EXP 	text_4: autoDraw = False
+922.8134 	EXP 	text_4: autoDraw = False
+922.8134 	EXP 	person_img: image = 'green_center_nf.png'
+922.8134 	EXP 	food: image = 'dairy3_t.png'
+923.0470 	EXP 	background: autoDraw = True
+923.0470 	EXP 	person_img: autoDraw = True
+923.0470 	EXP 	food: autoDraw = True
+924.2813 	DATA 	Keypress: b
+924.2979 	EXP 	background: autoDraw = False
+924.2979 	EXP 	person_img: autoDraw = False
+924.2979 	EXP 	food: autoDraw = False
+924.2979 	EXP 	text_6: text = 'Correct'
+924.2979 	EXP 	text_6: autoDraw = True
+926.2833 	EXP 	New trial (rep=6, index=12): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+926.2995 	EXP 	text_6: autoDraw = False
+926.2995 	EXP 	text_6: autoDraw = False
+926.8166 	EXP 	text_4: autoDraw = True
+927.3199 	EXP 	text_4: autoDraw = False
+927.3199 	EXP 	text_4: autoDraw = False
+927.3199 	EXP 	person_img: image = 'green_center_nf.png'
+927.3199 	EXP 	food: image = 'wheat5_t.png'
+927.5674 	EXP 	background: autoDraw = True
+927.5674 	EXP 	person_img: autoDraw = True
+927.5674 	EXP 	food: autoDraw = True
+928.5846 	DATA 	Keypress: v
+928.6011 	EXP 	background: autoDraw = False
+928.6011 	EXP 	person_img: autoDraw = False
+928.6011 	EXP 	food: autoDraw = False
+928.6011 	EXP 	text_6: text = 'Correct'
+928.6011 	EXP 	text_6: autoDraw = True
+930.5865 	EXP 	New trial (rep=6, index=13): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+930.6027 	EXP 	text_6: autoDraw = False
+930.6027 	EXP 	text_6: autoDraw = False
+931.1197 	EXP 	text_4: autoDraw = True
+931.6201 	EXP 	text_4: autoDraw = False
+931.6201 	EXP 	text_4: autoDraw = False
+931.6201 	EXP 	person_img: image = 'green_center_nf.png'
+931.6201 	EXP 	food: image = 'insect1_t.png'
+931.8538 	EXP 	background: autoDraw = True
+931.8538 	EXP 	person_img: autoDraw = True
+931.8538 	EXP 	food: autoDraw = True
+932.7711 	DATA 	Keypress: b
+932.7877 	EXP 	background: autoDraw = False
+932.7877 	EXP 	person_img: autoDraw = False
+932.7877 	EXP 	food: autoDraw = False
+932.7877 	EXP 	text_6: text = 'Correct'
+932.7877 	EXP 	text_6: autoDraw = True
+934.7730 	EXP 	New trial (rep=6, index=14): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+934.7892 	EXP 	text_6: autoDraw = False
+934.7892 	EXP 	text_6: autoDraw = False
+935.3064 	EXP 	text_4: autoDraw = True
+935.8099 	EXP 	text_4: autoDraw = False
+935.8099 	EXP 	text_4: autoDraw = False
+935.8099 	EXP 	person_img: image = 'red_center.png'
+935.8099 	EXP 	food: image = 'dairy5_t.png'
+936.0740 	EXP 	background: autoDraw = True
+936.0740 	EXP 	person_img: autoDraw = True
+936.0740 	EXP 	food: autoDraw = True
+937.2912 	DATA 	Keypress: b
+937.3078 	EXP 	background: autoDraw = False
+937.3078 	EXP 	person_img: autoDraw = False
+937.3078 	EXP 	food: autoDraw = False
+937.3078 	EXP 	text_6: text = 'Incorrect'
+937.3078 	EXP 	text_6: autoDraw = True
+939.2931 	EXP 	New trial (rep=6, index=15): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'd'), ('correct_key_train', 'b')])
+939.3093 	EXP 	text_6: autoDraw = False
+939.3093 	EXP 	text_6: autoDraw = False
+939.8264 	EXP 	text_4: autoDraw = True
+940.3268 	EXP 	text_4: autoDraw = False
+940.3268 	EXP 	text_4: autoDraw = False
+940.3268 	EXP 	person_img: image = 'green_center_nf.png'
+940.3268 	EXP 	food: image = 'dairy4_t.png'
+940.5771 	EXP 	background: autoDraw = True
+940.5771 	EXP 	person_img: autoDraw = True
+940.5771 	EXP 	food: autoDraw = True
+942.7454 	DATA 	Keypress: b
+942.7620 	EXP 	background: autoDraw = False
+942.7620 	EXP 	person_img: autoDraw = False
+942.7620 	EXP 	food: autoDraw = False
+942.7620 	EXP 	text_6: text = 'Correct'
+942.7620 	EXP 	text_6: autoDraw = True
+944.7473 	EXP 	New trial (rep=6, index=16): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'd'), ('correct_key_train', 'v')])
+944.7635 	EXP 	text_6: autoDraw = False
+944.7635 	EXP 	text_6: autoDraw = False
+945.2806 	EXP 	text_4: autoDraw = True
+945.7643 	EXP 	text_4: autoDraw = False
+945.7643 	EXP 	text_4: autoDraw = False
+945.7643 	EXP 	person_img: image = 'blue_center_nf.png'
+945.7643 	EXP 	food: image = 'dairy4_t.png'
+946.0313 	EXP 	background: autoDraw = True
+946.0313 	EXP 	person_img: autoDraw = True
+946.0313 	EXP 	food: autoDraw = True
+948.7333 	DATA 	Keypress: v
+948.7499 	EXP 	background: autoDraw = False
+948.7499 	EXP 	person_img: autoDraw = False
+948.7499 	EXP 	food: autoDraw = False
+948.7499 	EXP 	text_6: text = 'Correct'
+948.7499 	EXP 	text_6: autoDraw = True
+950.7352 	EXP 	New trial (rep=6, index=17): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'g'), ('correct_key_train', 'n')])
+950.7514 	EXP 	text_6: autoDraw = False
+950.7514 	EXP 	text_6: autoDraw = False
+951.2685 	EXP 	text_4: autoDraw = True
+951.7522 	EXP 	text_4: autoDraw = False
+951.7522 	EXP 	text_4: autoDraw = False
+951.7522 	EXP 	person_img: image = 'red_center.png'
+951.7522 	EXP 	food: image = 'wheat5_t.png'
+952.0192 	EXP 	background: autoDraw = True
+952.0192 	EXP 	person_img: autoDraw = True
+952.0192 	EXP 	food: autoDraw = True
+953.5203 	DATA 	Keypress: b
+953.5369 	EXP 	background: autoDraw = False
+953.5369 	EXP 	person_img: autoDraw = False
+953.5369 	EXP 	food: autoDraw = False
+953.5369 	EXP 	text_6: text = 'Incorrect'
+953.5369 	EXP 	text_6: autoDraw = True
+955.5222 	EXP 	New trial (rep=6, index=18): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'y'), ('correct_key_train', 'b')])
+955.5384 	EXP 	text_6: autoDraw = False
+955.5384 	EXP 	text_6: autoDraw = False
+956.0555 	EXP 	text_4: autoDraw = True
+956.6226 	EXP 	text_4: autoDraw = False
+956.6226 	EXP 	text_4: autoDraw = False
+956.6226 	EXP 	person_img: image = 'blue_center_nf.png'
+956.6226 	EXP 	food: image = 'insect5_t.png'
+956.8062 	EXP 	background: autoDraw = True
+956.8062 	EXP 	person_img: autoDraw = True
+956.8062 	EXP 	food: autoDraw = True
+959.2413 	DATA 	Keypress: b
+959.2579 	EXP 	background: autoDraw = False
+959.2579 	EXP 	person_img: autoDraw = False
+959.2579 	EXP 	food: autoDraw = False
+959.2579 	EXP 	text_6: text = 'Correct'
+959.2579 	EXP 	text_6: autoDraw = True
+961.2432 	EXP 	New trial (rep=6, index=19): OrderedDict([('facing_train', 'C'), ('person_train', 'D'), ('food_train', 'g'), ('correct_key_train', 'b')])
+961.2595 	EXP 	text_6: autoDraw = False
+961.2595 	EXP 	text_6: autoDraw = False
+961.7765 	EXP 	text_4: autoDraw = True
+962.2769 	EXP 	text_4: autoDraw = False
+962.2769 	EXP 	text_4: autoDraw = False
+962.2769 	EXP 	person_img: image = 'blue_center_nf.png'
+962.2769 	EXP 	food: image = 'wheat5_t.png'
+962.5272 	EXP 	background: autoDraw = True
+962.5272 	EXP 	person_img: autoDraw = True
+962.5272 	EXP 	food: autoDraw = True
+964.0617 	DATA 	Keypress: b
+964.0783 	EXP 	background: autoDraw = False
+964.0783 	EXP 	person_img: autoDraw = False
+964.0783 	EXP 	food: autoDraw = False
+964.0783 	EXP 	text_6: text = 'Correct'
+964.0783 	EXP 	text_6: autoDraw = True
+966.0636 	EXP 	New trial (rep=7, index=0): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+966.0798 	EXP 	text_6: autoDraw = False
+966.0798 	EXP 	text_6: autoDraw = False
+966.5969 	EXP 	text_4: autoDraw = True
+967.0973 	EXP 	text_4: autoDraw = False
+967.0973 	EXP 	text_4: autoDraw = False
+967.0973 	EXP 	person_img: image = 'green_center_nf.png'
+967.0973 	EXP 	food: image = 'wheat1_t.png'
+967.3476 	EXP 	background: autoDraw = True
+967.3476 	EXP 	person_img: autoDraw = True
+967.3476 	EXP 	food: autoDraw = True
+1027.3266 	EXP 	background: autoDraw = False
+1027.3266 	EXP 	person_img: autoDraw = False
+1027.3266 	EXP 	food: autoDraw = False
+1027.3266 	EXP 	background: autoDraw = False
+1027.3266 	EXP 	person_img: autoDraw = False
+1027.3266 	EXP 	food: autoDraw = False
+1027.3266 	EXP 	text_6: text = 'Failed to respond'
+1027.3266 	EXP 	text_6: autoDraw = True
+1029.3119 	EXP 	New trial (rep=7, index=1): OrderedDict([('facing_train', 'C'), ('person_train', 'U'), ('food_train', 'd'), ('correct_key_train', 'n')])
+1029.3282 	EXP 	text_6: autoDraw = False
+1029.3282 	EXP 	text_6: autoDraw = False
+1029.8452 	EXP 	text_4: autoDraw = True
+1030.3289 	EXP 	text_4: autoDraw = False
+1030.3289 	EXP 	text_4: autoDraw = False
+1030.3289 	EXP 	person_img: image = 'red_center.png'
+1030.3289 	EXP 	food: image = 'dairy2_t.png'
+1030.5960 	EXP 	background: autoDraw = True
+1030.5960 	EXP 	person_img: autoDraw = True
+1030.5960 	EXP 	food: autoDraw = True
+1090.5750 	EXP 	background: autoDraw = False
+1090.5750 	EXP 	person_img: autoDraw = False
+1090.5750 	EXP 	food: autoDraw = False
+1090.5750 	EXP 	background: autoDraw = False
+1090.5750 	EXP 	person_img: autoDraw = False
+1090.5750 	EXP 	food: autoDraw = False
+1090.5750 	EXP 	text_6: text = 'Failed to respond'
+1090.5750 	EXP 	text_6: autoDraw = True
+1092.5603 	EXP 	New trial (rep=7, index=2): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'g'), ('correct_key_train', 'v')])
+1092.5765 	EXP 	text_6: autoDraw = False
+1092.5765 	EXP 	text_6: autoDraw = False
+1093.0936 	EXP 	text_4: autoDraw = True
+1093.5940 	EXP 	text_4: autoDraw = False
+1093.5940 	EXP 	text_4: autoDraw = False
+1093.5940 	EXP 	person_img: image = 'green_center_nf.png'
+1093.5940 	EXP 	food: image = 'wheat2_t.png'
+1093.8443 	EXP 	background: autoDraw = True
+1093.8443 	EXP 	person_img: autoDraw = True
+1093.8443 	EXP 	food: autoDraw = True
+1153.8234 	EXP 	background: autoDraw = False
+1153.8234 	EXP 	person_img: autoDraw = False
+1153.8234 	EXP 	food: autoDraw = False
+1153.8234 	EXP 	background: autoDraw = False
+1153.8234 	EXP 	person_img: autoDraw = False
+1153.8234 	EXP 	food: autoDraw = False
+1153.8234 	EXP 	text_6: text = 'Failed to respond'
+1153.8234 	EXP 	text_6: autoDraw = True
+1155.8087 	EXP 	New trial (rep=7, index=3): OrderedDict([('facing_train', 'C'), ('person_train', 'G'), ('food_train', 'y'), ('correct_key_train', 'b')])
+1155.8249 	EXP 	text_6: autoDraw = False
+1155.8249 	EXP 	text_6: autoDraw = False
+1156.3420 	EXP 	text_4: autoDraw = True
+1156.8423 	EXP 	text_4: autoDraw = False
+1156.8423 	EXP 	text_4: autoDraw = False
+1156.8423 	EXP 	person_img: image = 'green_center_nf.png'
+1156.8423 	EXP 	food: image = 'insect2_t.png'
+1157.0760 	EXP 	background: autoDraw = True
+1157.0760 	EXP 	person_img: autoDraw = True
+1157.0760 	EXP 	food: autoDraw = True
+1168.3179 	DATA 	Keypress: escape
+1168.3727 	EXP 	window1: mouseVisible = True
