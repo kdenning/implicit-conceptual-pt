@@ -24,6 +24,7 @@ output:
 #install.packages("emmeans")
 #install.packages("sjPlot")
 #install.packages("effects")
+#install.packages("fs")
 library(rio)
 library(here)
 library(tidyverse)
@@ -37,6 +38,7 @@ library(sjPlot)
 library(emmeans)
 library(effects)
 library(here)
+library(fs)
 
 #Setting global chunk options
 knitr::opts_chunk$set(echo = TRUE,
@@ -46,13 +48,13 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ```{r combining datasets}
 # Getting file names for each individual participants datasets into one character vector
-( allfiles = list.files(path = '/Users/kdenning/Dropbox/Oregon/Research/SAP/implicit-conceptual-pt/Data',
-                        pattern = ".csv",
-                        full.names = TRUE,
-                        recursive = TRUE) )
-sap1 <- readr::read_csv(file = allfiles[1],
+files <- dir_ls(here::here("Data"), glob = "*.csv")
+
+# Reading one dataset in to figure out how I want to clean it
+sap1 <- readr::read_csv(file = files[1],
                 col_names = TRUE)
 
+# Practice cleaning on one dataset
 sap1_sub <- sap1 %>% select(participant, expBlock.thisN, expTrials.thisN, 
                             facing_exp, person_exp, food_exp, showL_R, 
                             consistent, exp_resp.keys, exp_resp.rt) %>% 
@@ -60,4 +62,32 @@ sap1_sub <- sap1 %>% select(participant, expBlock.thisN, expTrials.thisN,
   mutate(trial_num = as.numeric(row_number()),
          consistent = as.factor(consistent),
          visibility = as.factor(ifelse(facing_exp == showL_R, "same", ifelse(facing_exp != showL_R, "diff", NA))))
+
+# Writing a function to clean all the datasets
+clean_sap <- function(file) {
+                    sap <- read_csv(file)
+                    sap %>% 
+                    select(participant, expBlock.thisN, expTrials.thisN, 
+                            facing_exp, person_exp, food_exp, showL_R, 
+                            consistent, exp_resp.keys, exp_resp.rt) %>% 
+  na.omit() %>% 
+  mutate(trial_num = as.numeric(row_number()),
+         consistent = as.factor(consistent),
+         visibility = as.factor(ifelse(facing_exp == showL_R, "same", ifelse(facing_exp != showL_R, "diff", NA))))
+}
+
+# Try to apply function to list of datasets to cycle through but gets error
+map_df(files, clean_sap(file), .id = "column_names")
+
+# Trying again but this time with a for loop, but same error
+## creating object to put everything from the for loop into
+sap_clean_files <- dir(here::here("Data"))
+
+for (file in files) { # for every file...
+    temp <- clean_sap(file)  # clean it with clean_sap() function I created
+    sap_clean_files <- rbind(sap_clean_files, temp)
+}
+
+# Try to batch load data instead, to clean once it is all loaded, but also has an error
+batch <- map_df(files, readr::read_csv, .id = "file")
 ```
