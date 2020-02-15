@@ -79,6 +79,6 @@ clean_sap <- function(file) {
 # Drop "6_APCT" files
 files <- grep("/6_ACPT", files, value = TRUE, invert = TRUE)
 
-# Try to apply function to list of datasets to cycle through but gets error
+# Try to apply function to list of datasets to cycle through
 data <- map_df(files, clean_sap, .id = "column_names")
 ```
