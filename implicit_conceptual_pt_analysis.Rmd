@@ -63,7 +63,9 @@ sap1_sub <- sap1 %>% select(participant, expBlock.thisN, expTrials.thisN,
          consistent = as.factor(consistent),
          visibility = as.factor(ifelse(facing_exp == showL_R, "same", ifelse(facing_exp != showL_R, "diff", NA))))
 
-# Writing a function to clean all the datasets
+# Writing a function to clean all the datasets using practice from above
+## Only selecting variables we want from the larger Psychopy dataset
+## Creating variables for trial number and for whether the target has the same visibility as the participant
 clean_sap <- function(file) {
                     sap <- read_csv(file)
                     sap %>% 
@@ -76,9 +78,9 @@ clean_sap <- function(file) {
          visibility = as.factor(ifelse(facing_exp == showL_R, "same", ifelse(facing_exp != showL_R, "diff", NA))))
 }
 
-# Drop "6_APCT" files
+# Drop "6_APCT" files because participant never made it to experimental portion and dataset is in different format due to that
 files <- grep("/6_ACPT", files, value = TRUE, invert = TRUE)
 
-# Try to apply function to list of datasets to cycle through
+# Apply function to list of datasets to cycle through and create one overall dataset
 data <- map_df(files, clean_sap, .id = "column_names")
 ```
