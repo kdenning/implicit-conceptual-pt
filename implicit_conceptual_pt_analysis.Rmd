@@ -46,7 +46,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE)
 ```
 
-```{r combining datasets}
+```{r combining datasets and cleaning}
 # Getting file names for each individual participants datasets into one character vector
 files <- dir_ls(here::here("Data"), glob = "*.csv")
 
@@ -72,10 +72,11 @@ clean_sap <- function(file) {
                     select(participant, expBlock.thisN, expTrials.thisN, 
                             facing_exp, person_exp, food_exp, showL_R, 
                             consistent, exp_resp.keys, exp_resp.rt) %>% 
-  na.omit() %>% 
-  mutate(trial_num = as.numeric(row_number()),
-         consistent = as.factor(consistent),
-         visibility = as.factor(ifelse(facing_exp == showL_R, "same", ifelse(facing_exp != showL_R, "diff", NA))))
+                      na.omit() %>% 
+                      mutate(trial_num = as.numeric(row_number()),
+                             consistent = as.factor(consistent),
+                             visibility = as.factor(ifelse(facing_exp == showL_R, "same", 
+                                       ifelse(facing_exp != showL_R, "diff", NA))))
 }
 
 # Drop "6_APCT" files because participant never made it to experimental portion and dataset is in different format due to that
@@ -83,4 +84,24 @@ files <- grep("/6_ACPT", files, value = TRUE, invert = TRUE)
 
 # Apply function to list of datasets to cycle through and create one overall dataset
 data <- map_df(files, clean_sap, .id = "column_names")
+
+# Apply contrast codes to categorical variables
+## Helmert codes to consistency variable
+contrasts(data$consistent)
+CIUvY <- c(1, -1, -1, 3) 
+PIvU <- c(-1, -1, 2, 0)  
+CvI <- c(-1, 1, 0, 0) 
+ConCodes <- cbind(CIUvY, PIvU, CvI)
+contrasts(data$consistent) <- ConCodes
+contrasts(data$consistent) 
+
+## Effects codes for visibility variable
+data %<>% mutate(visibility_effects = recode(visibility, `diff` = "-.5",
+                                   `same` = ".5"))
+```
+
+```{r descriptive data}
+#effects code visibility
+#helmert code consistentcy
+
 ```
