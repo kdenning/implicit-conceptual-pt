@@ -75,8 +75,8 @@ clean_sap <- function(file) {
                       na.omit() %>% 
                       mutate(trial_num = as.numeric(row_number()),
                              consistent = as.factor(consistent),
-                             visibility = as.factor(ifelse(facing_exp == showL_R, "same", 
-                                       ifelse(facing_exp != showL_R, "diff", NA))))
+                             visibility = as.factor(ifelse(facing_exp == showL_R, "Visible", 
+                                       ifelse(facing_exp != showL_R, "Not Visible", NA))))
 }
 
 # Drop "6_APCT" files because participant never made it to experimental portion and dataset is in different format due to that
@@ -101,8 +101,8 @@ contrasts(data_comb$consistent) <- ConCodes
 contrasts(data_comb$consistent) 
 
 ## Effects codes for visibility variable
-data_comb %<>% mutate(visibility_effects = recode(visibility, `diff` = "-.5",
-                                   `same` = ".5"))
+data_comb %<>% mutate(visibility_effects = recode(visibility, `Visible` = "-.5",
+                                   `Not Visible` = ".5"))
 
 
 ```
@@ -209,23 +209,25 @@ data_comb %>%
 ## Mean and SD for reaction time by consistency condition
 
 ```{r mean and sd consistency}
-data_comb %>% 
+data_consistent <- data_comb %>% 
   select(participant, consistent, exp_resp.rt) %>% 
   na.omit() %>% 
   group_by(consistent) %>% 
   summarize(mean = mean(exp_resp.rt),
             sd = sd(exp_resp.rt))
+data_consistent 
 ```
 
 ## Mean and SD for reaction time by visibility condition
 
 ```{r mean and sd visibility}
-data_comb %>% 
+data_visible <- data_comb %>% 
   select(participant, visibility, exp_resp.rt) %>% 
   na.omit() %>% 
   group_by(visibility) %>% 
   summarize(mean = mean(exp_resp.rt),
             sd = sd(exp_resp.rt))
+data_visible
 ```
 
 ## Overall descriptives per variable
@@ -243,3 +245,18 @@ model <- lm(exp_resp.rt ~ visibility_effects*consistent, data = data_comb)
 summary(model)
 ```
 
+# Plots
+## Main effect of visibility on reaction time
+
+```{r visibility main}
+ggplot(data_visible, aes(x = visibility, y = mean, fill = visibility)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  scale_fill_viridis_d() +
+  theme(legend.position = "none") +
+  labs(title = "Main effect of target visibility on reaction time",
+       x = "Visibility of stimuli to target",
+       y = "Reaction time (seconds)")
+
+# need to add error bars
+```
