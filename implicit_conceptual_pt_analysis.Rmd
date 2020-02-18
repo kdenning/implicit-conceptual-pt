@@ -85,23 +85,161 @@ files <- grep("/6_ACPT", files, value = TRUE, invert = TRUE)
 # Apply function to list of datasets to cycle through and create one overall dataset
 data <- map_df(files, clean_sap, .id = "column_names")
 
+# Read in and merge demographic information into overall dataset
+dem <- read.csv("ACPT_dem.csv", header = TRUE) 
+
+data_comb <- left_join(data, dem, by = "participant")
+
 # Apply contrast codes to categorical variables
 ## Helmert codes to consistency variable
-contrasts(data$consistent)
+contrasts(data_comb$consistent)
 CIUvY <- c(1, -1, -1, 3) 
 PIvU <- c(-1, -1, 2, 0)  
 CvI <- c(-1, 1, 0, 0) 
 ConCodes <- cbind(CIUvY, PIvU, CvI)
-contrasts(data$consistent) <- ConCodes
-contrasts(data$consistent) 
+contrasts(data_comb$consistent) <- ConCodes
+contrasts(data_comb$consistent) 
 
 ## Effects codes for visibility variable
-data %<>% mutate(visibility_effects = recode(visibility, `diff` = "-.5",
+data_comb %<>% mutate(visibility_effects = recode(visibility, `diff` = "-.5",
                                    `same` = ".5"))
-```
 
-```{r descriptive data}
-#effects code visibility
-#helmert code consistentcy
 
 ```
+
+# Demographics
+## Number of participants with demographic data
+
+```{r participant number}
+data_comb %>% 
+  select(participant) %>% 
+  unique() %>% 
+  nrow()
+```
+
+## Gender
+
+```{r gender}
+data_comb %>% 
+  select(participant, gender) %>% 
+  na.omit() %>% 
+  unique() %>% 
+  group_by(gender) %>% 
+  count()
+```
+
+## Race
+
+```{r race}
+data_comb %>% 
+  select(participant, race) %>% 
+  na.omit() %>% 
+  unique() %>% 
+  group_by(race) %>% 
+  count()
+```
+
+## Age
+
+```{r age}
+data_comb %>% 
+  select(participant, age) %>% 
+  na.omit() %>% 
+  summarize(mean = mean(age),
+            sd = sd(age))
+```
+
+## Class level
+
+```{r class level}
+data_comb %>% 
+  select(participant, class_level) %>% 
+  na.omit() %>% 
+  unique() %>% 
+  group_by(class_level) %>% 
+  count()
+```
+
+## Parent's education
+
+```{r parents education}
+data_comb %>% 
+  select(participant, parents_edu) %>% 
+  na.omit() %>% 
+  unique() %>% 
+  group_by(parents_edu) %>% 
+  count()
+```
+
+## Native language
+
+```{r native language}
+data_comb %>% 
+  select(participant, english_native) %>% 
+  na.omit() %>% 
+  unique() %>% 
+  group_by(english_native) %>% 
+  count()
+```
+
+## Born in the US
+
+```{r birth country}
+data_comb %>% 
+  select(participant, us_birth_country) %>% 
+  na.omit() %>% 
+  unique() %>% 
+  group_by(us_birth_country) %>% 
+  count()
+```
+
+## Raised in the US
+
+```{r country raised in}
+data_comb %>% 
+  select(participant, us_raised) %>% 
+  na.omit() %>% 
+  unique() %>% 
+  group_by(us_raised) %>% 
+  count()
+```
+
+# Descriptives
+
+## Mean and SD for reaction time by consistency condition
+
+```{r mean and sd consistency}
+data_comb %>% 
+  select(participant, consistent, exp_resp.rt) %>% 
+  na.omit() %>% 
+  group_by(consistent) %>% 
+  summarize(mean = mean(exp_resp.rt),
+            sd = sd(exp_resp.rt))
+```
+
+## Mean and SD for reaction time by visibility condition
+
+```{r mean and sd visibility}
+data_comb %>% 
+  select(participant, visibility, exp_resp.rt) %>% 
+  na.omit() %>% 
+  group_by(visibility) %>% 
+  summarize(mean = mean(exp_resp.rt),
+            sd = sd(exp_resp.rt))
+```
+
+## Overall descriptives per variable
+
+```{r overall dem}
+data_comb %>% 
+  select(visibility, consistent, exp_resp.rt) %>% 
+  describe()
+```
+
+# Anova Results
+
+```{r anova results}
+model <- lm(exp_resp.rt ~ visibility_effects*consistent, data = data_comb)
+summary(model)
+```
+
