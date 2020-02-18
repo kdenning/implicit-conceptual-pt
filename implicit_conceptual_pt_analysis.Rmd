@@ -76,18 +76,9 @@ clean_sap <- function(file) {
          visibility = as.factor(ifelse(facing_exp == showL_R, "same", ifelse(facing_exp != showL_R, "diff", NA))))
 }
 
-# Try to apply function to list of datasets to cycle through but gets error
-map_df(files, clean_sap(file), .id = "column_names")
+# Drop "6_APCT" files
+files <- grep("/6_ACPT", files, value = TRUE, invert = TRUE)
 
-# Trying again but this time with a for loop, but same error
-## creating object to put everything from the for loop into
-sap_clean_files <- dir(here::here("Data"))
-
-for (file in files) { # for every file...
-    temp <- clean_sap(file)  # clean it with clean_sap() function I created
-    sap_clean_files <- rbind(sap_clean_files, temp)
-}
-
-# Try to batch load data instead, to clean once it is all loaded, but also has an error
-batch <- map_df(files, readr::read_csv, .id = "file")
+# Try to apply function to list of datasets to cycle through
+data <- map_df(files, clean_sap, .id = "column_names")
 ```
