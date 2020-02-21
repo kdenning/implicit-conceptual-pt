@@ -9,6 +9,21 @@ output:
     toc_float: true
 ---
 
+# Introduction to study
+
+This study looked at whether people consider the conceptual perspectives (e.g., likes) of others without conscious awareness, and if this depends on whether the target individual has the same visibility of the target stimuli as them. Participants were asked to respond about how much they liked the stimuli after being trained on the targets' likes and dislikes.
+
+**Variable names included in the analysis:**
+
+* **consistent**: Whether the participant had the same conceptual perspective as the target or not. Helemert contrasts were applied to this categorical variable. 
+  + consistent: perspectives about whether or not they liked the stimuli were the same
+  + inconsistent: perspectives were different
+  + unknown: the participant does not know the target's perspective
+  + dislike: the participant dislikes the stimuli; included
+* **visibility**
+* **exp_resp.rt **
+
+
 ```{r setup, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 # Cleaning
 ## import data
@@ -46,7 +61,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       warning = FALSE)
 ```
 
-```{r combining datasets and cleaning}
+```{r combining datasets and cleaning, include = FALSE}
 # Getting file names for each individual participants datasets into one character vector
 files <- dir_ls(here::here("Data"), glob = "*.csv")
 
@@ -75,8 +90,12 @@ clean_sap <- function(file) {
                       na.omit() %>% 
                       mutate(trial_num = as.numeric(row_number()),
                              consistent = as.factor(consistent),
-                             visibility = as.factor(ifelse(facing_exp == showL_R, "Visible", 
-                                       ifelse(facing_exp != showL_R, "Not Visible", NA))))
+                             visibility = as.factor(ifelse(facing_exp == showL_R, "Visible", ifelse(facing_exp != showL_R, "Not Visible", NA))),
+                             consistent  = recode(consistent, 
+                            `c` = "Consistent",
+                            `i` = "Inconsistent",
+                            `u` = "Unknown",
+                            `y` = "Dislike"))
 }
 
 # Drop "6_APCT" files because participant never made it to experimental portion and dataset is in different format due to that
@@ -213,8 +232,9 @@ data_consistent <- data_comb %>%
   select(participant, consistent, exp_resp.rt) %>% 
   na.omit() %>% 
   group_by(consistent) %>% 
-  summarize(mean = mean(exp_resp.rt),
-            sd = sd(exp_resp.rt))
+  summarize(mean_c = mean(exp_resp.rt),
+            sd_c = sd(exp_resp.rt),
+            se_c = sd(exp_resp.rt)/sqrt(length(exp_resp.rt)))
 data_consistent 
 ```
 
@@ -225,8 +245,9 @@ data_visible <- data_comb %>%
   select(participant, visibility, exp_resp.rt) %>% 
   na.omit() %>% 
   group_by(visibility) %>% 
-  summarize(mean = mean(exp_resp.rt),
-            sd = sd(exp_resp.rt))
+  summarize(mean_v = mean(exp_resp.rt),
+            sd_v = sd(exp_resp.rt),
+            se_v = sd(exp_resp.rt)/sqrt(length(exp_resp.rt)))
 data_visible
 ```
 
@@ -245,18 +266,34 @@ model <- lm(exp_resp.rt ~ visibility_effects*consistent, data = data_comb)
 summary(model)
 ```
 
+Results of the within-subjects 2x4 Anova demonstrate that there is a main effect of visibility, with participants taking longer to respond when the stimuli was not visible to them than when it was, *b* = -0.02, *t*(61620) -2.29, *p* < 0.03. There was also a significant main effect of perspective consistency for the contrast comparing the consistent and inconsistent conditions with the unknown condition, *b* = -0.02, *t*(61620) -4.42, *p* < 0.001. All other contrasts were not significant, *ps* > 0.09. The interaction between visiblity and all perspective condition contrasts were also not significant, *ps* > 0.11.
+
 # Plots
 ## Main effect of visibility on reaction time
 
 ```{r visibility main}
-ggplot(data_visible, aes(x = visibility, y = mean, fill = visibility)) +
+ggplot(data_visible, aes(x = visibility, y = mean_v, fill = visibility)) +
   geom_bar(stat = "identity") +
   theme_minimal() +
   scale_fill_viridis_d() +
   theme(legend.position = "none") +
   labs(title = "Main effect of target visibility on reaction time",
        x = "Visibility of stimuli to target",
-       y = "Reaction time (seconds)")
+       y = "Reaction time (seconds)") +
+  geom_errorbar(aes(ymin = mean_v, ymax = mean_v + se_v), width =.2,
+                position = position_dodge(.9)) 
+```
 
-# need to add error bars
+```{r consistentcy main}
+ggplot(data_consistent, aes(x = consistent, y = mean_c, fill = consistent)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  scale_fill_viridis_d() +
+  theme(legend.position = "none") +
+  labs(title = "Main effect of perspective consistentcy on reaction time",
+       x = "Perspective consistency condition",
+       y = "Reaction time (seconds)") +
+  geom_errorbar(aes(ymin = mean_c, ymax = mean_c + se_c), width =.2,
+                position = position_dodge(.9)) 
+
 ```
