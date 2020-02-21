@@ -11,7 +11,7 @@ output:
 
 # Introduction to study
 
-This study looked at whether people consider the conceptual perspectives (e.g., likes) of others without conscious awareness, and if this depends on whether the target individual has the same visibility of the target stimuli as them. Participants were asked to respond about how much they liked the stimuli after being trained on the targets' likes and dislikes.
+This study looked at whether people consider the conceptual perspectives (e.g., likes) of others without conscious awareness, and if this depends on whether the target individual has the same visibility of the target stimuli as them. Participants were asked to respond about how much they liked the stimuli after being trained on the targets' likes and dislikes. Implicit conceptual perspective taking would be found if people are slower to respond on inconsistent trials in comparison to consistent trials.
 
 **Variable names included in the analysis:**
 
@@ -19,9 +19,9 @@ This study looked at whether people consider the conceptual perspectives (e.g., 
   + consistent: perspectives about whether or not they liked the stimuli were the same
   + inconsistent: perspectives were different
   + unknown: the participant does not know the target's perspective
-  + dislike: the participant dislikes the stimuli; included
-* **visibility**
-* **exp_resp.rt **
+  + dislike: the participant dislikes the stimuli; included as a comparison so that participants were not only responding "like" the entire time
+* **visibility**: Whether the target individual can see the food stimuli or not.
+* **exp_resp.rt **: Reaction time on trials in seconds.
 
 
 ```{r setup, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
@@ -283,6 +283,8 @@ ggplot(data_visible, aes(x = visibility, y = mean_v, fill = visibility)) +
   geom_errorbar(aes(ymin = mean_v, ymax = mean_v + se_v), width =.2,
                 position = position_dodge(.9)) 
 ```
+
+## Main effect of consistency on reaction time
 
 ```{r consistentcy main}
 ggplot(data_consistent, aes(x = consistent, y = mean_c, fill = consistent)) +
