@@ -75,27 +75,54 @@ sap1_sub <- sap1 %>% select(participant, expBlock.thisN, expTrials.thisN,
                             consistent, exp_resp.keys, exp_resp.rt) %>% 
   na.omit() %>% 
   mutate(trial_num = as.numeric(row_number()),
-         consistent = as.factor(consistent),
-         visibility = as.factor(ifelse(facing_exp == showL_R, "same", ifelse(facing_exp != showL_R, "diff", NA))))
-
+         consistent = as.factor(consistent), 
+         exp_resp.keys = as.factor(exp_resp.keys),
+         food_exp = as.factor(food_exp),
+         visibility = as.factor(ifelse(facing_exp == showL_R, 
+                                       "same", 
+                                       ifelse(facing_exp != showL_R, 
+                                              "diff", NA))),
+         error = as.factor(ifelse(exp_resp.keys == "up" & food_exp == "y", 
+                                  "Error",
+                                  ifelse(exp_resp.keys == "down" 
+                                         & food_exp == c("g", "d"),
+                                         "Error", 
+                                         ifelse(exp_resp.keys == "up" 
+                                                & food_exp == c("g", "d"), 
+                                                "Correct",
+                                                ifelse(exp_resp.keys == "down" 
+                                                       & food_exp == "y", 
+                                                       "Correct", NA))))))
+                                  
 # Writing a function to clean all the datasets using practice from above
 ## Only selecting variables we want from the larger Psychopy dataset
 ## Creating variables for trial number and for whether the target has the same visibility as the participant
 clean_sap <- function(file) {
                     sap <- read_csv(file)
                     sap %>% 
+                      #selecting the variables relevant to analysis from the dataset
                     select(participant, expBlock.thisN, expTrials.thisN, 
                             facing_exp, person_exp, food_exp, showL_R, 
                             consistent, exp_resp.keys, exp_resp.rt) %>% 
                       na.omit() %>% 
+                      # making variables correct form
                       mutate(trial_num = as.numeric(row_number()),
                              consistent = as.factor(consistent),
-                             visibility = as.factor(ifelse(facing_exp == showL_R, "Visible", ifelse(facing_exp != showL_R, "Not Visible", NA))),
+                             exp_resp.keys = as.factor(exp_resp.keys),
+                             food_exp = as.factor(food_exp),
+                             # creating a variable for target's ability to see stimuli
+                             visibility = as.factor(ifelse(facing_exp == showL_R,
+                                                           "Visible", 
+                                                           ifelse(facing_exp != showL_R, 
+                                                                  "Not Visible", NA))),
+                             # making it easier to understand the levels of consistency
                              consistent  = recode(consistent, 
                             `c` = "Consistent",
                             `i` = "Inconsistent",
                             `u` = "Unknown",
-                            `y` = "Dislike"))
+                            `y` = "Dislike")) %>% 
+                      # filtering out practice block and first trial in each block
+                      filter(expBlock.thisN != "0" | expTrials.thisN != "0")
 }
 
 # Drop "6_APCT" files because participant never made it to experimental portion and dataset is in different format due to that
@@ -104,28 +131,175 @@ files <- grep("/6_ACPT", files, value = TRUE, invert = TRUE)
 # Apply function to list of datasets to cycle through and create one overall dataset
 data <- map_df(files, clean_sap, .id = "column_names")
 
+# Adding error variable and effects coding visibility
+dat_error <- data %>%  
+  mutate(error = with(data, ifelse(exp_resp.keys == "up" 
+                                   & food_exp == "y", "Error", 
+                                   ifelse(exp_resp.keys == "down" 
+                                          & food_exp == c("g", "d"), "Error",
+                                          "Correct"))),
+         visibility_effects = recode(visibility, 
+                                      `Visible` = "-.5",
+                                      `Not Visible` = ".5"))
+
+# Making error a factor variable
+dat_error %<>% mutate(error = as.factor(error)) %>% 
+  na.omit()
+
 # Read in and merge demographic information into overall dataset
 dem <- read.csv("ACPT_dem.csv", header = TRUE) 
 
-data_comb <- left_join(data, dem, by = "participant")
+data_comb <- left_join(dat_error, dem, by = "participant")
 
-# Apply contrast codes to categorical variables
-## Helmert codes to consistency variable
-contrasts(data_comb$consistent)
-CIUvY <- c(1, -1, -1, 3) 
-PIvU <- c(-1, -1, 2, 0)  
-CvI <- c(-1, 1, 0, 0) 
-ConCodes <- cbind(CIUvY, PIvU, CvI)
-contrasts(data_comb$consistent) <- ConCodes
-contrasts(data_comb$consistent) 
+# Checking where there is na data
+colnames(data_comb)[colSums(is.na(data_comb)) > 0]
 
-## Effects codes for visibility variable
-data_comb %<>% mutate(visibility_effects = recode(visibility, `Visible` = "-.5",
-                                   `Not Visible` = ".5"))
-
-
+# Creating a separate dataset for analyses from what will be used for demographics to not exclude people who have na's in dem data since dem data was optional
+dat_analysis <- data_comb %>% 
+  select(participant, trial_num, expBlock.thisN, food_exp, consistent, 
+         exp_resp.rt, exp_resp.keys, visibility, visibility_effects, error)
 ```
 
+# Reaction time analyses
+
+## Checking for outliers and filtering responses over 3 seconds
+
+```{r rt outliers over 3 sec}
+# Checking outliers in reaction time overall
+hist_rt <- dat_analysis %>% 
+  select(participant, exp_resp.rt) %>% 
+  unique()
+hist(hist_rt$exp_resp.rt, xlim = c(0, 60), breaks = 150)
+
+# Removing trials that took over 3 seconds to respond
+data_rt <- dat_analysis %>% 
+  filter(exp_resp.rt < 3.0)
+
+# Re-checking for outliers in reaction time overall
+hist_rt_3sec <- data_rt %>% 
+  select(participant, exp_resp.rt) %>% 
+  unique()
+hist(hist_rt_3sec$exp_resp.rt, xlim = c(0, 5), breaks = 50)
+
+# percent removed over 3 seconds
+(1 - nrow(data_rt)/nrow(dat_analysis))*100
+```
+
+## Descriptives before removing error trials
+
+### Mean and SD for reaction time by consistency condition
+
+```{r mean aggregation consist before removing errors}
+# aggregating responses per participant
+data_aggregated_werror <- data_rt %>% 
+  group_by(participant, consistent, visibility) %>% 
+  summarize(rt_pagg = mean(exp_resp.rt))
+
+consistency_werror <- data_aggregated_werror %>% 
+  select(participant, consistent, rt_pagg) %>% 
+  na.omit() %>% 
+  group_by(consistent) %>% 
+  summarize(mean = mean(rt_pagg),
+            sd = sd(rt_pagg),
+            se = sd(rt_pagg)/sqrt(length(rt_pagg)))
+consistency_werror 
+```
+
+### Mean and SD for reaction time by visibility condition
+
+```{r mean aggregation visible before removing errors}
+visibility_werror <- data_aggregated_werror %>% 
+  select(participant, visibility, rt_pagg) %>% 
+  na.omit() %>% 
+  group_by(visibility) %>% 
+  summarize(mean = mean(rt_pagg),
+            sd = sd(rt_pagg),
+            se = sd(rt_pagg)/sqrt(length(rt_pagg)))
+visibility_werror
+```
+
+### Overall variable descriptives
+
+```{r mean aggregation overall before removing errors}
+data_aggregated_werror %>% 
+  select(visibility, consistent, rt_pagg) %>% 
+  describe()
+```
+
+## Descriptives after removing error trials
+
+### Mean and SD for reaction time by consistency condition
+
+```{r mean aggregation consist after removing errors}
+data_aggregated_nerror <- data_rt %>% 
+  filter(error != "Error") %>%
+  droplevels(data_rt$error) %>% 
+  na.omit() %>% 
+  group_by(participant, consistent, visibility) %>% 
+  summarize(rt_pagg = mean(exp_resp.rt))
+
+consistency_nerror <- data_aggregated_nerror %>% 
+  select(participant, consistent, rt_pagg) %>% 
+  na.omit() %>% 
+  group_by(consistent) %>% 
+  summarize(mean = mean(rt_pagg),
+            sd = sd(rt_pagg),
+            se = sd(rt_pagg)/sqrt(length(rt_pagg)))
+consistency_nerror 
+```
+
+### Mean and SD for reaction time by visibility condition
+
+```{r mean aggregation visible after removing errors}
+visibility_nerror <- data_aggregated_nerror %>% 
+  select(participant, visibility, rt_pagg) %>% 
+  na.omit() %>% 
+  group_by(visibility) %>% 
+  summarize(mean = mean(rt_pagg),
+            sd = sd(rt_pagg),
+            se = sd(rt_pagg)/sqrt(length(rt_pagg)))
+visibility_nerror
+```
+
+### Overall variable descriptives
+
+```{r mean aggregation overall after removing errors}
+data_aggregated_nerror %>% 
+  select(visibility, consistent, rt_pagg) %>% 
+  describe()
+```
+
+## Anova results
+
+```{r rt anova}
+# Removing dislike condition from anaysis as it was just a methodological variation not theoretically related to analysis
+anova_rt_data <- data_rt %>% 
+  filter(error != "Error") %>% 
+  filter(consistent != "Dislike") %>%
+  droplevels(data_rt$error) %>% 
+  droplevels(data_rt$consistent) %>% 
+  na.omit() %>% 
+  group_by(participant, consistent, visibility) %>% 
+  mutate(rt_pagg = mean(exp_resp.rt)) %>% 
+  select(participant, consistent, visibility, visibility_effects, rt_pagg) %>% 
+  unique() %>% 
+  na.omit()
+
+# Applying contrasts
+CIvU <- c(-1, -1, 2) 
+CvI <- c(-1, 1, 0) 
+ConCodes <- cbind(CIvU, CvI)
+contrasts(anova_rt_data$consistent) <- ConCodes
+contrasts(anova_rt_data$consistent)
+
+# Running the repeated measures anova
+model1 <- with(anova_rt_data, 
+               aov(rt_pagg ~ (visibility_effects*consistent) + 
+                     Error(participant/(visibility_effects*consistent))))
+summary(model1)
+```
+
+# Error analyses
 # Demographics
 ## Number of participants with demographic data
 
@@ -155,7 +329,8 @@ data_comb %>%
   na.omit() %>% 
   unique() %>% 
   group_by(race) %>% 
-  count()
+  count() %>% 
+  mutate(percent = n/94*100)
 ```
 
 ## Age
@@ -223,71 +398,70 @@ data_comb %>%
   count()
 ```
 
-# Descriptives
+# Analysis 2: Remove people who did not respond "correctly" about likes and dislikes 
 
-## Mean and SD for reaction time by consistency condition
+Technically there isn't a correct answer... but the pre-screen was supposed to make sure participants "liked" dairy and gluten and "disliked" insects. Therefore, their key response should be the "up" key on trials in which they are shown gluten and dairy, and the "down" arrow when they are shown insects. Removed  trials where participants did the opposite for this analysis.
 
-```{r mean and sd consistency}
-data_consistent <- data_comb %>% 
+```{r clikes setup}
+# Cleaning the data to filter out incorrect responses
+data_correct_likes <- data_analysis %>% 
+  filter(!c(exp_resp.keys == "up" & food_exp == "y" | exp_resp.keys == "down" & food_exp == c("g", "d"))) %>% 
+  na.omit()
+
+# Applying contrasts
+CIUvY <- c(1, -1, -1, 3) 
+CIvU <- c(-1, -1, 2, 0)  
+CvI <- c(-1, 1, 0, 0) 
+ConCodes <- cbind(CIUvY, CIvU, CvI)
+contrasts(data_correct_likes$consistent) <- ConCodes
+contrasts(data_correct_likes$consistent) 
+
+model_correct_likes <- lm(exp_resp.rt ~ visibility_effects*consistent, data = data_correct_likes)
+summary(model_correct_likes)
+```
+
+## Descriptives
+
+### Mean and SD for reaction time by consistency condition
+
+```{r mean and sd consistency clikes}
+data_consistent_clikes <- data_correct_likes %>% 
   select(participant, consistent, exp_resp.rt) %>% 
   na.omit() %>% 
   group_by(consistent) %>% 
   summarize(mean_c = mean(exp_resp.rt),
             sd_c = sd(exp_resp.rt),
             se_c = sd(exp_resp.rt)/sqrt(length(exp_resp.rt)))
-data_consistent 
+data_consistent_clikes
 ```
 
-## Mean and SD for reaction time by visibility condition
+### Mean and SD for reaction time by visibility condition
 
-```{r mean and sd visibility}
-data_visible <- data_comb %>% 
+```{r mean and sd visibility clikes}
+data_visible_clikes <- data_correct_likes %>% 
   select(participant, visibility, exp_resp.rt) %>% 
   na.omit() %>% 
   group_by(visibility) %>% 
   summarize(mean_v = mean(exp_resp.rt),
             sd_v = sd(exp_resp.rt),
             se_v = sd(exp_resp.rt)/sqrt(length(exp_resp.rt)))
-data_visible
+data_visible_clikes 
 ```
 
-## Overall descriptives per variable
+### Overall descriptives per variable
 
-```{r overall dem}
-data_comb %>% 
+```{r overall dem clikes}
+data_correct_likes %>% 
   select(visibility, consistent, exp_resp.rt) %>% 
   describe()
 ```
 
-# Anova Results
+Skew is now worse...
 
-```{r anova results}
-model <- lm(exp_resp.rt ~ visibility_effects*consistent, data = data_comb)
-summary(model)
-```
+## Plot for consistency
 
-Results of the within-subjects 2x4 Anova demonstrate that there is a main effect of visibility, with participants taking longer to respond when the stimuli was not visible to them than when it was, *b* = -0.02, *t*(61620) -2.29, *p* < 0.03. There was also a significant main effect of perspective consistency for the contrast comparing the consistent and inconsistent conditions with the unknown condition, *b* = -0.02, *t*(61620) -4.42, *p* < 0.001. All other contrasts were not significant, *ps* > 0.09. The interaction between visiblity and all perspective condition contrasts were also not significant, *ps* > 0.11.
-
-# Plots
-## Main effect of visibility on reaction time
-
-```{r visibility main}
-ggplot(data_visible, aes(x = visibility, y = mean_v, fill = visibility)) +
-  geom_bar(stat = "identity") +
-  theme_minimal() +
-  scale_fill_viridis_d() +
-  theme(legend.position = "none") +
-  labs(title = "Main effect of target visibility on reaction time",
-       x = "Visibility of stimuli to target",
-       y = "Reaction time (seconds)") +
-  geom_errorbar(aes(ymin = mean_v, ymax = mean_v + se_v), width =.2,
-                position = position_dodge(.9)) 
-```
-
-## Main effect of consistency on reaction time
-
-```{r consistentcy main}
-ggplot(data_consistent, aes(x = consistent, y = mean_c, fill = consistent)) +
+```{r consist main clikes}
+ggplot(data_consistent_clikes, aes(x = consistent, y = mean_c, fill = consistent)) +
   geom_bar(stat = "identity") +
   theme_minimal() +
   scale_fill_viridis_d() +
@@ -295,7 +469,292 @@ ggplot(data_consistent, aes(x = consistent, y = mean_c, fill = consistent)) +
   labs(title = "Main effect of perspective consistentcy on reaction time",
        x = "Perspective consistency condition",
        y = "Reaction time (seconds)") +
-  geom_errorbar(aes(ymin = mean_c, ymax = mean_c + se_c), width =.2,
+  geom_errorbar(aes(ymin = mean_c - se_c, ymax = mean_c + se_c), width =.2,
                 position = position_dodge(.9)) 
-
 ```
+
+# Analysis 2: Exclude the dislike condition and still filter for correct responses
+
+```{r without dislike condition}
+# Filtering out dislike condition
+no_dislike <- data_correct_likes %>% 
+  filter(consistent != "Dislike") %>% 
+  droplevels(data_comb$consistent) %>% 
+  na.omit()
+
+# Applying contrasts
+CIvU <- c(-1, -1, 2) 
+CvI <- c(-1, 1, 0) 
+ConCodes <- cbind(CIvU, CvI)
+contrasts(no_dislike$consistent) <- ConCodes
+contrasts(no_dislike$consistent)
+
+model_nodislike <- lm(exp_resp.rt ~ visibility_effects*consistent, data = no_dislike)
+summary(model_nodislike)
+```
+
+The analysis comparing consistent vs inconsistent is now trending. 
+
+## Descriptives
+
+### Mean and SD for reaction time by consistency
+
+```{r no d descriptives consist}
+data_consistent_nod <- no_dislike %>% 
+  select(participant, consistent, exp_resp.rt) %>% 
+  na.omit() %>% 
+  group_by(consistent) %>% 
+  summarize(mean_c = mean(exp_resp.rt),
+            sd_c = sd(exp_resp.rt),
+            se_c = sd(exp_resp.rt)/sqrt(length(exp_resp.rt)))
+data_consistent_nod 
+```
+
+### Mean and SD for reaction time by visibility
+
+```{r no d descrip visible}
+data_visible_nod <- no_dislike %>% 
+  select(participant, visibility, exp_resp.rt) %>% 
+  na.omit() %>% 
+  group_by(visibility) %>% 
+  summarize(mean_v = mean(exp_resp.rt),
+            sd_v = sd(exp_resp.rt),
+            se_v = sd(exp_resp.rt)/sqrt(length(exp_resp.rt)))
+data_visible_nod 
+```
+
+### Overall descriptives
+
+```{r}
+no_dislike %>% 
+  select(visibility, consistent, exp_resp.rt) %>% 
+  describe()
+```
+
+Skew slightly better but not much.
+
+## Plot for consistency
+
+```{r consistentcy main no d}
+ggplot(data_consistent_nod, aes(x = consistent, y = mean_c, fill = consistent)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  scale_fill_viridis_d() +
+  theme(legend.position = "none") +
+  labs(title = "Main effect of perspective consistentcy on reaction time",
+       x = "Perspective consistency condition",
+       y = "Reaction time (seconds)") +
+  geom_errorbar(aes(ymin = mean_c - se_c, ymax = mean_c + se_c), width =.2,
+                position = position_dodge(.9)) 
+```
+
+# Analysis 4: Remove people who responded over 2 SD after removing incorrect responses
+
+This analysis based on prior research - Samson et al 2010; Cole et al 2016 - and because of how skewed the data is.
+
+## Histogram of reaction time
+
+```{r hist rt}
+#histogram of distribution of reaction time before removing participants based on SD - seems weird and like people are equally taking too long to respond...
+hist_rt_nod <- no_dislike %>% 
+  select(participant, exp_resp.rt) %>% 
+  unique()
+hist(hist_rt_nod$exp_resp.rt, xlim = c(0, 10), breaks = 200)
+```
+
+```{r timeout setup}
+#removing anything 2 SD above or below (below is impossible)
+## Ask Ulrich what he thinks the limit on reaction time should be? What does 2,000 ms correspond to? 2 seconds? Because that was the timeout for Samson et al & Cole et al explcitily said 2 seconds
+describe(no_dislike$exp_resp.rt)
+sd_above <- 0.78 + (2*1.16)
+
+timeout <- no_dislike %>% 
+  filter(exp_resp.rt < sd_above & consistent != "Dislike") %>% 
+  droplevels(data_comb$consistent)
+
+CIvU <- c(-1, -1, 2) 
+CvI <- c(-1, 1, 0) 
+ConCodes <- cbind(CIvU, CvI)
+contrasts(timeout$consistent) <- ConCodes
+contrasts(timeout$consistent)
+
+model_timeout <- lm(exp_resp.rt ~ visibility_effects*consistent, data = timeout)
+summary(model_timeout)
+```
+
+Also limited these results to not include trials where the participants responded they "dsiliked" the food as we didn't have both inconsistent and consistent trials using the dislike response.
+
+## Descriptives
+
+### Overall descriptives
+
+```{r overall descriptives timeout}
+## Overall descriptives per variable
+timeout %>% 
+  select(visibility, consistent, exp_resp.rt) %>% 
+  describe()
+```
+
+Skew is much better
+
+### Mean, SD, and SE for reaction time by consistency
+
+```{r descriptives timeout consistency}
+data_consistent_timeout <- timeout %>% 
+  select(participant, consistent, exp_resp.rt) %>% 
+  na.omit() %>% 
+  group_by(consistent) %>% 
+  summarize(mean_c = mean(exp_resp.rt),
+            sd_c = sd(exp_resp.rt),
+            se_c = sd(exp_resp.rt)/sqrt(length(exp_resp.rt)))
+data_consistent_timeout
+```
+
+### Mean, SD, and SE for reaction time by visibility
+
+```{r descriptives timeout visibility}
+data_visibility_timeout <- timeout %>% 
+  select(participant, visibility, exp_resp.rt) %>% 
+  na.omit() %>% 
+  group_by(visibility) %>% 
+  summarize(mean_v = mean(exp_resp.rt),
+            sd_v = sd(exp_resp.rt),
+            se_v = sd(exp_resp.rt)/sqrt(length(exp_resp.rt)))
+data_visibility_timeout 
+```
+
+## Plot for main effect consistency
+
+```{r consistentcy main timeout}
+ggplot(data_consistent_timeout, aes(x = consistent, y = mean_c, fill = consistent)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  scale_fill_viridis_d() +
+  theme(legend.position = "none") +
+  labs(title = "Main effect of perspective consistentcy on reaction time",
+       x = "Perspective consistency condition",
+       y = "Reaction time (seconds)") +
+  geom_errorbar(aes(ymin = mean_c - se_c, ymax = mean_c + se_c), width =.2,
+                position = position_dodge(.9)) 
+```
+
+# Analysis 5: Removed people 2 SD above on reaction time without removing based on correctness
+
+Not sure if my "correctness" exclusion criteria is working properly... I'm confused by how consistency is taking longer. Checking what the results look like without that exclusion criteria.
+
+Also limited these results to not include trails where the participants responded they "dsiliked" the food as we didn't have both inconsistent and consistent trials using the dislike response.
+
+## Histogram of reaction time
+
+```{r hist rt no correct}
+#histogram of distribution of reaction time before removing participants based on SD - seems weird and like people are equally taking too long to respond...
+hist_rt <- data_analysis %>% 
+  select(participant, exp_resp.rt) %>% 
+  unique()
+hist(hist_rt$exp_resp.rt, xlim = c(0, 10))
+```
+
+```{r timeout2 setup no correct}
+#removing anything 2 SD above or below (below is impossible)
+## Ask Ulrich what he thinks the limit on reaction time should be? What does 2,000 ms correspond to? 2 seconds? Because that was the timeout for Samson et al & Cole et al explcitily said 2 seconds
+describe(data_analysis$exp_resp.rt)
+sd_above2 <- 0.79 + (2*1.17)
+
+timeout2 <- data_analysis %>% 
+  filter(exp_resp.rt < sd_above2 & consistent != "Dislike") %>% 
+  droplevels(data_comb$consistent) %>% 
+  na.omit()
+
+CIvU <- c(-1, -1, 2) 
+CvI <- c(-1, 1, 0) 
+ConCodes <- cbind(CIvU, CvI)
+contrasts(timeout2$consistent) <- ConCodes
+contrasts(timeout2$consistent)
+
+model_timeout2 <- lm(exp_resp.rt ~ visibility_effects*consistent, data = timeout2)
+summary(model_timeout2)
+```
+
+## Descriptives
+
+### Overall descriptives
+
+```{r overall descriptives timeout2}
+## Overall descriptives per variable
+timeout2 %>% 
+  select(visibility, consistent, exp_resp.rt) %>% 
+  describe()
+```
+
+Skew is pretty much the same as the last analysis
+
+### Mean, SD, and SE for reaction time by consistency
+
+```{r descriptives timeout2 consistency}
+data_consistent_timeout2 <- timeout2 %>% 
+  select(participant, consistent, exp_resp.rt) %>% 
+  na.omit() %>% 
+  group_by(consistent) %>% 
+  summarize(mean_c = mean(exp_resp.rt),
+            sd_c = sd(exp_resp.rt),
+            se_c = sd(exp_resp.rt)/sqrt(length(exp_resp.rt)))
+data_consistent_timeout2
+```
+
+Now the result are the pattern we predicted...
+
+### Mean, SD, and SE for reaction time by visibility
+
+```{r descriptives timeout2 visibility}
+data_visibility_timeout2 <- timeout2 %>% 
+  select(participant, visibility, exp_resp.rt) %>% 
+  na.omit() %>% 
+  group_by(visibility) %>% 
+  summarize(mean_v = mean(exp_resp.rt),
+            sd_v = sd(exp_resp.rt),
+            se_v = sd(exp_resp.rt)/sqrt(length(exp_resp.rt)))
+data_visibility_timeout2 
+```
+
+## Plot for main effect consistency
+
+```{r consistentcy main timeout2}
+ggplot(data_consistent_timeout2, aes(x = consistent, y = mean_c, fill = consistent)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  scale_fill_viridis_d() +
+  theme(legend.position = "none") +
+  labs(title = "Main effect of perspective consistentcy on reaction time",
+       x = "Perspective consistency condition",
+       y = "Reaction time (seconds)") +
+  geom_errorbar(aes(ymin = mean_c - se_c, ymax = mean_c + se_c), width =.2,
+                position = position_dodge(.9)) 
+```
+
+
+# Thoughts for further analysis
+
+1. Do we need to log-transform the data due to skew?
+2. Should we check in language moderates results since understanding instructions was crucial to the study?
+3. Thoughts on "correctness" exclusion criteria?
+
+
+
+```{r language check, include = FALSE}
+# Does language moderate results?
+lang <- data_comb %>% 
+  select(exp_resp.rt, visibility, consistent, english_native, 
+         exp_resp.keys, food_exp) %>% 
+  mutate(visibility_effects = recode(visibility, 
+                                     `Visible` = "-.5",
+                                     `Not Visible` = ".5")) %>% 
+  filter(!c(exp_resp.keys == "up" & food_exp == "y" | 
+              exp_resp.keys == "down" & food_exp == c("g", "d") |
+              consistent == "Dislike")) %>% 
+  droplevels(data_comb$consistent) %>% 
+  na.omit()
+
+model_nodislike_langmod <- lm(exp_resp.rt ~ visibility_effects*consistent*english_native, data = lang)
+summary(model_nodislike_langmod)
+```
+
