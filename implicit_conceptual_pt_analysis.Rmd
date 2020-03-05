@@ -497,3 +497,24 @@ data_comb %>%
   group_by(us_raised) %>% 
   count()
 ```
+
+```{r, include = FALSE}
+## MLM version
+mlm_data <- dat_analysis %>% 
+  filter(error != "Error") %>% 
+  filter(consistent != "Dislike") %>%
+  droplevels(data_rt$error) %>% 
+  droplevels(data_rt$consistent) %>% 
+  na.omit() %>% 
+  select(participant, consistent, visibility, visibility_effects, exp_resp.rt, trial_num) %>% 
+  unique() %>% 
+  na.omit()
+
+contrasts(mlm_data$consistent) <- ConCodes
+contrasts(mlm_data$consistent)
+
+mlm_model <- lmer(exp_resp.rt ~ consistent*visibility_effects + (1 | participant), mlm_data)
+
+tab_model(mlm_model,
+          title = "MLM model predicting reaction time")
+```
