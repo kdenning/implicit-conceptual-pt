@@ -399,6 +399,78 @@ cutoff <- .5 # setting a cut-off
 
 ```
 
+# Reaction time model including SD in RT as a predictor
+## Contrasts for consistency
+
+```{r setup rt with timeout}
+# Getting SD to make categorical variable by SD
+describe(dat_analysis$exp_resp.rt)
+
+# Removing dislike condition from anaysis as it was just a methodological variation not theoretically related to analysis
+# Removing errors from analysis
+# Creating categorical predictor for SD
+anova_timeout <- dat_analysis %>% 
+  mutate(timeout = with(dat_analysis, ifelse(exp_resp.rt < (1.93), 
+                                              "Average", 
+                                              ifelse(exp_resp.rt > (1.93) & exp_resp.rt < (3.06), "1 SD above", 
+                                                     ifelse(exp_resp.rt > (3.06) & exp_resp.rt < (4.19), "2 SD above", NA))))) %>% 
+  filter(error != "Error") %>% 
+  filter(consistent != "Dislike") %>%
+  droplevels(data_rt$error) %>% 
+  droplevels(data_rt$consistent) %>% 
+  na.omit()  %>% 
+  mutate(timeout = as.factor(timeout)) %>% 
+  group_by(participant, consistent, visibility, timeout) %>% 
+  mutate(rt_pagg = mean(exp_resp.rt)) %>% 
+         #timeout_effects = recode(timeout,
+                                  #`Less than 3 seconds` = "-.5",
+                                  #`More than 3 seconds` = ".5")) %>% 
+  select(participant, consistent, visibility, visibility_effects, 
+         rt_pagg, timeout) %>% 
+  unique() %>% 
+  na.omit()
+
+# Applying helmert contrasts to consistent; visibility is already effects coded
+contrasts(anova_timeout$consistent) <- ConCodes
+contrasts(anova_timeout$consistent)
+
+contrasts(anova_timeout$timeout)
+```
+
+## Anova results
+
+```{r anova results timeout}
+# Running the repeated measures anova
+model_timeout <- with(anova_timeout, 
+               aov(rt_pagg ~ (visibility_effects*consistent*timeout) + 
+                     Error(participant/(visibility_effects*consistent*timeout))))
+summary(model_timeout)
+```
+
+## Plot predicting reaction time by SD group of reaction time
+
+```{r timeout interaction plot}
+consistent_timeout <- anova_timeout %>% 
+  select(participant, consistent, rt_pagg, timeout) %>% 
+  na.omit() %>% 
+  group_by(consistent, timeout) %>% 
+  summarize(mean = mean(rt_pagg),
+            sd = sd(rt_pagg),
+            se = sd(rt_pagg)/sqrt(length(rt_pagg)))
+
+ggplot(consistent_timeout, aes(x = timeout, y = mean, fill = consistent, group = consistent)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme_minimal() +
+  scale_fill_viridis_d() +
+  theme(legend.position = "right") +
+  labs(title = "Reaction time predicted by consistency and time grouping",
+       subtitle = "Response error has been removed",
+       x = "Time grouping by SD",
+       y = "Reaction time (seconds)") +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = .5,
+                position = position_dodge(.9)) 
+```
+
 # Demographics
 
 ## Number of participants with demographic data
@@ -499,7 +571,7 @@ data_comb %>%
 ```
 
 ```{r, include = FALSE}
-## MLM version
+## MLM version - only runs as a fixed effects model not random effects, which isn't what we want
 mlm_data <- dat_analysis %>% 
   filter(error != "Error") %>% 
   filter(consistent != "Dislike") %>%
