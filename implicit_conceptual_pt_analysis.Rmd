@@ -321,7 +321,13 @@ summary(model1)
 ## Plots
 
 ```{r rt consistent no error plot}
-ggplot(consistency_nerror , aes(x = consistent, y = mean, fill = consistent)) +
+# Dropping dislike option from plot
+consistency_nerror_ndislike <-  consistency_nerror %>% 
+  filter(consistent != "Dislike") %>% 
+  droplevels(consistency_nerror$consistent) %>% 
+  na.omit()
+
+ggplot(consistency_nerror_ndislike, aes(x = consistent, y = mean, fill = consistent)) +
   geom_bar(stat = "identity") +
   theme_minimal() +
   scale_fill_viridis_d() +
