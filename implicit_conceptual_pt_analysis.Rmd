@@ -7,6 +7,8 @@ output:
     code_folding: "hide"
     toc: true
     toc_float: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Introduction to study
@@ -48,12 +50,12 @@ library(janitor)
 library(lme4)
 library(psy)
 library(irr)
-library(psych)
 library(sjPlot)
 library(emmeans)
 library(effects)
 library(here)
 library(fs)
+library(psych)
 
 #Setting global chunk options
 knitr::opts_chunk$set(echo = TRUE,
@@ -146,9 +148,13 @@ dat_error <- data %>%
 dat_error %<>% mutate(error = as.factor(error)) %>% 
   na.omit()
 
-# Read in and merge demographic information into overall dataset
+# Read in demographic info dataset
 dem <- read.csv("ACPT_dem.csv", header = TRUE) 
 
+# Fixing error of variable name from read in
+dem %<>% rename("participant" = "ï..participant")
+
+# Combine the datasets
 data_comb <- left_join(dat_error, dem, by = "participant")
 
 # Checking where there is na data
@@ -272,6 +278,17 @@ data_aggregated_nerror %>%
 ## Percent of error trials vs correct trials
 
 ```{r percent error}
+# Percent error
+data_rt %>% 
+  select(error) %>% 
+  group_by(error) %>% 
+  count() %>% 
+  mutate(percent = n/(3509+57222)*100)
+```
+
+## Percent of trials over 3 sd
+
+```{r percent timeout}
 # Percent error
 data_rt %>% 
   select(error) %>% 
