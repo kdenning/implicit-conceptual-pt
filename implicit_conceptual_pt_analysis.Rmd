@@ -224,6 +224,20 @@ visibility_werror <- data_aggregated_werror %>%
 visibility_werror
 ```
 
+### Combined table for reaction time with both visibility and consistency with error
+
+```{r mean aggregation combined before error removed}
+combined_werror <- data_aggregated_werror %>% 
+  select(participant, visibility, consistent, rt_pagg) %>% 
+  na.omit() %>% 
+  group_by(visibility, consistent) %>% 
+  summarize(mean = mean(rt_pagg),
+            sd = sd(rt_pagg),
+            se = sd(rt_pagg)/sqrt(length(rt_pagg)))
+combined_werror
+```
+
+
 ### Overall variable descriptives
 
 ```{r mean aggregation overall before removing errors}
@@ -267,6 +281,19 @@ visibility_nerror <- data_aggregated_nerror %>%
 visibility_nerror
 ```
 
+### Combined table for reaction time with both visibility and consistency without error
+
+```{r mean aggregation combined error removed}
+combined_nerror <- data_aggregated_nerror %>% 
+  select(participant, visibility, consistent, rt_pagg) %>% 
+  na.omit() %>% 
+  group_by(visibility, consistent) %>% 
+  summarize(mean = mean(rt_pagg),
+            sd = sd(rt_pagg),
+            se = sd(rt_pagg)/sqrt(length(rt_pagg)))
+combined_nerror
+```
+
 ### Overall variable descriptives
 
 ```{r mean aggregation overall after removing errors}
@@ -297,7 +324,7 @@ data_rt %>%
   mutate(percent = n/(3509+57222)*100)
 ```
 
-## Anova analysis
+## Anova analysis predicting RT
 
 ### Contrasts
 
@@ -373,6 +400,7 @@ ggplot(visibility_nerror , aes(x = visibility, y = mean, fill = visibility)) +
 
 # Model predicting error
 
+
 ## Helmert ontrasts for consistency
 
 ```{r error setup}
@@ -422,10 +450,47 @@ cutoff <- .5 # setting a cut-off
 
 ```
 
+# Model predicting RT with block as predictor
+
+```{r setup and contrasts rt with block}
+# Removing dislike condition from anaysis as it was just a methodological variation not theoretically related to analysis
+# Removing errors from analysis
+anova_rt_block_data <- data_rt %>% 
+  filter(error != "Error") %>% 
+  filter(consistent != "Dislike") %>%
+  droplevels(data_rt$error) %>% 
+  droplevels(data_rt$consistent) %>% 
+  na.omit() %>% 
+  group_by(participant, consistent, visibility, expBlock.thisN) %>% 
+  mutate(rt_pagg = mean(exp_resp.rt)) %>% 
+  select(participant, consistent, visibility, visibility_effects, rt_pagg, expBlock.thisN) %>% 
+  unique() %>% 
+  na.omit()
+
+CIvU <- c(-1, -1, 2) 
+CvI <- c(-1, 1, 0) 
+ConCodes <- cbind(CIvU, CvI)
+contrasts(anova_rt_data$consistent) <- ConCodes
+contrasts(anova_rt_data$consistent)
+```
+
+*Visibility was effects coded*
+
+### Results
+
+```{r rt anova results}
+# Running the repeated measures anova
+model3 <- with(anova_rt_block_data, 
+               aov(rt_pagg ~ (visibility_effects*consistent*expBlock.thisN) + 
+                     Error(participant/(visibility_effects*consistent*expBlock.thisN))))
+summary(model3)
+```
+
+```{r setup rt with timeout, include = FALSE}
 # Reaction time model including SD in RT as a predictor
 ## Contrasts for consistency
 
-```{r setup rt with timeout}
+
 # Getting SD to make categorical variable by SD
 describe(dat_analysis$exp_resp.rt)
 
@@ -458,21 +523,17 @@ contrasts(anova_timeout$consistent) <- ConCodes
 contrasts(anova_timeout$consistent)
 
 contrasts(anova_timeout$timeout)
-```
+
 
 ## Anova results
 
-```{r anova results timeout}
 # Running the repeated measures anova
 model_timeout <- with(anova_timeout, 
                aov(rt_pagg ~ (visibility_effects*consistent*timeout) + 
                      Error(participant/(visibility_effects*consistent*timeout))))
 summary(model_timeout)
-```
 
 ## Plot predicting reaction time by SD group of reaction time
-
-```{r timeout interaction plot}
 consistent_timeout <- anova_timeout %>% 
   select(participant, consistent, rt_pagg, timeout) %>% 
   na.omit() %>% 
