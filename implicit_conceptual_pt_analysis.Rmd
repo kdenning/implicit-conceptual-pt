@@ -429,8 +429,8 @@ contrasts(anova_error_data3$consistent)
 
 ```{r}
 # Running logistic regression predicting error
-model2 <- with(anova_error_data2,
-                  aov(error_per_group ~ (visibility_effects*consistent) +
+model2 <- with(anova_error_data3,
+                  aov(error_rate ~ (visibility_effects*consistent) +
                         Error(participant/(visibility_effects*consistent))))
 
 
@@ -570,10 +570,10 @@ anova_error_data_block3 <- anova_error_data_block2 %>%
   mutate(n_per_grouping = ifelse(error == "Correct", 0, ifelse(error == "Error", n_per_grouping, NA))) %>% 
   mutate(error_per_group = (n_per_grouping/n_per_total)*100)
 
-anova_error_data4 <- anova_error_data_block3 %>% 
-  group_by(participant, visibility_effects, consistent) %>% 
+anova_error_data_block4 <- anova_error_data_block3 %>% 
+  group_by(participant, visibility_effects, consistent, expBlock.thisN) %>% 
   mutate(error_rate = mean(error_per_group)) %>% 
-  select(participant, visibility_effects, consistent, error_rate) %>% 
+  select(participant, visibility_effects, consistent, error_rate, expBlock.thisN) %>% 
   unique()
 
 # Applying helmert contrasts to consistent; visibility is already effects coded
@@ -585,8 +585,8 @@ contrasts(anova_error_data_block3$consistent)
 
 ```{r}
 # Running logistic regression predicting error
-model4 <- with(anova_error_data_block3,
-                  aov(error_per_group ~ (visibility_effects*consistent*expBlock.thisN) +
+model4 <- with(anova_error_data_block4,
+                  aov(error_rate ~ (visibility_effects*consistent*expBlock.thisN) +
                         Error(participant/(visibility_effects*consistent*expBlock.thisN))))
 
 

@@ -1942,37 +1942,35 @@ contrasts(anova_error_data3$consistent)</code></pre>
 <div id="anova-results-predicting-error" class="section level2">
 <h2>Anova results predicting error</h2>
 <pre class="r"><code># Running logistic regression predicting error
-model2 &lt;- with(anova_error_data2,
-                  aov(error_per_group ~ (visibility_effects*consistent) +
+model2 &lt;- with(anova_error_data3,
+                  aov(error_rate ~ (visibility_effects*consistent) +
                         Error(participant/(visibility_effects*consistent))))
 
 
 summary(model2)</code></pre>
 <pre><code>## 
 ## Error: participant
-##                    Df Sum Sq Mean Sq
-## visibility_effects  1  12.56   12.56
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Residuals  1  5.539   5.539               
 ## 
 ## Error: participant:visibility_effects
-##                    Df  Sum Sq Mean Sq
-## visibility_effects  1 0.03001 0.03001
+##                    Df   Sum Sq  Mean Sq
+## visibility_effects  1 0.007703 0.007703
 ## 
 ## Error: participant:consistent
-##                    Df Sum Sq Mean Sq
-## visibility_effects  1  2.259   2.259
-## consistent          1 18.672  18.672
+##            Df Sum Sq Mean Sq
+## consistent  2  10.29   5.142
 ## 
 ## Error: participant:visibility_effects:consistent
-##                    Df  Sum Sq Mean Sq
-## visibility_effects  1 0.02221 0.02221
-## consistent          1 0.03113 0.03113
+##                               Df   Sum Sq  Mean Sq
+## visibility_effects:consistent  2 0.009584 0.004792
 ## 
 ## Error: Within
 ##                                Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-## visibility_effects              1    0.1   0.094   0.042 0.837955    
-## consistent                      2   34.2  17.115   7.589 0.000538 ***
-## visibility_effects:consistent   2    0.0   0.025   0.011 0.989094    
-## Residuals                     932 2102.0   2.255                     
+## visibility_effects              1    0.0   0.002   0.002    0.962    
+## consistent                      2   17.3   8.647  10.704 2.75e-05 ***
+## visibility_effects:consistent   2    0.0   0.013   0.016    0.984    
+## Residuals                     552  445.9   0.808                     
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
@@ -2161,10 +2159,10 @@ anova_error_data_block3 &lt;- anova_error_data_block2 %&gt;%
   mutate(n_per_grouping = ifelse(error == &quot;Correct&quot;, 0, ifelse(error == &quot;Error&quot;, n_per_grouping, NA))) %&gt;% 
   mutate(error_per_group = (n_per_grouping/n_per_total)*100)
 
-anova_error_data4 &lt;- anova_error_data_block3 %&gt;% 
-  group_by(participant, visibility_effects, consistent) %&gt;% 
+anova_error_data_block4 &lt;- anova_error_data_block3 %&gt;% 
+  group_by(participant, visibility_effects, consistent, expBlock.thisN) %&gt;% 
   mutate(error_rate = mean(error_per_group)) %&gt;% 
-  select(participant, visibility_effects, consistent, error_rate) %&gt;% 
+  select(participant, visibility_effects, consistent, error_rate, expBlock.thisN) %&gt;% 
   unique()
 
 # Applying helmert contrasts to consistent; visibility is already effects coded
@@ -2177,59 +2175,55 @@ contrasts(anova_error_data_block3$consistent)</code></pre>
 <div id="anova-results" class="section level2">
 <h2>Anova Results</h2>
 <pre class="r"><code># Running logistic regression predicting error
-model4 &lt;- with(anova_error_data_block3,
-                  aov(error_per_group ~ (visibility_effects*consistent*expBlock.thisN) +
+model4 &lt;- with(anova_error_data_block4,
+                  aov(error_rate ~ (visibility_effects*consistent*expBlock.thisN) +
                         Error(participant/(visibility_effects*consistent*expBlock.thisN))))
 
 
 summary(model4)</code></pre>
 <pre><code>## 
 ## Error: participant
-##                    Df Sum Sq Mean Sq
-## visibility_effects  1    135     135
+##           Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Residuals  1  50.68   50.68               
 ## 
 ## Error: participant:visibility_effects
 ##                    Df Sum Sq Mean Sq
-## visibility_effects  1 0.3119  0.3119
+## visibility_effects  1   0.11    0.11
 ## 
 ## Error: participant:consistent
-##                    Df Sum Sq Mean Sq
-## visibility_effects  1  79.72   79.72
-## consistent          1 145.44  145.44
+##            Df Sum Sq Mean Sq
+## consistent  2  92.89   46.45
 ## 
 ## Error: participant:expBlock.thisN
-##                    Df  Sum Sq Mean Sq
-## visibility_effects  1 0.06505 0.06505
+##                Df  Sum Sq Mean Sq
+## expBlock.thisN  1 0.01664 0.01664
 ## 
 ## Error: participant:visibility_effects:consistent
-##                    Df  Sum Sq Mean Sq
-## visibility_effects  1 0.01023 0.01023
-## consistent          1 0.06459 0.06459
+##                               Df Sum Sq Mean Sq
+## visibility_effects:consistent  2  0.163 0.08148
 ## 
 ## Error: participant:visibility_effects:expBlock.thisN
-##                    Df Sum Sq Mean Sq
-## visibility_effects  1 0.7615  0.7615
+##                                   Df Sum Sq Mean Sq
+## visibility_effects:expBlock.thisN  1 0.3072  0.3072
 ## 
 ## Error: participant:consistent:expBlock.thisN
-##                    Df Sum Sq Mean Sq
-## visibility_effects  1 2.1267  2.1267
-## consistent          1 0.0003  0.0003
+##                           Df Sum Sq Mean Sq
+## consistent:expBlock.thisN  2  1.542  0.7711
 ## 
 ## Error: participant:visibility_effects:consistent:expBlock.thisN
-##                    Df  Sum Sq Mean Sq
-## visibility_effects  1 0.01663 0.01663
-## consistent          1 0.10661 0.10661
+##                                              Df Sum Sq Mean Sq
+## visibility_effects:consistent:expBlock.thisN  2 0.2614  0.1307
 ## 
 ## Error: Within
 ##                                                Df Sum Sq Mean Sq F value Pr(&gt;F)
-## visibility_effects                              1      0    0.05   0.012  0.913
-## consistent                                      2    360  180.14  47.422 &lt;2e-16
-## expBlock.thisN                                  1      1    0.87   0.229  0.632
-## visibility_effects:consistent                   2      1    0.26   0.070  0.933
-## visibility_effects:expBlock.thisN               1      0    0.02   0.005  0.942
-## consistent:expBlock.thisN                       2      4    2.21   0.582  0.559
-## visibility_effects:consistent:expBlock.thisN    2      2    1.08   0.284  0.753
-## Residuals                                    6514  24745    3.80               
+## visibility_effects                              1      0    0.01   0.011  0.917
+## consistent                                      2    159   79.51  67.097 &lt;2e-16
+## expBlock.thisN                                  1      1    0.59   0.495  0.482
+## visibility_effects:consistent                   2      0    0.10   0.086  0.917
+## visibility_effects:expBlock.thisN               1      0    0.01   0.006  0.940
+## consistent:expBlock.thisN                       2      3    1.41   1.192  0.304
+## visibility_effects:consistent:expBlock.thisN    2      1    0.61   0.517  0.596
+## Residuals                                    5052   5987    1.19               
 ##                                                 
 ## visibility_effects                              
 ## consistent                                   ***
