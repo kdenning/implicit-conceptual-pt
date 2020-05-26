@@ -412,9 +412,15 @@ anova_error_data2 <- anova_error_data %>%
   mutate(n_per_grouping = ifelse(error == "Correct", 0, ifelse(error == "Error", n_per_grouping, NA))) %>% 
   mutate(error_per_group = (n_per_grouping/n_per_total)*100)
 
+anova_error_data3 <- anova_error_data2 %>% 
+  group_by(participant, visibility_effects, consistent) %>% 
+  mutate(error_rate = mean(error_per_group)) %>% 
+  select(participant, visibility_effects, consistent, error_rate) %>% 
+  unique()
+
 # Applying helmert contrasts to consistent; visibility is already effects coded
-contrasts(anova_error_data2$consistent) <- ConCodes
-contrasts(anova_error_data2$consistent)
+contrasts(anova_error_data3$consistent) <- ConCodes
+contrasts(anova_error_data3$consistent)
 ```
 
 *Visibility was effects coded*
@@ -434,13 +440,13 @@ summary(model2)
 ## Plot for main effect of consistency
 
 ```{r error main effect consist}
-data_aggregated_errorrate <- anova_error_data2 %>% 
-  select(participant, consistent, error_per_group) %>% 
+data_aggregated_errorrate <- anova_error_data3 %>% 
+  select(participant, consistent, error_rate) %>% 
   na.omit() %>% 
   group_by(consistent) %>% 
-  summarize(mean = mean(error_per_group),
-            sd = sd(error_per_group),
-            se = sd(error_per_group)/sqrt(length(error_per_group)))
+  summarize(mean = mean(error_rate),
+            sd = sd(error_rate),
+            se = sd(error_rate)/sqrt(length(error_rate)))
 
 
 ggplot(data_aggregated_errorrate, aes(x = consistent, y = mean, fill = consistent)) +
@@ -563,6 +569,12 @@ anova_error_data_block2 <- anova_error_data_block %>%
 anova_error_data_block3 <- anova_error_data_block2 %>% 
   mutate(n_per_grouping = ifelse(error == "Correct", 0, ifelse(error == "Error", n_per_grouping, NA))) %>% 
   mutate(error_per_group = (n_per_grouping/n_per_total)*100)
+
+anova_error_data4 <- anova_error_data_block3 %>% 
+  group_by(participant, visibility_effects, consistent) %>% 
+  mutate(error_rate = mean(error_per_group)) %>% 
+  select(participant, visibility_effects, consistent, error_rate) %>% 
+  unique()
 
 # Applying helmert contrasts to consistent; visibility is already effects coded
 contrasts(anova_error_data_block3$consistent) <- ConCodes
