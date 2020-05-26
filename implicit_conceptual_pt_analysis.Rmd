@@ -4,7 +4,7 @@ author: "Kathryn Denning"
 date: "2/14/2020"
 output: 
   html_document:
-    code_folding: "hide"
+    code_folding: "show"
     toc: true
     toc_float: true
 editor_options: 
@@ -166,7 +166,7 @@ dat_analysis <- data_comb %>%
          exp_resp.rt, exp_resp.keys, visibility, visibility_effects, error)
 ```
 
-# Model predicting reaction time
+# Looking at data
 
 ## Checking for outliers and filtering responses over 3 seconds
 
@@ -186,7 +186,11 @@ hist_rt_3sec <- data_rt %>%
   select(participant, exp_resp.rt) %>% 
   unique()
 hist(hist_rt_3sec$exp_resp.rt, xlim = c(0, 5), breaks = 50)
+```
 
+## Percent of trials over 3 sd
+
+```{r}
 # percent removed over 3 seconds
 (1 - nrow(data_rt)/nrow(dat_analysis))*100
 ```
@@ -313,20 +317,9 @@ data_rt %>%
   mutate(percent = n/(3509+57222)*100)
 ```
 
-## Percent of trials over 3 sd
+# Model predicting RT
 
-```{r percent timeout}
-# Percent error
-data_rt %>% 
-  select(error) %>% 
-  group_by(error) %>% 
-  count() %>% 
-  mutate(percent = n/(3509+57222)*100)
-```
-
-## Anova analysis predicting RT
-
-### Contrasts
+## Contrasts
 
 ```{r setup and contrasts}
 # Removing dislike condition from anaysis as it was just a methodological variation not theoretically related to analysis
@@ -352,7 +345,7 @@ contrasts(anova_rt_data$consistent)
 
 *Visibility was effects coded*
 
-### Results
+## Results
 
 ```{r rt anova results}
 # Running the repeated measures anova
@@ -400,54 +393,66 @@ ggplot(visibility_nerror , aes(x = visibility, y = mean, fill = visibility)) +
 
 # Model predicting error
 
-
-## Helmert ontrasts for consistency
+## Contrasts
 
 ```{r error setup}
-# Organizing data to include bothlevels of error but get rid of the dislike condition
+# Organizing data to include both levels of error but get rid of the dislike condition
 anova_error_data <- data_rt %>% 
-  select(participant, error, visibility_effects, visibility, consistent) %>% 
   filter(consistent != "Dislike") %>%
   droplevels(data_rt$consistent) %>% 
+  na.omit() %>% 
+  group_by(participant, visibility_effects, consistent, error) %>% 
   unique() %>% 
-  na.omit()
+  count() %>% 
+  mutate(n_per_grouping = n)
+
+anova_error_data2 <- anova_error_data %>% 
+  group_by(participant) %>% 
+  mutate(n_per_total = sum(n_per_grouping)) %>% 
+  mutate(n_per_grouping = ifelse(error == "Correct", 0, ifelse(error == "Error", n_per_grouping, NA))) %>% 
+  mutate(error_per_group = (n_per_grouping/n_per_total)*100)
 
 # Applying helmert contrasts to consistent; visibility is already effects coded
-contrasts(anova_error_data$consistent) <- ConCodes
-contrasts(anova_error_data$consistent)
+contrasts(anova_error_data2$consistent) <- ConCodes
+contrasts(anova_error_data2$consistent)
 ```
 
 *Visibility was effects coded*
 
-## Logistic regression results predicting error
+## Anova results predicting error
 
 ```{r}
 # Running logistic regression predicting error
-model2 <- glm(error ~ visibility_effects*consistent, 
-              data = anova_error_data, 
-              na.action = "na.exclude", 
-              family = "binomial")
+model2 <- with(anova_error_data2,
+                  aov(error_per_group ~ (visibility_effects*consistent) +
+                        Error(participant/(visibility_effects*consistent))))
+
+
 summary(model2)
 ```
 
-## Odds of logistic regression coefficients (aka exponentiated coefficients)
+## Plot for main effect of consistency
 
-```{r odds}
-# Getting exponentiated coefficients (odds)
-exp(coef(model2))
-```
+```{r error main effect consist}
+data_aggregated_errorrate <- anova_error_data2 %>% 
+  select(participant, consistent, error_per_group) %>% 
+  na.omit() %>% 
+  group_by(consistent) %>% 
+  summarize(mean = mean(error_per_group),
+            sd = sd(error_per_group),
+            se = sd(error_per_group)/sqrt(length(error_per_group)))
 
-```{r cross table, include = FALSE}
-# Get predicted probabilities:
-predicted_probs <- predict(model2, type="response")
 
-glm_pred <- ifelse(predicted_probs > 0.5, "Correct", "Error")
-
-attach(anova_error_data)
-table(glm_pred, error)
-# Get a classification table:
-cutoff <- .5 # setting a cut-off
-
+ggplot(data_aggregated_errorrate, aes(x = consistent, y = mean, fill = consistent)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  scale_fill_viridis_d() +
+  theme(legend.position = "none") +
+  labs(title = "Error rate predicted by perspective consistency",
+       x = "Perspective consistency condition",
+       y = "Error rate (out of 100%)") +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = .2,
+                position = position_dodge(.9)) 
 ```
 
 # Model predicting RT with block as predictor
@@ -470,15 +475,15 @@ anova_rt_block_data <- data_rt %>%
 CIvU <- c(-1, -1, 2) 
 CvI <- c(-1, 1, 0) 
 ConCodes <- cbind(CIvU, CvI)
-contrasts(anova_rt_data$consistent) <- ConCodes
-contrasts(anova_rt_data$consistent)
+contrasts(anova_rt_block_data$consistent) <- ConCodes
+contrasts(anova_rt_block_data$consistent)
 ```
 
 *Visibility was effects coded*
 
-### Results
+## Results
 
-```{r rt anova results}
+```{r rt anova results block}
 # Running the repeated measures anova
 model3 <- with(anova_rt_block_data, 
                aov(rt_pagg ~ (visibility_effects*consistent*expBlock.thisN) + 
@@ -486,74 +491,97 @@ model3 <- with(anova_rt_block_data,
 summary(model3)
 ```
 
-```{r setup rt with timeout, include = FALSE}
-# Reaction time model including SD in RT as a predictor
-## Contrasts for consistency
 
+## Plot for consistency
 
-# Getting SD to make categorical variable by SD
-describe(dat_analysis$exp_resp.rt)
-
-# Removing dislike condition from anaysis as it was just a methodological variation not theoretically related to analysis
-# Removing errors from analysis
-# Creating categorical predictor for SD
-anova_timeout <- dat_analysis %>% 
-  mutate(timeout = with(dat_analysis, ifelse(exp_resp.rt < (1.93), 
-                                              "Average", 
-                                              ifelse(exp_resp.rt > (1.93) & exp_resp.rt < (3.06), "1 SD above", 
-                                                     ifelse(exp_resp.rt > (3.06) & exp_resp.rt < (4.19), "2 SD above", NA))))) %>% 
-  filter(error != "Error") %>% 
-  filter(consistent != "Dislike") %>%
-  droplevels(data_rt$error) %>% 
-  droplevels(data_rt$consistent) %>% 
-  na.omit()  %>% 
-  mutate(timeout = as.factor(timeout)) %>% 
-  group_by(participant, consistent, visibility, timeout) %>% 
-  mutate(rt_pagg = mean(exp_resp.rt)) %>% 
-         #timeout_effects = recode(timeout,
-                                  #`Less than 3 seconds` = "-.5",
-                                  #`More than 3 seconds` = ".5")) %>% 
-  select(participant, consistent, visibility, visibility_effects, 
-         rt_pagg, timeout) %>% 
-  unique() %>% 
-  na.omit()
-
-# Applying helmert contrasts to consistent; visibility is already effects coded
-contrasts(anova_timeout$consistent) <- ConCodes
-contrasts(anova_timeout$consistent)
-
-contrasts(anova_timeout$timeout)
-
-
-## Anova results
-
-# Running the repeated measures anova
-model_timeout <- with(anova_timeout, 
-               aov(rt_pagg ~ (visibility_effects*consistent*timeout) + 
-                     Error(participant/(visibility_effects*consistent*timeout))))
-summary(model_timeout)
-
-## Plot predicting reaction time by SD group of reaction time
-consistent_timeout <- anova_timeout %>% 
-  select(participant, consistent, rt_pagg, timeout) %>% 
+```{r plot block model for consistency}
+# Plot for consistency
+block_model_rt_consistent <- anova_rt_block_data %>% 
+  select(participant, consistent, rt_pagg) %>% 
   na.omit() %>% 
-  group_by(consistent, timeout) %>% 
+  group_by(consistent) %>% 
   summarize(mean = mean(rt_pagg),
             sd = sd(rt_pagg),
             se = sd(rt_pagg)/sqrt(length(rt_pagg)))
 
-ggplot(consistent_timeout, aes(x = timeout, y = mean, fill = consistent, group = consistent)) +
-  geom_bar(stat = "identity", position = "dodge") +
+ggplot(block_model_rt_consistent, aes(x = consistent, y = mean, fill = consistent)) +
+  geom_bar(stat = "identity") +
   theme_minimal() +
   scale_fill_viridis_d() +
-  theme(legend.position = "right") +
-  labs(title = "Reaction time predicted by consistency and time grouping",
+  theme(legend.position = "none") +
+  labs(title = "Reaction time predicted by perspective consistency",
        subtitle = "Response error has been removed",
-       x = "Time grouping by SD",
+       x = "Perspective consistency condition",
        y = "Reaction time (seconds)") +
-  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = .5,
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = .2,
                 position = position_dodge(.9)) 
 ```
+
+## Plot for block
+
+```{r plot block model for block}
+# Plot for consistency
+block_model_rt_block <- anova_rt_block_data %>% 
+  select(participant, expBlock.thisN, rt_pagg) %>% 
+  na.omit() %>% 
+  group_by(expBlock.thisN) %>% 
+  summarize(mean = mean(rt_pagg),
+            sd = sd(rt_pagg),
+            se = sd(rt_pagg)/sqrt(length(rt_pagg)))
+
+ggplot(block_model_rt_block, aes(x = expBlock.thisN, 
+                                      y = mean, 
+                                      fill = expBlock.thisN)) +
+  geom_line() +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  labs(title = "Reaction time predicted by block number",
+       subtitle = "Response error has been removed",
+       x = "Block number",
+       y = "Reaction time (seconds)") +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = .2,
+                position = position_dodge(.9)) 
+```
+
+# Model predicting error with block as predictor
+
+```{r error block setup}
+# Organizing data to include bothlevels of error but get rid of the dislike condition
+anova_error_data_block <- data_rt %>% 
+  filter(consistent != "Dislike") %>%
+  droplevels(data_rt$consistent) %>% 
+  na.omit() %>% 
+  group_by(participant, visibility_effects, consistent, error, expBlock.thisN) %>% 
+  unique() %>% 
+  count() %>% 
+  mutate(n_per_grouping = n)
+
+anova_error_data_block2 <- anova_error_data_block %>% 
+  group_by(participant, expBlock.thisN) %>% 
+  mutate(n_per_total = sum(n_per_grouping))
+
+anova_error_data_block3 <- anova_error_data_block2 %>% 
+  mutate(n_per_grouping = ifelse(error == "Correct", 0, ifelse(error == "Error", n_per_grouping, NA))) %>% 
+  mutate(error_per_group = (n_per_grouping/n_per_total)*100)
+
+# Applying helmert contrasts to consistent; visibility is already effects coded
+contrasts(anova_error_data_block3$consistent) <- ConCodes
+contrasts(anova_error_data_block3$consistent)
+```
+
+## Anova Results
+
+```{r}
+# Running logistic regression predicting error
+model4 <- with(anova_error_data_block3,
+                  aov(error_per_group ~ (visibility_effects*consistent*expBlock.thisN) +
+                        Error(participant/(visibility_effects*consistent*expBlock.thisN))))
+
+
+summary(model4)
+```
+
+Does not change results, only the main effect of consistency is significant.
 
 # Demographics
 
@@ -580,13 +608,16 @@ data_comb %>%
 ## Race
 
 ```{r race}
-data_comb %>% 
+race1 <- data_comb %>% 
   select(participant, race) %>% 
   na.omit() %>% 
   unique() %>% 
   group_by(race) %>% 
-  count() %>% 
-  mutate(percent = n/94*100)
+  count()
+
+race1 %>% 
+  mutate(total_n = sum(race1$n[1:7])) %>% 
+  mutate(percent = n/total_n*100)
 ```
 
 ## Age
@@ -673,4 +704,74 @@ mlm_model <- lmer(exp_resp.rt ~ consistent*visibility_effects + (1 | participant
 
 tab_model(mlm_model,
           title = "MLM model predicting reaction time")
+```
+
+
+```{r setup rt with timeout, include = FALSE}
+# Reaction time model including SD in RT as a predictor
+## Contrasts for consistency
+
+
+# Getting SD to make categorical variable by SD
+describe(dat_analysis$exp_resp.rt)
+
+# Removing dislike condition from anaysis as it was just a methodological variation not theoretically related to analysis
+# Removing errors from analysis
+# Creating categorical predictor for SD
+anova_timeout <- dat_analysis %>% 
+  mutate(timeout = with(dat_analysis, ifelse(exp_resp.rt < (1.93), 
+                                              "Average", 
+                                              ifelse(exp_resp.rt > (1.93) & exp_resp.rt < (3.06), "1 SD above", 
+                                                     ifelse(exp_resp.rt > (3.06) & exp_resp.rt < (4.19), "2 SD above", NA))))) %>% 
+  filter(error != "Error") %>% 
+  filter(consistent != "Dislike") %>%
+  droplevels(data_rt$error) %>% 
+  droplevels(data_rt$consistent) %>% 
+  na.omit()  %>% 
+  mutate(timeout = as.factor(timeout)) %>% 
+  group_by(participant, consistent, visibility, timeout) %>% 
+  mutate(rt_pagg = mean(exp_resp.rt)) %>% 
+         #timeout_effects = recode(timeout,
+                                  #`Less than 3 seconds` = "-.5",
+                                  #`More than 3 seconds` = ".5")) %>% 
+  select(participant, consistent, visibility, visibility_effects, 
+         rt_pagg, timeout) %>% 
+  unique() %>% 
+  na.omit()
+
+# Applying helmert contrasts to consistent; visibility is already effects coded
+contrasts(anova_timeout$consistent) <- ConCodes
+contrasts(anova_timeout$consistent)
+
+contrasts(anova_timeout$timeout)
+
+
+## Anova results
+
+# Running the repeated measures anova
+model_timeout <- with(anova_timeout, 
+               aov(rt_pagg ~ (visibility_effects*consistent*timeout) + 
+                     Error(participant/(visibility_effects*consistent*timeout))))
+summary(model_timeout)
+
+## Plot predicting reaction time by SD group of reaction time
+consistent_timeout <- anova_timeout %>% 
+  select(participant, consistent, rt_pagg, timeout) %>% 
+  na.omit() %>% 
+  group_by(consistent, timeout) %>% 
+  summarize(mean = mean(rt_pagg),
+            sd = sd(rt_pagg),
+            se = sd(rt_pagg)/sqrt(length(rt_pagg)))
+
+ggplot(consistent_timeout, aes(x = timeout, y = mean, fill = consistent, group = consistent)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  theme_minimal() +
+  scale_fill_viridis_d() +
+  theme(legend.position = "right") +
+  labs(title = "Reaction time predicted by consistency and time grouping",
+       subtitle = "Response error has been removed",
+       x = "Time grouping by SD",
+       y = "Reaction time (seconds)") +
+  geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = .5,
+                position = position_dodge(.9)) 
 ```
