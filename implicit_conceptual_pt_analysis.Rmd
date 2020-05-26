@@ -437,7 +437,7 @@ model2 <- with(anova_error_data3,
 summary(model2)
 ```
 
-## Plot for main effect of consistency
+## Plot and descriptives for main effect of consistency
 
 ```{r error main effect consist}
 data_aggregated_errorrate <- anova_error_data3 %>% 
@@ -447,6 +447,7 @@ data_aggregated_errorrate <- anova_error_data3 %>%
   summarize(mean = mean(error_rate),
             sd = sd(error_rate),
             se = sd(error_rate)/sqrt(length(error_rate)))
+data_aggregated_errorrate 
 
 
 ggplot(data_aggregated_errorrate, aes(x = consistent, y = mean, fill = consistent)) +
@@ -459,6 +460,19 @@ ggplot(data_aggregated_errorrate, aes(x = consistent, y = mean, fill = consisten
        y = "Error rate (out of 100%)") +
   geom_errorbar(aes(ymin = mean - se, ymax = mean + se), width = .2,
                 position = position_dodge(.9)) 
+```
+
+## Descriptives for visibility
+
+```{r error rate visibility descrip}
+data_aggregated_errorrate_vis <- anova_error_data3 %>% 
+  select(participant, visibility_effects, error_rate) %>% 
+  na.omit() %>% 
+  group_by(visibility_effects) %>% 
+  summarize(mean = mean(error_rate),
+            sd = sd(error_rate),
+            se = sd(error_rate)/sqrt(length(error_rate)))
+data_aggregated_errorrate_vis 
 ```
 
 # Model predicting RT with block as predictor
@@ -595,6 +609,31 @@ summary(model4)
 
 Does not change results, only the main effect of consistency is significant.
 
+## Descriptives for consistency
+
+```{r error rate consist descrip block}
+data_aggregated_errorrate_block_con <- anova_error_data_block4 %>% 
+  select(participant, consistent, error_rate) %>% 
+  na.omit() %>% 
+  group_by(consistent) %>% 
+  summarize(mean = mean(error_rate),
+            sd = sd(error_rate),
+            se = sd(error_rate)/sqrt(length(error_rate)))
+data_aggregated_errorrate_block_con 
+```
+
+## Descriptives for visibility
+
+```{r error rate visibility descrip block}
+data_aggregated_errorrate_block_vis <- anova_error_data_block4 %>% 
+  select(participant, visibility_effects, error_rate) %>% 
+  na.omit() %>% 
+  group_by(visibility_effects) %>% 
+  summarize(mean = mean(error_rate),
+            sd = sd(error_rate),
+            se = sd(error_rate)/sqrt(length(error_rate)))
+data_aggregated_errorrate_block_vis 
+```
 # Demographics
 
 ## Number of participants with demographic data
