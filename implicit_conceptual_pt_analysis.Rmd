@@ -56,6 +56,8 @@ library(effects)
 library(here)
 library(fs)
 library(psych)
+library(rstatix)  
+library(afex)
 
 #Setting global chunk options
 knitr::opts_chunk$set(echo = TRUE,
@@ -348,11 +350,33 @@ contrasts(anova_rt_data$consistent)
 ## Results
 
 ```{r rt anova results}
-# Running the repeated measures anova
+# Running the repeated measures aov from stats in R
 model1 <- with(anova_rt_data, 
                aov(rt_pagg ~ (visibility_effects*consistent) + 
                      Error(participant/(visibility_effects*consistent))))
+
 summary(model1)
+
+# Models using aov_car and aov_ez from package Afex
+
+alt_model1 <- aov_car(rt_pagg ~ Error(participant/(visibility_effects*consistent)),
+                      data = anova_rt_data, anova_table = list(p_adjust_method = "bonferroni"))
+summary(alt_model1)
+
+#model gets the same results as alternative model 1
+alt_model2 <- aov_ez("participant", "rt_pagg", anova_rt_data,
+        within = c("visibility_effects", "consistent"),
+        anova_table = list(p_adjust_method = "bonferroni"))
+
+summary(alt_model2) #without bonferroni adjustment
+nice(alt_model2) #with bonferroni adjustment
+
+
+# Using emmeans to get marginal means for pairwise comparisons - smooth code for marginal means! These look like what I get when I hard code this by hand using dplyr
+mm_consistent_model1 <- emmeans(alt_model1, ~ consistent)
+
+# Tukey pairwise comparisons - what I expected from the plots
+pairs(mm_consistent_model1)
 ```
 
 ## Plots
