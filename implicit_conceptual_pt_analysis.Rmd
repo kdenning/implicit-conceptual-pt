@@ -327,6 +327,7 @@ data_rt %>%
 # Removing dislike condition from anaysis as it was just a methodological variation not theoretically related to analysis
 # Removing errors from analysis
 anova_rt_data <- data_rt %>% 
+  mutate(participant = as.factor(participant)) %>% 
   filter(error != "Error") %>% 
   filter(consistent != "Dislike") %>%
   droplevels(data_rt$error) %>% 
@@ -350,30 +351,15 @@ contrasts(anova_rt_data$consistent)
 ## Results
 
 ```{r rt anova results}
-# Running the repeated measures aov from stats in R
-model1 <- with(anova_rt_data, 
-               aov(rt_pagg ~ (visibility_effects*consistent) + 
-                     Error(participant/(visibility_effects*consistent))))
 
-summary(model1)
-
-# Models using aov_car and aov_ez from package Afex
-
-alt_model1 <- aov_car(rt_pagg ~ Error(participant/(visibility_effects*consistent)),
+model1 <- aov_car(rt_pagg ~ Error(participant/(visibility_effects*consistent)),
                       data = anova_rt_data, anova_table = list(p_adjust_method = "bonferroni"))
-summary(alt_model1)
 
-#model gets the same results as alternative model 1
-alt_model2 <- aov_ez("participant", "rt_pagg", anova_rt_data,
-        within = c("visibility_effects", "consistent"),
-        anova_table = list(p_adjust_method = "bonferroni"))
-
-summary(alt_model2) #without bonferroni adjustment
-nice(alt_model2) #with bonferroni adjustment
-
+summary(model1) #without bonferroni adjustment
+nice(model1) #with bonferroni adjustment
 
 # Using emmeans to get marginal means for pairwise comparisons - smooth code for marginal means! These look like what I get when I hard code this by hand using dplyr
-mm_consistent_model1 <- emmeans(alt_model1, ~ consistent)
+mm_consistent_model1 <- emmeans(model1, ~ consistent)
 
 # Tukey pairwise comparisons - what I expected from the plots
 pairs(mm_consistent_model1)
@@ -453,12 +439,17 @@ contrasts(anova_error_data3$consistent)
 
 ```{r}
 # Running logistic regression predicting error
-model2 <- with(anova_error_data3,
-                  aov(error_rate ~ (visibility_effects*consistent) +
-                        Error(participant/(visibility_effects*consistent))))
+model2 <- aov_car(error_rate ~ Error(participant/(visibility_effects*consistent)),
+                      data = anova_error_data3, anova_table = list(p_adjust_method = "bonferroni"))
 
+summary(model2) #without bonferroni adjustment
+nice(model2) #with bonferroni adjustment
 
-summary(model2)
+# Using emmeans to get marginal means for pairwise comparisons - smooth code for marginal means! These look like what I get when I hard code this by hand using dplyr
+mm_consistent_model2 <- emmeans(model2, ~ consistent)
+
+# Tukey pairwise comparisons - what I expected from the plots
+pairs(mm_consistent_model2)
 ```
 
 ## Plot and descriptives for main effect of consistency
@@ -529,10 +520,18 @@ contrasts(anova_rt_block_data$consistent)
 
 ```{r rt anova results block}
 # Running the repeated measures anova
-model3 <- with(anova_rt_block_data, 
-               aov(rt_pagg ~ (visibility_effects*consistent*expBlock.thisN) + 
-                     Error(participant/(visibility_effects*consistent*expBlock.thisN))))
-summary(model3)
+
+model3 <- aov_car(rt_pagg ~ Error(participant/(visibility_effects*consistent*expBlock.thisN)),
+                      data = anova_rt_block_data, anova_table = list(p_adjust_method = "bonferroni"))
+
+summary(model3) #without bonferroni adjustment
+nice(model3) #with bonferroni adjustment
+
+# Using emmeans to get marginal means for pairwise comparisons - smooth code for marginal means! These look like what I get when I hard code this by hand using dplyr
+mm_consistent_model3 <- emmeans(model3, ~ consistent)
+
+# Tukey pairwise comparisons - what I expected from the plots
+pairs(mm_consistent_model3)
 ```
 
 
@@ -629,9 +628,19 @@ model4 <- with(anova_error_data_block4,
 
 
 summary(model4)
-```
 
-Does not change results, only the main effect of consistency is significant.
+model4 <- aov_car(error_rate ~ Error(participant/(visibility_effects*consistent*expBlock.thisN)),
+                      data = anova_error_data_block4, anova_table = list(p_adjust_method = "bonferroni"))
+
+summary(model4) #without bonferroni adjustment
+nice(model4) #with bonferroni adjustment
+
+# Using emmeans to get marginal means for pairwise comparisons - smooth code for marginal means! These look like what I get when I hard code this by hand using dplyr
+mm_consistent_model4 <- emmeans(model4, ~ consistent)
+
+# Tukey pairwise comparisons - what I expected from the plots
+pairs(mm_consistent_model4)
+```
 
 ## Descriptives for consistency
 
@@ -658,6 +667,34 @@ data_aggregated_errorrate_block_vis <- anova_error_data_block4 %>%
             se = sd(error_rate)/sqrt(length(error_rate)))
 data_aggregated_errorrate_block_vis 
 ```
+
+## Plot for marginal three-way interaction
+
+```{r marginal three way visibility x consistency x block}
+threeway_block_error_plot <- anova_error_data_block4 %>% 
+  mutate(visibility_effects = recode(visibility_effects, 
+                                     `.5` = "Not Visible",
+                                     `-.5` = "Visible"),
+         Consistent = consistent) %>% 
+  select(participant, visibility_effects, Consistent, expBlock.thisN, error_rate) %>% 
+  na.omit() %>% 
+  group_by(visibility_effects, Consistent, expBlock.thisN) %>% 
+  summarize(mean = mean(error_rate),
+            sd = sd(error_rate),
+            se = sd(error_rate)/sqrt(length(error_rate)))
+
+ggplot(threeway_block_error_plot, aes(x = expBlock.thisN, 
+                                      y = mean, 
+                                      fill = Consistent)) +
+  geom_smooth(method = "lm") +
+  facet_wrap(~visibility_effects) +
+  theme_minimal() +
+  labs(title = "Error predicted by block number, consistentcy, and visibility",
+       x = "Block number",
+       y = "Error Rate") +
+  scale_fill_viridis_d()
+```
+
 # Demographics
 
 ## Number of participants with demographic data
